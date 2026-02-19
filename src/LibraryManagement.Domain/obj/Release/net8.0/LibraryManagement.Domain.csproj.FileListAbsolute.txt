@@ -1,0 +1,12 @@
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/bin/Release/net8.0/LibraryManagement.Domain.deps.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/bin/Release/net8.0/LibraryManagement.Domain.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/bin/Release/net8.0/LibraryManagement.Domain.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Release/net8.0/LibraryManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Release/net8.0/LibraryManagement.Domain.AssemblyInfoInputs.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Release/net8.0/LibraryManagement.Domain.AssemblyInfo.cs
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Release/net8.0/LibraryManagement.Domain.csproj.CoreCompileInputs.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Release/net8.0/LibraryManagement.Domain.sourcelink.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Release/net8.0/LibraryManagement.Domain.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Release/net8.0/refint/LibraryManagement.Domain.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Release/net8.0/LibraryManagement.Domain.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Release/net8.0/ref/LibraryManagement.Domain.dll

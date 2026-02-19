@@ -290,3 +290,4 @@
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/obj/Debug/net8.0/LibraryManagement.API.pdb
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/obj/Debug/net8.0/LibraryManagement.API.genruntimeconfig.cache
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/obj/Debug/net8.0/ref/LibraryManagement.API.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/obj/Debug/net8.0/LibraryManagement.API.sourcelink.json

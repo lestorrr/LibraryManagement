@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jhnlstrlclcn/Downloads/LibraryManagement/tests/LibraryManagement.Tests/LibraryManagement.Tests.csproj": {}
+    "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/LibraryManagement.Tests.csproj": {}
   },
   "projects": {
-    "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj": {
+    "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj",
+        "projectUniqueName": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj",
         "projectName": "LibraryManagement.API",
-        "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj",
+        "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj",
         "packagesPath": "/home/jhnlstrlclcn/.nuget/packages/",
-        "outputPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.API/obj/",
+        "outputPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jhnlstrlclcn/.nuget/NuGet/NuGet.Config"
@@ -26,11 +26,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj": {
-                "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj"
+              "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj": {
+                "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj"
               },
-              "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj": {
-                "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj"
+              "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj": {
+                "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj"
               }
             }
           }
@@ -45,6 +45,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -103,14 +107,14 @@
         }
       }
     },
-    "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj": {
+    "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj",
+        "projectUniqueName": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj",
         "projectName": "LibraryManagement.Application",
-        "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj",
+        "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj",
         "packagesPath": "/home/jhnlstrlclcn/.nuget/packages/",
-        "outputPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/",
+        "outputPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jhnlstrlclcn/.nuget/NuGet/NuGet.Config"
@@ -125,8 +129,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj": {
-                "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj"
+              "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj": {
+                "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj"
               }
             }
           }
@@ -174,14 +178,14 @@
         }
       }
     },
-    "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj": {
+    "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj",
+        "projectUniqueName": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj",
         "projectName": "LibraryManagement.Domain",
-        "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj",
+        "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj",
         "packagesPath": "/home/jhnlstrlclcn/.nuget/packages/",
-        "outputPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Domain/obj/",
+        "outputPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jhnlstrlclcn/.nuget/NuGet/NuGet.Config"
@@ -227,14 +231,14 @@
         }
       }
     },
-    "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj": {
+    "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj",
+        "projectUniqueName": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj",
         "projectName": "LibraryManagement.Infrastructure",
-        "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj",
+        "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj",
         "packagesPath": "/home/jhnlstrlclcn/.nuget/packages/",
-        "outputPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/",
+        "outputPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jhnlstrlclcn/.nuget/NuGet/NuGet.Config"
@@ -249,11 +253,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj": {
-                "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj"
+              "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj": {
+                "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj"
               },
-              "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj": {
-                "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj"
+              "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj": {
+                "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj"
               }
             }
           }
@@ -303,14 +307,14 @@
         }
       }
     },
-    "/home/jhnlstrlclcn/Downloads/LibraryManagement/tests/LibraryManagement.Tests/LibraryManagement.Tests.csproj": {
+    "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/LibraryManagement.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jhnlstrlclcn/Downloads/LibraryManagement/tests/LibraryManagement.Tests/LibraryManagement.Tests.csproj",
+        "projectUniqueName": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/LibraryManagement.Tests.csproj",
         "projectName": "LibraryManagement.Tests",
-        "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/tests/LibraryManagement.Tests/LibraryManagement.Tests.csproj",
+        "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/LibraryManagement.Tests.csproj",
         "packagesPath": "/home/jhnlstrlclcn/.nuget/packages/",
-        "outputPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/tests/LibraryManagement.Tests/obj/",
+        "outputPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jhnlstrlclcn/.nuget/NuGet/NuGet.Config"
@@ -325,14 +329,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj": {
-                "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj"
+              "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj": {
+                "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj"
               },
-              "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj": {
-                "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj"
+              "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj": {
+                "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/LibraryManagement.Application.csproj"
               },
-              "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj": {
-                "projectPath": "/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj"
+              "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj": {
+                "projectPath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/LibraryManagement.Domain.csproj"
               }
             }
           }

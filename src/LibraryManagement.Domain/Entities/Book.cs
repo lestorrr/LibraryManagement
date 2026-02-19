@@ -16,6 +16,10 @@ public class Book
     public BookStatus Status { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? UpdatedAt { get; set; }
+
+    // Owner (user who uploaded the book)
+    public Guid? OwnerId { get; set; }
+    public virtual User? Owner { get; set; }
     
     public virtual ICollection<Loan> Loans { get; set; } = new List<Loan>();
 }

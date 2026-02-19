@@ -23,6 +23,31 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configure JWT authentication (register Jwt settings in appsettings)
+var jwtSection = builder.Configuration.GetSection("Jwt");
+var jwtKey = jwtSection.GetValue<string>("Key") ?? "replace-this-secret-with-secure-one";
+var keyBytes = System.Text.Encoding.UTF8.GetBytes(jwtKey);
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSection.GetValue<string>("Issuer") ?? "LibraryManagement",
+        ValidAudience = jwtSection.GetValue<string>("Audience") ?? "LibraryManagement",
+        IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyBytes)
+    };
+});
+
 // Add DbContext with SQLite
 builder.Services.AddDbContext<LibraryContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -33,6 +58,7 @@ builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 // Register services
 builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Add AutoMapper
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
@@ -62,9 +88,26 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowAll");
+
+// Serve static files (must come after CORS but before authorization)
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+// Authentication & Authorization
+app.UseAuthentication();
 app.UseAuthorization();
+
+// Map API routes
 app.MapControllers();
 app.MapHealthChecks("/health");
+
+// Fallback to index.html for SPA routing
+app.MapFallback(async (HttpContext context) =>
+{
+    context.Response.ContentType = "text/html";
+    await context.Response.SendFileAsync(Path.Combine(
+        app.Environment.ContentRootPath, "wwwroot", "index.html"));
+});
 
 // Ensure database is created
 using (var scope = app.Services.CreateScope())
@@ -86,3 +129,4 @@ finally
 {
     Log.CloseAndFlush();
 }
+

@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/css/style.css",
+      "PackagePath": "staticwebassets/css/style.css"
+    },
+    {
+      "Id": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/api.js",
+      "PackagePath": "staticwebassets/js/api.js"
+    },
+    {
+      "Id": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/auth.js",
+      "PackagePath": "staticwebassets/js/auth.js"
+    },
+    {
+      "Id": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/ui.js",
+      "PackagePath": "staticwebassets/js/ui.js"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.LibraryManagement.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.build.LibraryManagement.API.props",
+      "PackagePath": "build\\LibraryManagement.API.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildMultiTargeting.LibraryManagement.API.props",
+      "PackagePath": "buildMultiTargeting\\LibraryManagement.API.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildTransitive.LibraryManagement.API.props",
+      "PackagePath": "buildTransitive\\LibraryManagement.API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -103,3 +103,549 @@ SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NO
 2026-02-19 11:46:44.658 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/swagger/v1/swagger.json - null null
 2026-02-19 11:46:44.843 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 185.6901ms
 2026-02-19 11:50:02.564 +08:00 [INF] Application is shutting down...
+2026-02-19 12:20:19.194 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-02-19 12:20:19.280 +08:00 [INF] Starting Library Management API
+2026-02-19 12:20:19.337 +08:00 [INF] Now listening on: http://localhost:5252
+2026-02-19 12:20:19.339 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-19 12:20:19.340 +08:00 [INF] Hosting environment: Development
+2026-02-19 12:20:19.340 +08:00 [INF] Content root path: /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API
+2026-02-19 12:21:18.711 +08:00 [INF] Request starting HTTP/1.1 GET http://2d07-122-54-157-220.ngrok-free.app/ - null null
+2026-02-19 12:21:18.758 +08:00 [INF] Request finished HTTP/1.1 GET http://2d07-122-54-157-220.ngrok-free.app/ - 404 0 null 49.2362ms
+2026-02-19 12:21:18.763 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://2d07-122-54-157-220.ngrok-free.app/, Response status code: 404
+2026-02-19 12:30:37.045 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-19 12:30:37.049 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 404 0 null 3.5388ms
+2026-02-19 12:30:37.049 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5252/, Response status code: 404
+2026-02-19 12:31:06.934 +08:00 [INF] Request starting HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/ - null null
+2026-02-19 12:31:06.937 +08:00 [INF] Request finished HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/ - 404 0 null 3.2546ms
+2026-02-19 12:31:06.938 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://73b5-122-54-89-27.ngrok-free.app/, Response status code: 404
+2026-02-19 12:31:13.986 +08:00 [INF] Request starting HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/ - null null
+2026-02-19 12:31:13.987 +08:00 [INF] Request finished HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/ - 404 0 null 0.6437ms
+2026-02-19 12:31:13.988 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://73b5-122-54-89-27.ngrok-free.app/, Response status code: 404
+2026-02-19 12:31:19.638 +08:00 [INF] Request starting HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/ - null null
+2026-02-19 12:31:19.639 +08:00 [INF] Request finished HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/ - 404 0 null 0.7567ms
+2026-02-19 12:31:19.640 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://73b5-122-54-89-27.ngrok-free.app/, Response status code: 404
+2026-02-19 12:32:55.075 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-19 12:32:55.076 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 404 0 null 0.9269ms
+2026-02-19 12:32:55.077 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5252/, Response status code: 404
+2026-02-19 12:33:01.202 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-19 12:33:01.203 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 404 0 null 0.8129ms
+2026-02-19 12:33:01.203 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5252/, Response status code: 404
+ess)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-19 12:32:41.270 +08:00 [FTL] Application failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5252: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/Program.cs:line 89
+2026-02-19 12:33:32.275 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-02-19 12:33:32.381 +08:00 [INF] Starting Library Management API
+2026-02-19 12:33:32.465 +08:00 [INF] Now listening on: http://localhost:5252
+2026-02-19 12:33:32.469 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-19 12:33:32.470 +08:00 [INF] Hosting environment: Development
+2026-02-19 12:33:32.470 +08:00 [INF] Content root path: /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API
+2026-02-19 12:33:44.088 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-19 12:33:44.128 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)
+HTTP: GET /
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-19 12:33:44.149 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 500 null text/plain; charset=utf-8 62.5904ms
+2026-02-19 12:34:33.555 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-02-19 12:34:33.682 +08:00 [INF] Starting Library Management API
+2026-02-19 12:34:33.763 +08:00 [INF] Now listening on: http://localhost:5252
+2026-02-19 12:34:33.767 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-19 12:34:33.768 +08:00 [INF] Hosting environment: Development
+2026-02-19 12:34:33.769 +08:00 [INF] Content root path: /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API
+2026-02-19 12:34:44.339 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-19 12:34:44.395 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)'
+2026-02-19 12:34:44.412 +08:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LibraryManagement.API.Controllers.HomeController (LibraryManagement.API).
+2026-02-19 12:34:44.420 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`6[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType2`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], LibraryManagement.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-19 12:34:44.460 +08:00 [INF] Executed action LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API) in 43.5904ms
+2026-02-19 12:34:44.462 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)'
+2026-02-19 12:34:44.464 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 200 null application/json; charset=utf-8 126.5577ms
+2026-02-19 12:35:36.869 +08:00 [INF] Request starting HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/ - null null
+2026-02-19 12:35:36.872 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)'
+2026-02-19 12:35:36.873 +08:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LibraryManagement.API.Controllers.HomeController (LibraryManagement.API).
+2026-02-19 12:35:36.885 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`6[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType2`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], LibraryManagement.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-19 12:35:36.886 +08:00 [INF] Executed action LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API) in 12.2739ms
+2026-02-19 12:35:36.886 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)'
+2026-02-19 12:35:36.887 +08:00 [INF] Request finished HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/ - 200 null application/json; charset=utf-8 18.1362ms
+2026-02-19 12:35:37.532 +08:00 [INF] Request starting HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/favicon.ico - null null
+2026-02-19 12:35:37.538 +08:00 [INF] Request finished HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/favicon.ico - 404 0 null 6.1928ms
+2026-02-19 12:35:37.540 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://73b5-122-54-89-27.ngrok-free.app/favicon.ico, Response status code: 404
+2026-02-19 12:40:32.245 +08:00 [INF] Request starting HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/ - null null
+2026-02-19 12:40:32.246 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)'
+2026-02-19 12:40:32.247 +08:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LibraryManagement.API.Controllers.HomeController (LibraryManagement.API).
+2026-02-19 12:40:32.248 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`6[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType2`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], LibraryManagement.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-19 12:40:32.248 +08:00 [INF] Executed action LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API) in 0.9141ms
+2026-02-19 12:40:32.249 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)'
+2026-02-19 12:40:32.250 +08:00 [INF] Request finished HTTP/1.1 GET http://73b5-122-54-89-27.ngrok-free.app/ - 200 null application/json; charset=utf-8 4.4893ms
+2026-02-19 12:42:02.027 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/ - null null
+2026-02-19 12:42:02.028 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)'
+2026-02-19 12:42:02.028 +08:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LibraryManagement.API.Controllers.HomeController (LibraryManagement.API).
+2026-02-19 12:42:02.029 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`6[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType2`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], LibraryManagement.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-19 12:42:02.029 +08:00 [INF] Executed action LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API) in 0.695ms
+2026-02-19 12:42:02.030 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)'
+2026-02-19 12:42:02.030 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/ - 200 null application/json; charset=utf-8 3.2301ms
+2026-02-19 12:42:02.266 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/favicon.ico - null null
+2026-02-19 12:42:02.268 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/favicon.ico - 404 0 null 1.931ms
+2026-02-19 12:42:02.269 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://b496-122-54-157-220.ngrok-free.app/favicon.ico, Response status code: 404
+_DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/Program.cs:line 79
+2026-02-19 12:46:21.573 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-02-19 12:46:21.674 +08:00 [INF] Starting Library Management API
+2026-02-19 12:46:21.743 +08:00 [INF] Now listening on: http://localhost:5252
+2026-02-19 12:46:21.747 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-19 12:46:21.748 +08:00 [INF] Hosting environment: Development
+2026-02-19 12:46:21.748 +08:00 [INF] Content root path: /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API
+2026-02-19 12:46:33.512 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-19 12:46:33.563 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)'
+2026-02-19 12:46:33.578 +08:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LibraryManagement.API.Controllers.HomeController (LibraryManagement.API).
+2026-02-19 12:46:33.586 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`6[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType2`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], LibraryManagement.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-19 12:46:33.622 +08:00 [INF] Executed action LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API) in 39.2979ms
+2026-02-19 12:46:33.624 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.HomeController.Index (LibraryManagement.API)'
+2026-02-19 12:46:33.627 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 200 null application/json; charset=utf-8 115.844ms
+2026-02-19 12:47:24.060 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-02-19 12:47:24.170 +08:00 [INF] Starting Library Management API
+2026-02-19 12:47:24.255 +08:00 [INF] Now listening on: http://localhost:5252
+2026-02-19 12:47:24.259 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-19 12:47:24.260 +08:00 [INF] Hosting environment: Development
+2026-02-19 12:47:24.261 +08:00 [INF] Content root path: /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API
+2026-02-19 12:47:38.676 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-19 12:47:38.727 +08:00 [INF] Executing endpoint 'Fallback {*path:nonfile}'
+2026-02-19 12:47:38.739 +08:00 [INF] Executed endpoint 'Fallback {*path:nonfile}'
+2026-02-19 12:47:38.746 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 200 null text/html 70.3995ms
+2026-02-19 12:47:44.727 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-19 12:47:44.732 +08:00 [INF] Executing endpoint 'Fallback {*path:nonfile}'
+2026-02-19 12:47:44.734 +08:00 [INF] Executed endpoint 'Fallback {*path:nonfile}'
+2026-02-19 12:47:44.735 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 200 null text/html 7.6175ms
+2026-02-19 12:47:44.748 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/css/style.css - null null
+2026-02-19 12:47:44.748 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/js/api.js - null null
+2026-02-19 12:47:44.749 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/js/ui.js - null null
+2026-02-19 12:47:44.779 +08:00 [INF] Sending file. Request path: '/css/style.css'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/css/style.css'
+2026-02-19 12:47:44.779 +08:00 [INF] Sending file. Request path: '/js/ui.js'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/ui.js'
+2026-02-19 12:47:44.780 +08:00 [INF] Sending file. Request path: '/js/api.js'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/api.js'
+2026-02-19 12:47:44.781 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/js/api.js - 200 3003 text/javascript 32.457ms
+2026-02-19 12:47:44.780 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/css/style.css - 200 10403 text/css 32.2473ms
+2026-02-19 12:47:44.781 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/js/ui.js - 200 8902 text/javascript 31.9643ms
+2026-02-19 12:47:44.835 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/books - application/json null
+2026-02-19 12:47:44.838 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API)'
+2026-02-19 12:47:44.847 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/favicon.ico - null null
+2026-02-19 12:47:44.850 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/favicon.ico - 404 0 null 2.4273ms
+2026-02-19 12:47:44.854 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5252/favicon.ico, Response status code: 404
+2026-02-19 12:47:44.875 +08:00 [INF] Route matched with {action = "GetAllBooks", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LibraryManagement.Application.DTOs.BookDto]]] GetAllBooks() on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 12:47:45.365 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CreatedAt", "b"."Description", "b"."ISBN", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2026-02-19 12:47:45.396 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LibraryManagement.Application.DTOs.BookDto, LibraryManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-19 12:47:45.439 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API) in 558.8515ms
+2026-02-19 12:47:45.439 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API)'
+2026-02-19 12:47:45.445 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/books - 200 null application/json; charset=utf-8 609.7265ms
+2026-02-19 12:47:55.670 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/ - null null
+2026-02-19 12:47:55.671 +08:00 [INF] Executing endpoint 'Fallback {*path:nonfile}'
+2026-02-19 12:47:55.673 +08:00 [INF] Executed endpoint 'Fallback {*path:nonfile}'
+2026-02-19 12:47:55.673 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/ - 200 null text/html 3.1849ms
+2026-02-19 12:47:55.804 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/css/style.css - null null
+2026-02-19 12:47:55.813 +08:00 [INF] Sending file. Request path: '/css/style.css'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/css/style.css'
+2026-02-19 12:47:55.814 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/css/style.css - 200 10403 text/css 9.5363ms
+2026-02-19 12:47:55.849 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/js/ui.js - null null
+2026-02-19 12:47:55.849 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/js/api.js - null null
+2026-02-19 12:47:55.852 +08:00 [INF] Sending file. Request path: '/js/ui.js'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/ui.js'
+2026-02-19 12:47:55.852 +08:00 [INF] Sending file. Request path: '/js/api.js'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/api.js'
+2026-02-19 12:47:55.853 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/js/ui.js - 200 8902 text/javascript 3.5666ms
+2026-02-19 12:47:55.855 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/js/api.js - 200 3003 text/javascript 6.1786ms
+2026-02-19 12:47:57.057 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/api/books - application/json null
+2026-02-19 12:47:57.059 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API)'
+2026-02-19 12:47:57.060 +08:00 [INF] Route matched with {action = "GetAllBooks", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LibraryManagement.Application.DTOs.BookDto]]] GetAllBooks() on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 12:47:57.146 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CreatedAt", "b"."Description", "b"."ISBN", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2026-02-19 12:47:57.148 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LibraryManagement.Application.DTOs.BookDto, LibraryManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-19 12:47:57.149 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API) in 87.2847ms
+2026-02-19 12:47:57.149 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API)'
+2026-02-19 12:47:57.150 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/api/books - 200 null application/json; charset=utf-8 91.9065ms
+2026-02-19 12:48:33.832 +08:00 [INF] Request starting HTTP/1.1 POST http://b496-122-54-157-220.ngrok-free.app/api/books - application/json 98
+2026-02-19 12:48:33.836 +08:00 [INF] CORS policy execution successful.
+2026-02-19 12:48:33.837 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API)'
+2026-02-19 12:48:33.853 +08:00 [INF] Route matched with {action = "CreateBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.BookDto]] CreateBook(LibraryManagement.Application.DTOs.CreateBookDto) on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 12:48:33.895 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-02-19 12:48:33.929 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API) in 75.9077ms
+2026-02-19 12:48:33.930 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API)'
+2026-02-19 12:48:33.930 +08:00 [INF] Request finished HTTP/1.1 POST http://b496-122-54-157-220.ngrok-free.app/api/books - 400 null application/problem+json; charset=utf-8 98.2506ms
+2026-02-19 12:48:35.519 +08:00 [INF] Request starting HTTP/1.1 POST http://b496-122-54-157-220.ngrok-free.app/api/books - application/json 98
+2026-02-19 12:48:35.520 +08:00 [INF] CORS policy execution successful.
+2026-02-19 12:48:35.520 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API)'
+2026-02-19 12:48:35.521 +08:00 [INF] Route matched with {action = "CreateBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.BookDto]] CreateBook(LibraryManagement.Application.DTOs.CreateBookDto) on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 12:48:35.525 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-02-19 12:48:35.525 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API) in 3.5266ms
+2026-02-19 12:48:35.526 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API)'
+2026-02-19 12:48:35.527 +08:00 [INF] Request finished HTTP/1.1 POST http://b496-122-54-157-220.ngrok-free.app/api/books - 400 null application/problem+json; charset=utf-8 7.8136ms
+2026-02-19 12:49:55.705 +08:00 [INF] Request starting HTTP/1.1 POST http://b496-122-54-157-220.ngrok-free.app/api/books - application/json 98
+2026-02-19 12:49:55.706 +08:00 [INF] CORS policy execution successful.
+2026-02-19 12:49:55.706 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API)'
+2026-02-19 12:49:55.707 +08:00 [INF] Route matched with {action = "CreateBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.BookDto]] CreateBook(LibraryManagement.Application.DTOs.CreateBookDto) on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 12:49:55.709 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-02-19 12:49:55.710 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API) in 2.6053ms
+2026-02-19 12:49:55.711 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API)'
+2026-02-19 12:49:55.711 +08:00 [INF] Request finished HTTP/1.1 POST http://b496-122-54-157-220.ngrok-free.app/api/books - 400 null application/problem+json; charset=utf-8 6.1042ms
+2026-02-19 12:50:02.221 +08:00 [INF] Request starting HTTP/1.1 POST http://b496-122-54-157-220.ngrok-free.app/api/books - application/json 98
+2026-02-19 12:50:02.222 +08:00 [INF] CORS policy execution successful.
+2026-02-19 12:50:02.222 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API)'
+2026-02-19 12:50:02.223 +08:00 [INF] Route matched with {action = "CreateBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.BookDto]] CreateBook(LibraryManagement.Application.DTOs.CreateBookDto) on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 12:50:02.226 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-02-19 12:50:02.226 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API) in 2.4203ms
+2026-02-19 12:50:02.227 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API)'
+2026-02-19 12:50:02.228 +08:00 [INF] Request finished HTTP/1.1 POST http://b496-122-54-157-220.ngrok-free.app/api/books - 400 null application/problem+json; charset=utf-8 6.5601ms
+2026-02-19 13:21:56.519 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/ - null null
+2026-02-19 13:21:56.520 +08:00 [INF] Executing endpoint 'Fallback {*path:nonfile}'
+2026-02-19 13:21:56.521 +08:00 [INF] Executed endpoint 'Fallback {*path:nonfile}'
+2026-02-19 13:21:56.521 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/ - 200 null text/html 1.7709ms
+2026-02-19 13:21:56.664 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/js/ui.js - null null
+2026-02-19 13:21:56.668 +08:00 [INF] Sending file. Request path: '/js/ui.js'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/ui.js'
+2026-02-19 13:21:56.669 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/js/ui.js - 200 8902 text/javascript 4.2873ms
+2026-02-19 13:21:56.707 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/js/api.js - null null
+2026-02-19 13:21:56.708 +08:00 [INF] Sending file. Request path: '/js/api.js'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/api.js'
+2026-02-19 13:21:56.708 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/js/api.js - 200 3003 text/javascript 1.4126ms
+2026-02-19 13:21:56.709 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/css/style.css - null null
+2026-02-19 13:21:56.711 +08:00 [INF] Sending file. Request path: '/css/style.css'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/css/style.css'
+2026-02-19 13:21:56.711 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/css/style.css - 200 10403 text/css 1.662ms
+2026-02-19 13:21:57.127 +08:00 [INF] Request starting HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/api/books - application/json null
+2026-02-19 13:21:57.129 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API)'
+2026-02-19 13:21:57.130 +08:00 [INF] Route matched with {action = "GetAllBooks", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LibraryManagement.Application.DTOs.BookDto]]] GetAllBooks() on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 13:21:57.139 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CreatedAt", "b"."Description", "b"."ISBN", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2026-02-19 13:21:57.140 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LibraryManagement.Application.DTOs.BookDto, LibraryManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-19 13:21:57.140 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API) in 9.1607ms
+2026-02-19 13:21:57.141 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API)'
+2026-02-19 13:21:57.142 +08:00 [INF] Request finished HTTP/1.1 GET http://b496-122-54-157-220.ngrok-free.app/api/books - 200 null application/json; charset=utf-8 14.7742ms
+2026-02-19 13:53:32.581 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5252/api/auth/register - application/json 140
+2026-02-19 13:53:32.582 +08:00 [INF] Executing endpoint 'Fallback {*path:nonfile}'
+2026-02-19 13:53:32.583 +08:00 [INF] Executed endpoint 'Fallback {*path:nonfile}'
+2026-02-19 13:53:32.583 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5252/api/auth/register - 200 null text/html 1.8939ms
+2026-02-19 13:53:45.483 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5252/api/auth/register - application/json 140
+2026-02-19 13:53:45.484 +08:00 [INF] Executing endpoint 'Fallback {*path:nonfile}'
+2026-02-19 13:53:45.485 +08:00 [INF] Executed endpoint 'Fallback {*path:nonfile}'
+2026-02-19 13:53:45.485 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5252/api/auth/register - 200 null text/html 1.9177ms
+2026-02-19 13:54:44.730 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5252/api/auth/register - application/json 140
+2026-02-19 13:54:44.731 +08:00 [INF] Executing endpoint 'Fallback {*path:nonfile}'
+2026-02-19 13:54:44.731 +08:00 [INF] Executed endpoint 'Fallback {*path:nonfile}'
+2026-02-19 13:54:44.732 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5252/api/auth/register - 200 null text/html 1.3945ms
+2026-02-19 13:55:12.265 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/swagger/v1/swagger.json - null null
+2026-02-19 13:55:12.465 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 200.3385ms
+2026-02-19 13:55:33.832 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/swagger/v1/swagger.json - null null
+2026-02-19 13:55:33.842 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.8937ms
+(
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Loans" PRIMARY KEY,
+    "BookId" TEXT NOT NULL,
+    "MemberId" TEXT NOT NULL,
+    "LoanDate" TEXT NOT NULL,
+    "DueDate" TEXT NOT NULL,
+    "ReturnDate" TEXT NULL,
+    "LateFee" TEXT NULL,
+    "Notes" TEXT NOT NULL,
+    CONSTRAINT "FK_Loans_Books_BookId" FOREIGN KEY ("BookId") REFERENCES "Books" ("Id") ON DELETE RESTRICT,
+    CONSTRAINT "FK_Loans_Members_MemberId" FOREIGN KEY ("MemberId") REFERENCES "Members" ("Id") ON DELETE RESTRICT
+);
+2026-02-19 13:53:20.359 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Books_ISBN" ON "Books" ("ISBN");
+2026-02-19 13:53:20.360 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Books_OwnerId" ON "Books" ("OwnerId");
+2026-02-19 13:53:20.361 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Loans_BookId" ON "Loans" ("BookId");
+2026-02-19 13:53:20.362 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Loans_MemberId" ON "Loans" ("MemberId");
+2026-02-19 13:53:20.363 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Members_Email" ON "Members" ("Email");
+2026-02-19 13:53:20.364 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Users_Email" ON "Users" ("Email");
+2026-02-19 13:53:20.364 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Users_Username" ON "Users" ("Username");
+2026-02-19 13:53:20.547 +08:00 [INF] Starting Library Management API
+2026-02-19 13:53:20.575 +08:00 [INF] User profile is available. Using '/home/jhnlstrlclcn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-02-19 13:53:20.601 +08:00 [INF] Creating key {4f65e720-7f1d-45d6-b398-f91f5a77536e} with creation date 2026-02-19 05:53:20Z, activation date 2026-02-19 05:53:20Z, and expiration date 2026-05-20 05:53:20Z.
+2026-02-19 13:53:20.622 +08:00 [WRN] No XML encryptor configured. Key {4f65e720-7f1d-45d6-b398-f91f5a77536e} may be persisted to storage in unencrypted form.
+2026-02-19 13:53:20.631 +08:00 [INF] Writing data to file '/home/jhnlstrlclcn/.aspnet/DataProtection-Keys/key-4f65e720-7f1d-45d6-b398-f91f5a77536e.xml'.
+2026-02-19 13:53:20.742 +08:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5252: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-19 13:53:20.765 +08:00 [FTL] Application failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5252: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/Program.cs:line 122
+2026-02-19 13:57:21.297 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-02-19 13:57:21.458 +08:00 [INF] Starting Library Management API
+2026-02-19 13:57:21.495 +08:00 [INF] User profile is available. Using '/home/jhnlstrlclcn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-02-19 13:57:21.637 +08:00 [INF] Now listening on: http://localhost:5252
+2026-02-19 13:57:21.641 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-19 13:57:21.642 +08:00 [INF] Hosting environment: Development
+2026-02-19 13:57:21.643 +08:00 [INF] Content root path: /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API
+2026-02-19 13:57:33.587 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/swagger/v1/swagger.json - null null
+2026-02-19 13:57:33.880 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 294.3074ms
+2026-02-19 13:57:49.058 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/swagger/v1/swagger.json - null null
+2026-02-19 13:57:49.079 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.6835ms
+2026-02-19 13:58:03.792 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5252/api/auth/register - application/json 140
+2026-02-19 13:58:03.831 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.AuthController.Register (LibraryManagement.API)'
+2026-02-19 13:58:03.875 +08:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(LibraryManagement.Application.DTOs.RegisterDto) on controller LibraryManagement.API.Controllers.AuthController (LibraryManagement.API).
+2026-02-19 13:58:04.628 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[@__registerDto_Username_0='?' (Size = 5), @__registerDto_Email_1='?' (Size = 17)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS "u"
+    WHERE "u"."Username" = @__registerDto_Username_0 OR "u"."Email" = @__registerDto_Email_1)
+2026-02-19 13:58:05.138 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (Size = 17), @p3='?' (Size = 5), @p4='?' (DbType = Boolean), @p5='?' (Size = 5), @p6='?' (Size = 64), @p7='?' (DbType = DateTime), @p8='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "Email", "FirstName", "IsActive", "LastName", "PasswordHash", "UpdatedAt", "Username")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-02-19 13:58:05.151 +08:00 [INF] Registered new user: alice
+2026-02-19 13:58:05.167 +08:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[LibraryManagement.Application.DTOs.UserDto, LibraryManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-19 13:58:05.195 +08:00 [INF] Executed action LibraryManagement.API.Controllers.AuthController.Register (LibraryManagement.API) in 1313.6522ms
+2026-02-19 13:58:05.195 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.AuthController.Register (LibraryManagement.API)'
+2026-02-19 13:58:05.202 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5252/api/auth/register - 200 null application/json; charset=utf-8 1410.0133ms
+2026-02-19 13:58:16.501 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5252/api/auth/login - application/json 50
+2026-02-19 13:58:16.506 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.AuthController.Login (LibraryManagement.API)'
+2026-02-19 13:58:16.515 +08:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LibraryManagement.Application.DTOs.LoginDto) on controller LibraryManagement.API.Controllers.AuthController (LibraryManagement.API).
+2026-02-19 13:58:16.652 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__loginDto_UsernameOrEmail_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."CreatedAt", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastName", "u"."PasswordHash", "u"."UpdatedAt", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Username" = @__loginDto_UsernameOrEmail_0 OR "u"."Email" = @__loginDto_UsernameOrEmail_0
+2026-02-19 13:58:16.788 +08:00 [INF] Executing OkObjectResult, writing value of type 'LibraryManagement.Application.DTOs.AuthResponseDto'.
+2026-02-19 13:58:16.804 +08:00 [INF] Executed action LibraryManagement.API.Controllers.AuthController.Login (LibraryManagement.API) in 287.7448ms
+2026-02-19 13:58:16.804 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.AuthController.Login (LibraryManagement.API)'
+2026-02-19 13:58:16.804 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5252/api/auth/login - 200 null application/json; charset=utf-8 303.1978ms
+2026-02-19 13:58:39.700 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5252/api/books - application/json 218
+2026-02-19 13:58:39.768 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API)'
+2026-02-19 13:58:39.776 +08:00 [INF] Route matched with {action = "CreateBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.BookDto]] CreateBook(LibraryManagement.Application.DTOs.CreateBookDto) on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 13:58:39.809 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__isbn_0='?' (Size = 10)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Books" AS "b"
+    WHERE "b"."ISBN" = @__isbn_0)
+2026-02-19 13:58:39.903 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 16), @p2='?' (Size = 8), @p3='?' (DbType = DateTime), @p4='?' (Size = 42), @p5='?' (Size = 10), @p6='?' (DbType = Guid), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 13), @p10='?' (DbType = Int32), @p11='?' (Size = 10), @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Books" ("Id", "Author", "Category", "CreatedAt", "Description", "ISBN", "OwnerId", "PageCount", "PublicationYear", "Publisher", "Status", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-02-19 13:58:39.908 +08:00 [INF] Created new book: Clean Code with ID: "1dce3a4c-b7ab-482b-8fce-1cdd768fdf18" (Owner: 0a70c567-5158-43e4-bb90-cee03f44ba8d)
+2026-02-19 13:58:39.915 +08:00 [INF] Executing CreatedAtActionResult, writing value of type 'LibraryManagement.Application.DTOs.BookDto'.
+2026-02-19 13:58:39.960 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API) in 183.367ms
+2026-02-19 13:58:39.961 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.CreateBook (LibraryManagement.API)'
+2026-02-19 13:58:39.961 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5252/api/books - 201 null application/json; charset=utf-8 261.0374ms
+2026-02-19 14:01:35.262 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-19 14:01:35.264 +08:00 [INF] Executing endpoint 'Fallback {*path:nonfile}'
+2026-02-19 14:01:35.270 +08:00 [INF] Executed endpoint 'Fallback {*path:nonfile}'
+2026-02-19 14:01:35.271 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 200 null text/html 8.8252ms
+2026-02-19 14:01:35.301 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/css/style.css - null null
+2026-02-19 14:01:35.305 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/js/api.js - null null
+2026-02-19 14:01:35.305 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/js/ui.js - null null
+2026-02-19 14:01:35.306 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/js/auth.js - null null
+2026-02-19 14:01:35.320 +08:00 [INF] Sending file. Request path: '/js/api.js'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/api.js'
+2026-02-19 14:01:35.321 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/js/api.js - 200 4946 text/javascript 16.2283ms
+2026-02-19 14:01:35.322 +08:00 [INF] Sending file. Request path: '/js/auth.js'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/auth.js'
+2026-02-19 14:01:35.324 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/js/auth.js - 200 2977 text/javascript 18.333ms
+2026-02-19 14:01:35.327 +08:00 [INF] Sending file. Request path: '/js/ui.js'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/js/ui.js'
+2026-02-19 14:01:35.327 +08:00 [INF] Sending file. Request path: '/css/style.css'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/css/style.css'
+2026-02-19 14:01:35.332 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/js/ui.js - 200 9232 text/javascript 26.3796ms
+2026-02-19 14:01:35.332 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/css/style.css - 200 10403 text/css 31.169ms
+2026-02-19 14:01:36.025 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/books - application/json null
+2026-02-19 14:01:36.028 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API)'
+2026-02-19 14:01:36.042 +08:00 [INF] Route matched with {action = "GetAllBooks", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LibraryManagement.Application.DTOs.BookDto]]] GetAllBooks() on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 14:01:36.060 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CreatedAt", "b"."Description", "b"."ISBN", "b"."OwnerId", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+2026-02-19 14:01:36.084 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LibraryManagement.Application.DTOs.BookDto, LibraryManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-19 14:01:36.091 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API) in 47.545ms
+2026-02-19 14:01:36.092 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API)'
+2026-02-19 14:01:36.093 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/books - 200 null application/json; charset=utf-8 67.5973ms
+2026-02-19 14:01:36.189 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/favicon.ico - null null
+2026-02-19 14:01:36.190 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/favicon.ico - 404 0 null 0.9677ms
+2026-02-19 14:01:36.191 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5252/favicon.ico, Response status code: 404
+2026-02-19 14:01:46.371 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/books/1dce3a4c-b7ab-482b-8fce-1cdd768fdf18 - application/json null
+2026-02-19 14:01:46.372 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.GetBookById (LibraryManagement.API)'
+2026-02-19 14:01:46.379 +08:00 [INF] Route matched with {action = "GetBookById", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.BookDto]] GetBookById(System.Guid) on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 14:01:46.423 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CreatedAt", "b"."Description", "b"."ISBN", "b"."OwnerId", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__get_Item_0
+LIMIT 1
+2026-02-19 14:01:46.424 +08:00 [INF] Executing OkObjectResult, writing value of type 'LibraryManagement.Application.DTOs.BookDto'.
+2026-02-19 14:01:46.425 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.GetBookById (LibraryManagement.API) in 45.4088ms
+2026-02-19 14:01:46.425 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.GetBookById (LibraryManagement.API)'
+2026-02-19 14:01:46.425 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/books/1dce3a4c-b7ab-482b-8fce-1cdd768fdf18 - 200 null application/json; charset=utf-8 53.6219ms
+2026-02-19 14:01:52.480 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/books/1dce3a4c-b7ab-482b-8fce-1cdd768fdf18 - application/json null
+2026-02-19 14:01:52.481 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.GetBookById (LibraryManagement.API)'
+2026-02-19 14:01:52.482 +08:00 [INF] Route matched with {action = "GetBookById", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.BookDto]] GetBookById(System.Guid) on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 14:01:52.489 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CreatedAt", "b"."Description", "b"."ISBN", "b"."OwnerId", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__get_Item_0
+LIMIT 1
+2026-02-19 14:01:52.490 +08:00 [INF] Executing OkObjectResult, writing value of type 'LibraryManagement.Application.DTOs.BookDto'.
+2026-02-19 14:01:52.490 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.GetBookById (LibraryManagement.API) in 8.3087ms
+2026-02-19 14:01:52.491 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.GetBookById (LibraryManagement.API)'
+2026-02-19 14:01:52.491 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/books/1dce3a4c-b7ab-482b-8fce-1cdd768fdf18 - 200 null application/json; charset=utf-8 11.0801ms
+2026-02-19 14:01:59.290 +08:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5252/api/books/1dce3a4c-b7ab-482b-8fce-1cdd768fdf18 - application/json null
+2026-02-19 14:01:59.295 +08:00 [INF] CORS policy execution successful.
+2026-02-19 14:01:59.298 +08:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-02-19 14:01:59.304 +08:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-02-19 14:01:59.305 +08:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5252/api/books/1dce3a4c-b7ab-482b-8fce-1cdd768fdf18 - 401 0 null 15.4763ms
+2026-02-19 14:02:16.694 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5252/api/auth/login - application/json 70
+2026-02-19 14:02:16.695 +08:00 [INF] CORS policy execution successful.
+2026-02-19 14:02:16.696 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.AuthController.Login (LibraryManagement.API)'
+2026-02-19 14:02:16.697 +08:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LibraryManagement.Application.DTOs.LoginDto) on controller LibraryManagement.API.Controllers.AuthController (LibraryManagement.API).
+2026-02-19 14:02:16.703 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__loginDto_UsernameOrEmail_0='?' (Size = 26)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."CreatedAt", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastName", "u"."PasswordHash", "u"."UpdatedAt", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Username" = @__loginDto_UsernameOrEmail_0 OR "u"."Email" = @__loginDto_UsernameOrEmail_0
+2026-02-19 14:02:16.704 +08:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-19 14:02:16.707 +08:00 [INF] Executed action LibraryManagement.API.Controllers.AuthController.Login (LibraryManagement.API) in 9.4058ms
+2026-02-19 14:02:16.707 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.AuthController.Login (LibraryManagement.API)'
+2026-02-19 14:02:16.708 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5252/api/auth/login - 401 null application/json; charset=utf-8 13.5788ms
+2026-02-19 14:02:38.215 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5252/api/auth/register - application/json 145
+2026-02-19 14:02:38.216 +08:00 [INF] CORS policy execution successful.
+2026-02-19 14:02:38.216 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.AuthController.Register (LibraryManagement.API)'
+2026-02-19 14:02:38.217 +08:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(LibraryManagement.Application.DTOs.RegisterDto) on controller LibraryManagement.API.Controllers.AuthController (LibraryManagement.API).
+2026-02-19 14:02:38.222 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-02-19 14:02:38.247 +08:00 [INF] Executed action LibraryManagement.API.Controllers.AuthController.Register (LibraryManagement.API) in 30.014ms
+2026-02-19 14:02:38.247 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.AuthController.Register (LibraryManagement.API)'
+2026-02-19 14:02:38.247 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5252/api/auth/register - 400 null application/problem+json; charset=utf-8 32.3997ms
+2026-02-19 14:02:40.224 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5252/api/auth/register - application/json 145
+2026-02-19 14:02:40.225 +08:00 [INF] CORS policy execution successful.
+2026-02-19 14:02:40.225 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.AuthController.Register (LibraryManagement.API)'
+2026-02-19 14:02:40.226 +08:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(LibraryManagement.Application.DTOs.RegisterDto) on controller LibraryManagement.API.Controllers.AuthController (LibraryManagement.API).
+2026-02-19 14:02:40.227 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-02-19 14:02:40.228 +08:00 [INF] Executed action LibraryManagement.API.Controllers.AuthController.Register (LibraryManagement.API) in 1.6261ms
+2026-02-19 14:02:40.228 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.AuthController.Register (LibraryManagement.API)'
+2026-02-19 14:02:40.228 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5252/api/auth/register - 400 null application/problem+json; charset=utf-8 4.0849ms
+2026-02-19 14:02:47.193 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/books/1dce3a4c-b7ab-482b-8fce-1cdd768fdf18 - application/json null
+2026-02-19 14:02:47.194 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.GetBookById (LibraryManagement.API)'
+2026-02-19 14:02:47.194 +08:00 [INF] Route matched with {action = "GetBookById", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.BookDto]] GetBookById(System.Guid) on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-19 14:02:47.196 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CreatedAt", "b"."Description", "b"."ISBN", "b"."OwnerId", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__get_Item_0
+LIMIT 1
+2026-02-19 14:02:47.197 +08:00 [INF] Executing OkObjectResult, writing value of type 'LibraryManagement.Application.DTOs.BookDto'.
+2026-02-19 14:02:47.198 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.GetBookById (LibraryManagement.API) in 2.7602ms
+2026-02-19 14:02:47.198 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.GetBookById (LibraryManagement.API)'
+2026-02-19 14:02:47.198 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/books/1dce3a4c-b7ab-482b-8fce-1cdd768fdf18 - 200 null application/json; charset=utf-8 4.5478ms

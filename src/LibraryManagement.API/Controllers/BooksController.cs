@@ -1,5 +1,6 @@
 using LibraryManagement.Application.DTOs;
 using LibraryManagement.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagement.API.Controllers;
@@ -54,6 +55,7 @@ public class BooksController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult<BookDto>> CreateBook(CreateBookDto createBookDto)
     {
         try
@@ -63,7 +65,15 @@ public class BooksController : ControllerBase
                 return BadRequest(ModelState);
             }
 
-            var book = await _bookService.CreateBookAsync(createBookDto);
+            // extract user id from token
+            var userIdClaim = User.FindFirst("id")?.Value;
+            Guid ownerId = Guid.Empty;
+            if (!string.IsNullOrEmpty(userIdClaim) && Guid.TryParse(userIdClaim, out var parsed))
+            {
+                ownerId = parsed;
+            }
+
+            var book = await _bookService.CreateBookAsync(createBookDto, ownerId);
             return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, book);
         }
         catch (InvalidOperationException ex)
@@ -78,6 +88,7 @@ public class BooksController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<IActionResult> UpdateBook(Guid id, CreateBookDto updateBookDto)
     {
         try
@@ -85,6 +96,17 @@ public class BooksController : ControllerBase
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            // ensure current user is owner
+            var existing = await _bookService.GetBookByIdAsync(id);
+            if (existing == null)
+                return NotFound($"Book with ID {id} not found");
+
+            var userIdClaim = User.FindFirst("id")?.Value;
+            if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId) || existing.OwnerId != userId)
+            {
+                return Forbid();
             }
 
             var updatedBook = await _bookService.UpdateBookAsync(id, updateBookDto);
@@ -108,10 +130,21 @@ public class BooksController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<IActionResult> DeleteBook(Guid id)
     {
         try
         {
+            var existing = await _bookService.GetBookByIdAsync(id);
+            if (existing == null)
+                return NotFound($"Book with ID {id} not found");
+
+            var userIdClaim = User.FindFirst("id")?.Value;
+            if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId) || existing.OwnerId != userId)
+            {
+                return Forbid();
+            }
+
             var deleted = await _bookService.DeleteBookAsync(id);
             
             if (!deleted)
@@ -174,6 +207,28 @@ public class BooksController : ControllerBase
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error getting books by category: {Category}", category);
+            return StatusCode(500, "An error occurred while retrieving books");
+        }
+    }
+
+    [HttpGet("mine")]
+    [Authorize]
+    public async Task<ActionResult<IEnumerable<BookDto>>> GetMyBooks()
+    {
+        try
+        {
+            var userIdClaim = User.FindFirst("id")?.Value;
+            if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId))
+            {
+                return Unauthorized();
+            }
+
+            var books = await _bookService.GetBooksByUserAsync(userId);
+            return Ok(books);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting user's books");
             return StatusCode(500, "An error occurred while retrieving books");
         }
     }

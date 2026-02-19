@@ -78,7 +78,27 @@ public class BookService : IBookService
         }
     }
 
+    public async Task<IEnumerable<BookDto>> GetBooksByUserAsync(Guid userId)
+    {
+        try
+        {
+            var books = await _bookRepository.FindAsync(b => b.OwnerId == userId);
+            return _mapper.Map<IEnumerable<BookDto>>(books);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting books for user: {UserId}", userId);
+            throw;
+        }
+    }
+
     public async Task<BookDto> CreateBookAsync(CreateBookDto createBookDto)
+    {
+        // legacy call - create without owner
+        return await CreateBookAsync(createBookDto, Guid.Empty);
+    }
+
+    public async Task<BookDto> CreateBookAsync(CreateBookDto createBookDto, Guid ownerId)
     {
         try
         {
@@ -88,9 +108,14 @@ public class BookService : IBookService
             }
 
             var book = _mapper.Map<Book>(createBookDto);
+            if (ownerId != Guid.Empty)
+            {
+                book.OwnerId = ownerId;
+            }
+
             var createdBook = await _bookRepository.AddAsync(book);
             
-            _logger.LogInformation("Created new book: {BookTitle} with ID: {BookId}", book.Title, book.Id);
+            _logger.LogInformation("Created new book: {BookTitle} with ID: {BookId} (Owner: {OwnerId})", book.Title, book.Id, ownerId == Guid.Empty ? "<none>" : ownerId.ToString());
             
             return _mapper.Map<BookDto>(createdBook);
         }

@@ -12,10 +12,20 @@ public class LibraryContext : DbContext
     public DbSet<Book> Books { get; set; }
     public DbSet<Member> Members { get; set; }
     public DbSet<Loan> Loans { get; set; }
+    public DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Username).IsRequired().HasMaxLength(50);
+            entity.Property(e => e.Email).IsRequired().HasMaxLength(100);
+            entity.HasIndex(e => e.Email).IsUnique();
+            entity.HasIndex(e => e.Username).IsUnique();
+        });
 
         modelBuilder.Entity<Book>(entity =>
         {
@@ -24,6 +34,12 @@ public class LibraryContext : DbContext
             entity.Property(e => e.Author).IsRequired().HasMaxLength(100);
             entity.Property(e => e.ISBN).IsRequired().HasMaxLength(13);
             entity.HasIndex(e => e.ISBN).IsUnique();
+
+            // Owner relationship (optional)
+            entity.HasOne(b => b.Owner)
+                  .WithMany(u => u.Books)
+                  .HasForeignKey(b => b.OwnerId)
+                  .OnDelete(DeleteBehavior.SetNull);
         });
 
         modelBuilder.Entity<Member>(entity =>

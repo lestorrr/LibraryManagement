@@ -1,0 +1,16 @@
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/bin/Release/net8.0/LibraryManagement.Application.deps.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/bin/Release/net8.0/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/bin/Release/net8.0/LibraryManagement.Application.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/bin/Release/net8.0/LibraryManagement.Domain.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/bin/Release/net8.0/LibraryManagement.Domain.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/LibraryManagement.Application.csproj.AssemblyReference.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/LibraryManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/LibraryManagement.Application.AssemblyInfoInputs.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/LibraryManagement.Application.AssemblyInfo.cs
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/LibraryManagement.Application.csproj.CoreCompileInputs.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/LibraryManagement.Application.sourcelink.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/LibraryManagement.Application.csproj.CopyComplete
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/refint/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/LibraryManagement.Application.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Release/net8.0/ref/LibraryManagement.Application.dll

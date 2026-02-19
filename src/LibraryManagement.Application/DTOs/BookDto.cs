@@ -15,4 +15,8 @@ public class BookDto
     public string Description { get; set; } = string.Empty;
     public BookStatus Status { get; set; }
     public DateTime CreatedAt { get; set; }
+
+    // Owner info
+    public Guid? OwnerId { get; set; }
+    public string? OwnerUsername { get; set; }
 }

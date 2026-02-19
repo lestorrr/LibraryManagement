@@ -20,3 +20,4 @@
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Debug/net8.0/refint/LibraryManagement.Domain.dll
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Debug/net8.0/LibraryManagement.Domain.pdb
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Debug/net8.0/ref/LibraryManagement.Domain.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Domain/obj/Debug/net8.0/LibraryManagement.Domain.sourcelink.json
