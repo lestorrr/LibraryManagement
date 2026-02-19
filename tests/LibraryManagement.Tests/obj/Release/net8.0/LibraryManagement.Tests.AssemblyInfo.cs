@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibraryManagement.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d887e5ebb6a0855f2f7a23584143b156ec38f56")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01db733c9183850046ac1756f3b13b810ec8de4f")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibraryManagement.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibraryManagement.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
