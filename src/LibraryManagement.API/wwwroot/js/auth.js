@@ -21,10 +21,15 @@ async function login(event) {
         const res = await loginUser(identifier, password);
         if (res && res.token) {
             localStorage.setItem('lm_token', res.token);
-            closeLoginModal();
             showAlert('Signed in successfully', 'success');
             updateAuthUI();
             await loadAndDisplayBooks();
+            // if on standalone login page, redirect to home
+            if (window.location.pathname.endsWith('login.html')) {
+                window.location.href = 'index.html';
+            } else {
+                closeLoginModal();
+            }
         } else {
             throw new Error('Invalid login response');
         }
@@ -51,7 +56,12 @@ async function register(event) {
         const res = await registerUser(username, email, password, confirm, firstName, lastName);
         if (res && res.success !== false) {
             showAlert('Account created — please sign in', 'success');
-            closeRegisterModal();
+            // if on standalone register page, navigate to login
+            if (window.location.pathname.endsWith('register.html')) {
+                window.location.href = 'login.html';
+            } else {
+                closeRegisterModal();
+            }
         } else {
             showAlert(res.message || 'Registration failed', 'error');
         }
@@ -69,12 +79,46 @@ function signOut() {
 function updateAuthUI() {
     const token = localStorage.getItem('lm_token');
     const signedIn = !!token;
-    document.getElementById('btnSignIn').classList.toggle('hidden', signedIn);
-    document.getElementById('btnSignUp').classList.toggle('hidden', signedIn);
-    document.getElementById('btnSignOut').classList.toggle('hidden', !signedIn);
-    document.getElementById('addBookButton').disabled = !signedIn;
+    const btnSignIn = document.getElementById('btnSignIn');
+    const btnSignUp = document.getElementById('btnSignUp');
+    const btnSignOut = document.getElementById('btnSignOut');
+    const addBookButton = document.getElementById('addBookButton');
     const myBtn = document.getElementById('myBooksBtn');
+    const userDisplay = document.getElementById('userDisplay');
+
+    if (btnSignIn) btnSignIn.classList.toggle('hidden', signedIn);
+    if (btnSignUp) btnSignUp.classList.toggle('hidden', signedIn);
+    if (btnSignOut) btnSignOut.classList.toggle('hidden', !signedIn);
+    if (addBookButton) addBookButton.disabled = !signedIn;
     if (myBtn) myBtn.classList.toggle('hidden', !signedIn);
+
+    if (signedIn && userDisplay) {
+        try {
+            const payload = parseJwt(token);
+            const username = payload && (payload.username || payload.sub || payload.unique_name) ? (payload.username || payload.sub || payload.unique_name) : null;
+            userDisplay.textContent = username ? `Signed in as ${username}` : 'Signed in';
+            userDisplay.classList.remove('hidden');
+        } catch (e) {
+            userDisplay.textContent = 'Signed in';
+            userDisplay.classList.remove('hidden');
+        }
+    } else if (userDisplay) {
+        userDisplay.textContent = '';
+        userDisplay.classList.add('hidden');
+    }
+}
+
+function parseJwt(token) {
+    if (!token) return null;
+    const parts = token.split('.');
+    if (parts.length !== 3) return null;
+    try {
+        const payload = parts[1];
+        const json = atob(payload.replace(/-/g, '+').replace(/_/g, '/'));
+        return JSON.parse(decodeURIComponent(escape(json)));
+    } catch (e) {
+        return null;
+    }
 }
 
 // Called when user clicks "Add New Book" button

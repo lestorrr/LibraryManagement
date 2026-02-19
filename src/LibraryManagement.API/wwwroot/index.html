@@ -26,9 +26,10 @@
                     </div>
                 </div>
                 <div class="auth-buttons">
-                    <button id="btnSignIn" class="btn-secondary" onclick="openLoginModal()">Sign in</button>
-                    <button id="btnSignUp" class="btn-secondary" onclick="openRegisterModal()">Sign up</button>
+                    <button id="btnSignIn" class="btn-secondary" onclick="window.location.href='login.html'">Sign in</button>
+                    <button id="btnSignUp" class="btn-secondary" onclick="window.location.href='register.html'">Sign up</button>
                     <button id="btnSignOut" class="btn-secondary hidden" onclick="signOut()">Sign out</button>
+                    <div id="userDisplay" class="user-badge hidden"></div>
                 </div>
             </div>
         </header>
@@ -47,7 +48,7 @@
                     <button class="reset-btn" onclick="resetSearch()">Reset</button>
                 </div>
                 <div style="display:flex; gap:8px; align-items:center;">
-                    <button id="myBooksBtn" class="btn-secondary" onclick="loadMyBooks()">My books</button>
+                    <button id="myBooksBtn" class="btn-secondary hidden" onclick="loadMyBooks()">My books</button>
                     <button id="addBookButton" class="add-btn" onclick="onAddBookClick()">+ Add New Book</button>
                 </div>
             </div>

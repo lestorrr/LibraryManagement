@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sign in — Library Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-card">
+            <h1>Sign in</h1>
+            <p class="muted">Access your library account</p>
+            <form id="loginFormPage" onsubmit="login(event)">
+                <div class="form-group">
+                    <label for="loginIdentifier">Username or Email</label>
+                    <input id="loginIdentifier" required />
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input id="loginPassword" type="password" required />
+                </div>
+                <div class="form-actions">
+                    <button class="btn-primary" type="submit">Sign in</button>
+                    <a class="btn-link" href="register.html">Create account</a>
+                </div>
+            </form>
+            <p class="small muted">Return to <a href="index.html">home</a></p>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
