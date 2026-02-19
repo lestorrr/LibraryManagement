@@ -39,6 +39,8 @@ async function register(event) {
     const email = document.getElementById('regEmail').value.trim();
     const password = document.getElementById('regPassword').value;
     const confirm = document.getElementById('regConfirm').value;
+    const firstName = (document.getElementById('regFirst') && document.getElementById('regFirst').value.trim()) || '';
+    const lastName = (document.getElementById('regLast') && document.getElementById('regLast').value.trim()) || '';
 
     if (password !== confirm) {
         showAlert('Passwords do not match', 'error');
@@ -46,7 +48,7 @@ async function register(event) {
     }
 
     try {
-        const res = await registerUser(username, email, password, confirm);
+        const res = await registerUser(username, email, password, confirm, firstName, lastName);
         if (res && res.success !== false) {
             showAlert('Account created — please sign in', 'success');
             closeRegisterModal();

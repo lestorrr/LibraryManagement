@@ -163,3 +163,12 @@
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/obj/Debug/net8.0/LibraryManagement.Tests.pdb
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/obj/Debug/net8.0/LibraryManagement.Tests.genruntimeconfig.cache
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/obj/Debug/net8.0/ref/LibraryManagement.Tests.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/bin/Debug/net8.0/LibraryManagement.API.staticwebassets.runtime.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
