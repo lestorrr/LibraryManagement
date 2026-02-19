@@ -1,0 +1,30 @@
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/bin/Debug/net8.0/LibraryManagement.Application.deps.json
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/bin/Debug/net8.0/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/bin/Debug/net8.0/LibraryManagement.Application.pdb
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/bin/Debug/net8.0/LibraryManagement.Domain.dll
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/bin/Debug/net8.0/LibraryManagement.Domain.pdb
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.csproj.AssemblyReference.cache
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.AssemblyInfoInputs.cache
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.AssemblyInfo.cs
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.csproj.CoreCompileInputs.cache
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.csproj.CopyComplete
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/refint/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.pdb
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/ref/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/bin/Debug/net8.0/LibraryManagement.Application.deps.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/bin/Debug/net8.0/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/bin/Debug/net8.0/LibraryManagement.Application.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/bin/Debug/net8.0/LibraryManagement.Domain.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/bin/Debug/net8.0/LibraryManagement.Domain.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.csproj.AssemblyReference.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.AssemblyInfoInputs.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.AssemblyInfo.cs
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.csproj.CoreCompileInputs.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.csproj.CopyComplete
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/refint/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/LibraryManagement.Application.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Application/obj/Debug/net8.0/ref/LibraryManagement.Application.dll

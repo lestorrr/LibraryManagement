@@ -1,0 +1,38 @@
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Infrastructure.deps.json
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Infrastructure.runtimeconfig.json
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Infrastructure.dll
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Infrastructure.pdb
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Domain.dll
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Application.pdb
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Domain.pdb
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.csproj.AssemblyReference.cache
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.AssemblyInfoInputs.cache
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.AssemblyInfo.cs
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.csproj.CoreCompileInputs.cache
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.csproj.CopyComplete
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.dll
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/refint/LibraryManagement.Infrastructure.dll
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.pdb
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.genruntimeconfig.cache
+/home/jhnlstrlclcn/Downloads/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/ref/LibraryManagement.Infrastructure.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Infrastructure.deps.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Infrastructure.runtimeconfig.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Infrastructure.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Infrastructure.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Application.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Domain.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Application.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/bin/Debug/net8.0/LibraryManagement.Domain.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.csproj.AssemblyReference.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.AssemblyInfoInputs.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.AssemblyInfo.cs
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.csproj.CoreCompileInputs.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.csproj.CopyComplete
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/refint/LibraryManagement.Infrastructure.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.pdb
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/LibraryManagement.Infrastructure.genruntimeconfig.cache
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/obj/Debug/net8.0/ref/LibraryManagement.Infrastructure.dll
