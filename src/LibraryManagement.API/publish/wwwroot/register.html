@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Create account — Library Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-card">
+            <h1>Create account</h1>
+            <p class="muted">Sign up to upload and manage your books</p>
+            <form id="registerFormPage" onsubmit="register(event)">
+                <div class="form-group">
+                    <label for="regUsername">Username</label>
+                    <input id="regUsername" required />
+                </div>
+                <div class="form-group">
+                    <label for="regFirst">First name</label>
+                    <input id="regFirst" required />
+                </div>
+                <div class="form-group">
+                    <label for="regLast">Last name</label>
+                    <input id="regLast" required />
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input id="regEmail" type="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input id="regPassword" type="password" required />
+                </div>
+                <div class="form-group">
+                    <label for="regConfirm">Confirm Password</label>
+                    <input id="regConfirm" type="password" required />
+                </div>
+                <div class="form-actions">
+                    <button class="btn-primary" type="submit">Create account</button>
+                    <a class="btn-link" href="login.html">Already have an account?</a>
+                </div>
+            </form>
+            <p class="small muted">Return to <a href="index.html">home</a></p>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

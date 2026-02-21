@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>📚 Library Management</h1>
+                    <p>Manage your library efficiently</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat">
+                        <span class="stat-label">Total Books</span>
+                        <span class="stat-value" id="totalBooks">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Available</span>
+                        <span class="stat-value" id="availableBooks">0</span>
+                    </div>
+                </div>
+                <div class="auth-buttons">
+                    <button id="btnSignIn" class="btn-secondary" onclick="window.location.href='login.html'">Sign in</button>
+                    <button id="btnSignUp" class="btn-secondary" onclick="window.location.href='register.html'">Sign up</button>
+                    <button id="btnSignOut" class="btn-secondary hidden" onclick="signOut()">Sign out</button>
+                    <div id="userDisplay" class="user-badge hidden"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation & Search -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="search-bar">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search books by title, author, or category..."
+                        class="search-input"
+                    >
+                    <button class="search-btn" onclick="searchBooks()">Search</button>
+                    <button class="reset-btn" onclick="resetSearch()">Reset</button>
+                </div>
+                <div style="display:flex; gap:8px; align-items:center;">
+                    <button id="myBooksBtn" class="btn-secondary hidden" onclick="loadMyBooks()">My books</button>
+                    <button id="addBookButton" class="add-btn" onclick="onAddBookClick()">+ Add New Book</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Add Book Form (Hidden by default) -->
+        <div id="addBookFormContainer" class="form-container hidden">
+            <div class="form-card">
+                <h2>Add New Book</h2>
+                <form id="addBookForm" onsubmit="addBook(event)">
+                    <div class="form-group">
+                        <label for="bookTitle">Title *</label>
+                        <input type="text" id="bookTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookAuthor">Author *</label>
+                        <input type="text" id="bookAuthor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookISBN">ISBN *</label>
+                        <input type="text" id="bookISBN" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookCategory">Category</label>
+                        <input type="text" id="bookCategory">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookPublishedYear">Published Year</label>
+                        <input type="number" id="bookPublishedYear" min="1000" max="2099">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookQuantity">Quantity *</label>
+                        <input type="number" id="bookQuantity" required min="1">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Add Book</button>
+                        <button type="button" class="btn-secondary" onclick="toggleAddBookForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Books Grid -->
+        <main class="main-content">
+            <div id="booksContainer" class="books-grid">
+                <div class="loading">Loading books...</div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Library Management System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Modal for Book Details -->
+    <div id="bookModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookModal()">&times;</span>
+            <div id="bookDetails"></div>
+        </div>
+    </div>
+
+    <!-- Login / Register Modals -->
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Sign in</h2>
+            <form id="loginForm" onsubmit="login(event)">
+                <div class="form-group">
+                    <label for="loginIdentifier">Username or Email</label>
+                    <input id="loginIdentifier" required />
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input id="loginPassword" type="password" required />
+                </div>
+                <div class="form-actions">
+                    <button class="btn-primary" type="submit">Sign in</button>
+                    <button type="button" class="btn-secondary" onclick="closeLoginModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegisterModal()">&times;</span>
+            <h2>Create account</h2>
+            <form id="registerForm" onsubmit="register(event)">
+                <div class="form-group">
+                    <label for="regUsername">Username</label>
+                    <input id="regUsername" required />
+                </div>
+                <div class="form-group">
+                    <label for="regFirst">First name</label>
+                    <input id="regFirst" required />
+                </div>
+                <div class="form-group">
+                    <label for="regLast">Last name</label>
+                    <input id="regLast" required />
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input id="regEmail" type="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input id="regPassword" type="password" required />
+                </div>
+                <div class="form-group">
+                    <label for="regConfirm">Confirm Password</label>
+                    <input id="regConfirm" type="password" required />
+                </div>
+                <div class="form-actions">
+                    <button class="btn-primary" type="submit">Create account</button>
+                    <button type="button" class="btn-secondary" onclick="closeRegisterModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
