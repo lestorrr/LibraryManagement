@@ -106,12 +106,27 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.MapHealthChecks("/health");
+// Redirect unauthenticated requests for index.html to landing page
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.Value ?? string.Empty;
+    if (path.Equals("/index.html", StringComparison.OrdinalIgnoreCase))
+    {
+        if (!(context.User?.Identity?.IsAuthenticated ?? false))
+        {
+            context.Response.Redirect("/landing.html");
+            return;
+        }
+    }
+    await next();
+});
+
 app.UseStaticFiles();
 
-// Add root redirect to index.html
+// Add root redirect to landing.html
 app.MapGet("/", async context =>
 {
-    context.Response.Redirect("/index.html");
+    context.Response.Redirect("/landing.html");
 });
 
 // Ensure database is created
