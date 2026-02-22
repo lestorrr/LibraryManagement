@@ -626,7 +626,7 @@
                 });
 
                 const result = await response.json();
-
+                const parsed = await parseErrorResponse(response, result);
                 if (response.ok && result.success) {
                     showToast(`Welcome back, ${result.user.firstName || result.user.username}!`, 'success');
                     closeModal('loginModal');
@@ -634,7 +634,7 @@
                     // Redirect to dashboard
                     window.location.href = '/index.html';
                 } else {
-                    showToast(result.message || 'Login failed', 'error');
+                    showToast(parsed || (result.message || 'Login failed'), 'error');
                 }
             } catch (error) {
                 console.error('Login error:', error);
@@ -673,20 +673,59 @@
                     credentials: 'include'
                 });
 
-                const result = await response.json();
+                const body = await (async () => {
+                    try { return await response.json(); } catch { return null; }
+                })();
 
-                if (response.ok && result.success) {
+                const parsed = await parseErrorResponse(response, body);
+
+                if (response.ok && body && body.success) {
                     showToast('Account created successfully! Please sign in.', 'success');
                     closeModal('registerModal');
                     document.getElementById('registerForm').reset();
                     showLoginModal();
                 } else {
-                    showToast(result.message || 'Registration failed', 'error');
+                    showToast(parsed || (body?.message || 'Registration failed'), 'error');
                 }
             } catch (error) {
                 console.error('Registration error:', error);
                 showToast('An error occurred during registration', 'error');
             }
+        }
+
+        // Helper to parse error responses (ModelState, ProblemDetails, or simple messages)
+        async function parseErrorResponse(response, body) {
+            try {
+                if (body) {
+                    // ASP.NET ModelState returns { errors: { field: ["msg"] } } or a dictionary
+                    if (body.errors) {
+                        const errs = body.errors;
+                        for (const key in errs) {
+                            if (Array.isArray(errs[key]) && errs[key].length > 0)
+                                return errs[key][0];
+                        }
+                    }
+
+                    // If body is a dictionary of errors
+                    if (typeof body === 'object') {
+                        // Look for the first string value
+                        for (const k of Object.keys(body)) {
+                            const v = body[k];
+                            if (Array.isArray(v) && v.length > 0 && typeof v[0] === 'string')
+                                return v[0];
+                            if (typeof v === 'string')
+                                return v;
+                        }
+                    }
+                }
+
+                // Fallback: try to read text
+                const text = await response.text();
+                if (text) return text;
+            } catch (e) {
+                // ignore parse errors
+            }
+            return null;
         }
 
         // Toast notification
