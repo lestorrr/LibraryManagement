@@ -1,10 +1,7 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using LibraryManagement.Application.DTOs;
 using LibraryManagement.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 
 namespace LibraryManagement.API.Controllers;
 
@@ -12,71 +9,90 @@ namespace LibraryManagement.API.Controllers;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly IUserService _userService;
-    private readonly IConfiguration _configuration;
+    private readonly IAuthService _authService;
     private readonly ILogger<AuthController> _logger;
 
-    public AuthController(IUserService userService, IConfiguration configuration, ILogger<AuthController> logger)
+    public AuthController(IAuthService authService, ILogger<AuthController> logger)
     {
-        _userService = userService;
-        _configuration = configuration;
+        _authService = authService;
         _logger = logger;
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] RegisterDto dto)
+    public async Task<ActionResult<AuthResponseDto>> Register(RegisterDto registerDto)
     {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+        try
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        var user = await _userService.RegisterAsync(dto);
-        if (user == null)
-            return Conflict(new { message = "Username or email already in use" });
+            var result = await _authService.RegisterAsync(registerDto);
+            
+            if (!result.Success)
+                return BadRequest(result);
 
-        return Ok(new { success = true, user });
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error during registration");
+            return StatusCode(500, new AuthResponseDto 
+            { 
+                Success = false, 
+                Message = "An error occurred during registration" 
+            });
+        }
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginDto dto)
+    public async Task<ActionResult<AuthResponseDto>> Login(LoginDto loginDto)
     {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+        try
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        var user = await _userService.AuthenticateAsync(dto);
-        if (user == null)
-            return Unauthorized(new { message = "Invalid credentials" });
+            var result = await _authService.LoginAsync(loginDto);
+            
+            if (!result.Success)
+                return Unauthorized(result);
 
-        var token = GenerateJwtToken(user);
-        return Ok(new AuthResponseDto { Token = token, ExpiresAt = DateTime.UtcNow.AddMinutes(_configuration.GetValue<int>("Jwt:ExpiryMinutes")) });
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error during login");
+            return StatusCode(500, new AuthResponseDto 
+            { 
+                Success = false, 
+                Message = "An error occurred during login" 
+            });
+        }
     }
 
-    private string GenerateJwtToken(UserDto user)
+    [Authorize]
+    [HttpPost("logout")]
+    public async Task<IActionResult> Logout()
     {
-        var jwtSection = _configuration.GetSection("Jwt");
-        var key = jwtSection.GetValue<string>("Key") ?? "replace-this-secret-with-secure-one";
-        var issuer = jwtSection.GetValue<string>("Issuer") ?? "LibraryManagement";
-        var audience = jwtSection.GetValue<string>("Audience") ?? "LibraryManagement";
-        var expiryMinutes = jwtSection.GetValue<int>("ExpiryMinutes");
+        await _authService.LogoutAsync();
+        return Ok(new { message = "Logged out successfully" });
+    }
 
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var keyBytes = Encoding.UTF8.GetBytes(key);
-        var claims = new List<Claim>
-        {
-            new Claim("id", user.Id.ToString()),
-            new Claim("username", user.Username),
-            new Claim(ClaimTypes.Email, user.Email)
-        };
+    [Authorize]
+    [HttpGet("me")]
+    public async Task<ActionResult<UserDto>> GetCurrentUser()
+    {
+        var user = await _authService.GetCurrentUserAsync();
+        if (user == null)
+            return NotFound();
+        
+        return Ok(user);
+    }
 
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddMinutes(expiryMinutes),
-            Issuer = issuer,
-            Audience = audience,
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256Signature)
-        };
-
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
+    [HttpGet("status")]
+    public IActionResult GetAuthStatus()
+    {
+        return Ok(new { isAuthenticated = _authService.IsAuthenticated() });
     }
 }
+ 

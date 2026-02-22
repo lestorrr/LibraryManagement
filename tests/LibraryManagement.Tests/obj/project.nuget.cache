@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vtwkAUCwPKs6r1s2Z0KPzwasXBwYw6s1iCbMF3yL9V6eHaXpb/zvLrwtsDDJ8qBG7oD8t3iArYuWuD8/uBycQA==",
+  "dgSpecHash": "RRavZVWu0zOhydss/0mrU+ZAcKr7ZytGX0LGBlwxXwZp3HuKrhi6mxTaAK/zhaEwoRBxaH9gp2LjcfH1ugksVQ==",
   "success": true,
   "projectFilePath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.Tests/LibraryManagement.Tests.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,10 @@
     "/home/jhnlstrlclcn/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/fluentassertions/6.12.0/fluentassertions.6.12.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.0/microsoft.aspnetcore.authentication.jwtbearer.8.0.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.openapi/8.0.0/microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.codecoverage/17.8.0/microsoft.codecoverage.17.8.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",

@@ -3,6 +3,7 @@ using LibraryManagement.Application.Services;
 using LibraryManagement.Domain.Interfaces;
 using LibraryManagement.Infrastructure.Data;
 using LibraryManagement.Infrastructure.Data.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -18,34 +19,42 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
+// Add Authentication
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "LibraryAuth";
+        options.Cookie.HttpOnly = true;
+        options.Cookie.SameSite = SameSiteMode.Lax;
+        options.ExpireTimeSpan = TimeSpan.FromDays(7);
+        options.LoginPath = "/api/auth/login";
+        options.LogoutPath = "/api/auth/logout";
+        options.Events.OnRedirectToLogin = context =>
+        {
+            context.Response.StatusCode = 401;
+            return Task.CompletedTask;
+        };
+    });
+
+builder.Services.AddAuthorization();
+
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-// Configure JWT authentication (register Jwt settings in appsettings)
-var jwtSection = builder.Configuration.GetSection("Jwt");
-var jwtKey = jwtSection.GetValue<string>("Key") ?? "replace-this-secret-with-secure-one";
-var keyBytes = System.Text.Encoding.UTF8.GetBytes(jwtKey);
-
-builder.Services.AddAuthentication(options =>
+builder.Services.AddSwaggerGen(c =>
 {
-    options.DefaultAuthenticateScheme = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
-{
-    options.RequireHttpsMetadata = false;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    c.SwaggerDoc("v1", new() { Title = "Library Management API", Version = "v1" });
+    
+    // Add JWT Authentication to Swagger
+    c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtSection.GetValue<string>("Issuer") ?? "LibraryManagement",
-        ValidAudience = jwtSection.GetValue<string>("Audience") ?? "LibraryManagement",
-        IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyBytes)
-    };
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Description = "Enter 'Bearer' [space] and then your token"
+    });
 });
 
 // Add DbContext with SQLite
@@ -55,9 +64,11 @@ builder.Services.AddDbContext<LibraryContext>(options =>
 // Register repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Register services
 builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 // Add AutoMapper
@@ -74,6 +85,9 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Add HTTP Context Accessor for getting current user
+builder.Services.AddHttpContextAccessor();
+
 // Add health checks
 builder.Services.AddHealthChecks()
     .AddDbContextCheck<LibraryContext>();
@@ -88,25 +102,16 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowAll");
-
-// Serve static files (must come after CORS but before authorization)
-app.UseDefaultFiles();
-app.UseStaticFiles();
-
-// Authentication & Authorization
 app.UseAuthentication();
 app.UseAuthorization();
-
-// Map API routes
 app.MapControllers();
 app.MapHealthChecks("/health");
+app.UseStaticFiles();
 
-// Fallback to index.html for SPA routing
-app.MapFallback(async (HttpContext context) =>
+// Add root redirect to index.html
+app.MapGet("/", async context =>
 {
-    context.Response.ContentType = "text/html";
-    await context.Response.SendFileAsync(Path.Combine(
-        app.Environment.ContentRootPath, "wwwroot", "index.html"));
+    context.Response.Redirect("/index.html");
 });
 
 // Ensure database is created
@@ -129,4 +134,3 @@ finally
 {
     Log.CloseAndFlush();
 }
-

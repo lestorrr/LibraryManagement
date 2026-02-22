@@ -16,10 +16,19 @@ public class Book
     public BookStatus Status { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? UpdatedAt { get; set; }
-
-    // Owner (user who uploaded the book)
-    public Guid? OwnerId { get; set; }
-    public virtual User? Owner { get; set; }
     
+    // New fields for file uploads
+    public string? CoverImageUrl { get; set; }
+    public string? FileUrl { get; set; }
+    public string? FileName { get; set; }
+    public long? FileSize { get; set; }
+    public string? FileType { get; set; }
+    public byte[]? FileContent { get; set; }
+    
+    // Foreign key to User
+    public Guid UserId { get; set; }
+    
+    // Navigation properties
+    public virtual User User { get; set; } = null!;
     public virtual ICollection<Loan> Loans { get; set; } = new List<Loan>();
 }

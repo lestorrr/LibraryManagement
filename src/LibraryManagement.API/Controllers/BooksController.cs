@@ -18,6 +18,7 @@ public class BooksController : ControllerBase
         _logger = logger;
     }
 
+    // Public endpoints - no authentication required
     [HttpGet]
     public async Task<ActionResult<IEnumerable<BookDto>>> GetAllBooks()
     {
@@ -33,6 +34,24 @@ public class BooksController : ControllerBase
         }
     }
 
+    [HttpGet("search")]
+    public async Task<ActionResult<IEnumerable<BookDto>>> SearchBooks([FromQuery] string term)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return BadRequest("Search term cannot be empty");
+
+            var books = await _bookService.SearchBooksAsync(term);
+            return Ok(books);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error searching books with term: {SearchTerm}", term);
+            return StatusCode(500, "An error occurred while searching books");
+        }
+    }
+
     [HttpGet("{id}")]
     public async Task<ActionResult<BookDto>> GetBookById(Guid id)
     {
@@ -41,9 +60,7 @@ public class BooksController : ControllerBase
             var book = await _bookService.GetBookByIdAsync(id);
             
             if (book == null)
-            {
                 return NotFound($"Book with ID {id} not found");
-            }
             
             return Ok(book);
         }
@@ -54,27 +71,42 @@ public class BooksController : ControllerBase
         }
     }
 
-    [HttpPost]
+    // Protected endpoints - require authentication
     [Authorize]
-    public async Task<ActionResult<BookDto>> CreateBook(CreateBookDto createBookDto)
+    [HttpGet("mybooks")]
+    public async Task<ActionResult<IEnumerable<BookDto>>> GetMyBooks()
+    {
+        try
+        {
+            var books = await _bookService.GetMyBooksAsync();
+            return Ok(books);
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return Unauthorized();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting user books");
+            return StatusCode(500, "An error occurred while retrieving your books");
+        }
+    }
+
+    [Authorize]
+    [HttpPost]
+    public async Task<ActionResult<BookDto>> CreateBook([FromForm] CreateBookDto createBookDto)
     {
         try
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
-            // extract user id from token
-            var userIdClaim = User.FindFirst("id")?.Value;
-            Guid ownerId = Guid.Empty;
-            if (!string.IsNullOrEmpty(userIdClaim) && Guid.TryParse(userIdClaim, out var parsed))
-            {
-                ownerId = parsed;
-            }
-
-            var book = await _bookService.CreateBookAsync(createBookDto, ownerId);
+            var book = await _bookService.CreateBookAsync(createBookDto);
             return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, book);
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return Unauthorized();
         }
         catch (InvalidOperationException ex)
         {
@@ -87,36 +119,25 @@ public class BooksController : ControllerBase
         }
     }
 
-    [HttpPut("{id}")]
     [Authorize]
-    public async Task<IActionResult> UpdateBook(Guid id, CreateBookDto updateBookDto)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateBook(Guid id, UpdateBookDto updateBookDto)
     {
         try
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
-
-            // ensure current user is owner
-            var existing = await _bookService.GetBookByIdAsync(id);
-            if (existing == null)
-                return NotFound($"Book with ID {id} not found");
-
-            var userIdClaim = User.FindFirst("id")?.Value;
-            if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId) || existing.OwnerId != userId)
-            {
-                return Forbid();
-            }
 
             var updatedBook = await _bookService.UpdateBookAsync(id, updateBookDto);
             
             if (updatedBook == null)
-            {
                 return NotFound($"Book with ID {id} not found");
-            }
             
             return Ok(updatedBook);
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return Unauthorized("You don't have permission to update this book");
         }
         catch (InvalidOperationException ex)
         {
@@ -129,30 +150,22 @@ public class BooksController : ControllerBase
         }
     }
 
-    [HttpDelete("{id}")]
     [Authorize]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteBook(Guid id)
     {
         try
         {
-            var existing = await _bookService.GetBookByIdAsync(id);
-            if (existing == null)
-                return NotFound($"Book with ID {id} not found");
-
-            var userIdClaim = User.FindFirst("id")?.Value;
-            if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId) || existing.OwnerId != userId)
-            {
-                return Forbid();
-            }
-
             var deleted = await _bookService.DeleteBookAsync(id);
             
             if (!deleted)
-            {
                 return NotFound($"Book with ID {id} not found");
-            }
             
             return NoContent();
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return Unauthorized("You don't have permission to delete this book");
         }
         catch (Exception ex)
         {
@@ -161,38 +174,21 @@ public class BooksController : ControllerBase
         }
     }
 
-    [HttpGet("search")]
-    public async Task<ActionResult<IEnumerable<BookDto>>> SearchBooks([FromQuery] string term)
+    [HttpGet("{id}/download")]
+    public async Task<IActionResult> DownloadBookFile(Guid id)
     {
         try
         {
-            if (string.IsNullOrWhiteSpace(term))
-            {
-                return BadRequest("Search term cannot be empty");
-            }
+            var fileContent = await _bookService.DownloadBookFileAsync(id);
+            if (fileContent == null)
+                return NotFound("No file found for this book");
 
-            var books = await _bookService.SearchBooksAsync(term);
-            return Ok(books);
+            return File(fileContent, "application/octet-stream", "book.pdf");
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error searching books with term: {SearchTerm}", term);
-            return StatusCode(500, "An error occurred while searching books");
-        }
-    }
-
-    [HttpGet("author/{author}")]
-    public async Task<ActionResult<IEnumerable<BookDto>>> GetBooksByAuthor(string author)
-    {
-        try
-        {
-            var books = await _bookService.GetBooksByAuthorAsync(author);
-            return Ok(books);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error getting books by author: {Author}", author);
-            return StatusCode(500, "An error occurred while retrieving books");
+            _logger.LogError(ex, "Error downloading file for book ID: {BookId}", id);
+            return StatusCode(500, "An error occurred while downloading the file");
         }
     }
 
@@ -207,28 +203,6 @@ public class BooksController : ControllerBase
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error getting books by category: {Category}", category);
-            return StatusCode(500, "An error occurred while retrieving books");
-        }
-    }
-
-    [HttpGet("mine")]
-    [Authorize]
-    public async Task<ActionResult<IEnumerable<BookDto>>> GetMyBooks()
-    {
-        try
-        {
-            var userIdClaim = User.FindFirst("id")?.Value;
-            if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId))
-            {
-                return Unauthorized();
-            }
-
-            var books = await _bookService.GetBooksByUserAsync(userId);
-            return Ok(books);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error getting user's books");
             return StatusCode(500, "An error occurred while retrieving books");
         }
     }

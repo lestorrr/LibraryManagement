@@ -13,3 +13,166 @@ SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NO
 2026-02-22 20:42:54.317 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/favicon.ico - null null
 2026-02-22 20:42:54.338 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/favicon.ico - 404 0 null 20.5009ms
 2026-02-22 20:42:54.341 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5252/favicon.ico, Response status code: 404
+2026-02-22 21:18:45.331 +08:00 [INF] Application is shutting down...
+2026-02-22 22:46:42.245 +08:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2026-02-22 22:46:42.435 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2026-02-22 22:46:42.437 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2026-02-22 22:46:42.443 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-22 22:46:42.468 +08:00 [INF] Applying migration '20260222144512_AddUserAndBookRelationship'.
+2026-02-22 22:46:42.530 +08:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Members" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Members" PRIMARY KEY,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "PhoneNumber" TEXT NOT NULL,
+    "Address" TEXT NOT NULL,
+    "MembershipDate" TEXT NOT NULL,
+    "MembershipExpiryDate" TEXT NULL,
+    "IsActive" INTEGER NOT NULL
+);
+2026-02-22 22:49:12.705 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2026-02-22 22:49:12.791 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2026-02-22 22:49:12.812 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-22 22:49:12.834 +08:00 [INF] Applying migration '20260222144512_AddUserAndBookRelationship'.
+2026-02-22 22:49:12.925 +08:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Members" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Members" PRIMARY KEY,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "PhoneNumber" TEXT NOT NULL,
+    "Address" TEXT NOT NULL,
+    "MembershipDate" TEXT NOT NULL,
+    "MembershipExpiryDate" TEXT NULL,
+    "IsActive" INTEGER NOT NULL
+);
+2026-02-22 22:53:05.044 +08:00 [INF] Executed DbCommand (229ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2026-02-22 22:53:05.233 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2026-02-22 22:53:05.247 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2026-02-22 22:53:05.251 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-22 22:53:05.277 +08:00 [INF] Applying migration '20260222144512_AddUserAndBookRelationship'.
+2026-02-22 22:53:05.368 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Members" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Members" PRIMARY KEY,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "PhoneNumber" TEXT NOT NULL,
+    "Address" TEXT NOT NULL,
+    "MembershipDate" TEXT NOT NULL,
+    "MembershipExpiryDate" TEXT NULL,
+    "IsActive" INTEGER NOT NULL
+);
+2026-02-22 22:53:05.369 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "Username" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "PasswordHash" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "Bio" TEXT NULL,
+    "ProfilePictureUrl" TEXT NULL,
+    "CreatedAt" TEXT NOT NULL,
+    "LastLoginAt" TEXT NULL,
+    "IsActive" INTEGER NOT NULL
+);
+2026-02-22 22:53:05.370 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Books" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Books" PRIMARY KEY,
+    "Title" TEXT NOT NULL,
+    "Author" TEXT NOT NULL,
+    "ISBN" TEXT NOT NULL,
+    "PublicationYear" INTEGER NOT NULL,
+    "Publisher" TEXT NOT NULL,
+    "PageCount" INTEGER NOT NULL,
+    "Category" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL,
+    "CreatedAt" TEXT NOT NULL,
+    "UpdatedAt" TEXT NULL,
+    "CoverImageUrl" TEXT NULL,
+    "FileUrl" TEXT NULL,
+    "FileName" TEXT NULL,
+    "FileSize" INTEGER NULL,
+    "FileType" TEXT NULL,
+    "FileContent" BLOB NULL,
+    "UserId" TEXT NOT NULL,
+    CONSTRAINT "FK_Books_Users_UserId" FOREIGN KEY ("UserId") REFERENCES "Users" ("Id") ON DELETE RESTRICT
+);
+2026-02-22 22:53:05.371 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Loans" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Loans" PRIMARY KEY,
+    "BookId" TEXT NOT NULL,
+    "MemberId" TEXT NOT NULL,
+    "LoanDate" TEXT NOT NULL,
+    "DueDate" TEXT NOT NULL,
+    "ReturnDate" TEXT NULL,
+    "LateFee" TEXT NULL,
+    "Notes" TEXT NOT NULL,
+    CONSTRAINT "FK_Loans_Books_BookId" FOREIGN KEY ("BookId") REFERENCES "Books" ("Id") ON DELETE RESTRICT,
+    CONSTRAINT "FK_Loans_Members_MemberId" FOREIGN KEY ("MemberId") REFERENCES "Members" ("Id") ON DELETE RESTRICT
+);
+2026-02-22 22:53:05.372 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Books_ISBN" ON "Books" ("ISBN");
+2026-02-22 22:53:05.373 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Books_UserId" ON "Books" ("UserId");
+2026-02-22 22:53:05.374 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Loans_BookId" ON "Loans" ("BookId");
+2026-02-22 22:53:05.375 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Loans_MemberId" ON "Loans" ("MemberId");
+2026-02-22 22:53:05.377 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Members_Email" ON "Members" ("Email");
+2026-02-22 22:53:05.378 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Users_Email" ON "Users" ("Email");
+2026-02-22 22:53:05.379 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Users_Username" ON "Users" ("Username");
+2026-02-22 22:53:05.380 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20260222144512_AddUserAndBookRelationship', '8.0.0');
+2026-02-22 22:53:05.395 +08:00 [INF] Applying migration '20260222145143_InitialCreate'.
+2026-02-22 22:53:05.422 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20260222145143_InitialCreate', '8.0.0');
+2026-02-22 22:54:18.014 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-02-22 22:54:18.137 +08:00 [INF] Starting Library Management API
+2026-02-22 22:54:18.162 +08:00 [INF] User profile is available. Using '/home/jhnlstrlclcn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-02-22 22:54:18.264 +08:00 [INF] Now listening on: http://localhost:5252
+2026-02-22 22:54:18.267 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-22 22:54:18.268 +08:00 [INF] Hosting environment: Development
+2026-02-22 22:54:18.269 +08:00 [INF] Content root path: /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API
+2026-02-22 22:54:35.131 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-22 22:54:35.207 +08:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-02-22 22:54:35.209 +08:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-02-22 22:54:35.215 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 302 0 null 85.8951ms
+2026-02-22 22:54:35.226 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/index.html - null null
+2026-02-22 22:54:35.270 +08:00 [INF] Sending file. Request path: '/index.html'. Physical path: '/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/index.html'
+2026-02-22 22:54:35.271 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/index.html - 200 35943 text/html 45.774ms
+2026-02-22 22:56:46.458 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/index.html - null null
+2026-02-22 22:56:46.467 +08:00 [INF] The file /index.html was not modified
+2026-02-22 22:56:46.468 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/index.html - 304 null text/html 10.2731ms

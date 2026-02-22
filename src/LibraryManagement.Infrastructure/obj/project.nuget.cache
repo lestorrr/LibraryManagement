@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "X8gHQx1TCwKYa7bKn1eCFZSmp4P3jw4YrgthqZ7HzguoGtnnQ3wWNdWwq3r7+vnuz67VbcHgS8gqA1u6qAI82g==",
+  "dgSpecHash": "K08C3adjXuDJzCNU7Ij4q0Dpj0ee0J0VJ8HvEzppnpAwHXeWUNrnPIphbRhq55vHgEX9B7krpDf7TJ8k62+I4A==",
   "success": true,
   "projectFilePath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/home/jhnlstrlclcn/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.3/microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.codeanalysis.common/4.5.0/microsoft.codeanalysis.common.4.5.0.nupkg.sha512",

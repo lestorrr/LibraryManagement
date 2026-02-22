@@ -1,13 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "GB8hG1mfUnmxapouMLFTrfj6rR/HatV6Ns4S4dObmboxsNTybMhtO8GRJmvMczm5gr67uLDmYtbbVMu1oGNxOA==",
+  "dgSpecHash": "liBxPb4AMPzM49EZ/QNivuTqswRt8xXww0hTfleTTmjMHamUTJv4AuznXLkCQy6A8L7OzUvbAZWaZz/TIkt6Hg==",
   "success": true,
   "projectFilePath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.IntegrationTests/LibraryManagement.IntegrationTests.csproj",
   "expectedPackageFiles": [
     "/home/jhnlstrlclcn/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.0/microsoft.aspnetcore.authentication.jwtbearer.8.0.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.openapi/8.0.0/microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.codecoverage/17.6.0/microsoft.codecoverage.17.6.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",

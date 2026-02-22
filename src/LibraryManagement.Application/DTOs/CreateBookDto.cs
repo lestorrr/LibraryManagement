@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace LibraryManagement.Application.DTOs;
 
@@ -32,4 +33,8 @@ public class CreateBookDto
     
     [StringLength(1000)]
     public string Description { get; set; } = string.Empty;
+    
+    // Optional file uploads
+    public IFormFile? BookFile { get; set; }
+    public IFormFile? CoverImage { get; set; }
 }

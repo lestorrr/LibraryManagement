@@ -56,3 +56,17 @@ public class UserDto
     public string LastName { get; set; } = string.Empty;
     public string FullName => $"{FirstName} {LastName}";
 }
+
+public class UpdateProfileDto
+{
+    [StringLength(50)]
+    public string? FirstName { get; set; }
+    
+    [StringLength(50)]
+    public string? LastName { get; set; }
+    
+    [StringLength(500)]
+    public string? Bio { get; set; }
+    
+    public string? ProfilePictureUrl { get; set; }
+}
