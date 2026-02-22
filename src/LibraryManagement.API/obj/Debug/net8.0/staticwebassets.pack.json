@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets/js/ui.js"
     },
     {
+      "Id": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/landing.html",
+      "PackagePath": "staticwebassets/landing.html"
+    },
+    {
       "Id": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/login.html",
       "PackagePath": "staticwebassets/login.html"
     },

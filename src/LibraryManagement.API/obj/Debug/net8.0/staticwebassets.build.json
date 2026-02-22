@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r364BVW3Z7skFbRb76rhmiV+eXODp81TY57Z8BnMMQo=",
+  "Hash": "OEvJrlmok7SHDSjJn/51ZlgtF9vuzXeOpyT+UIH6+Cs=",
   "Source": "LibraryManagement.API",
   "BasePath": "_content/LibraryManagement.API",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/ui.js"
+    },
+    {
+      "Identity": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/landing.html",
+      "SourceId": "LibraryManagement.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/",
+      "BasePath": "_content/LibraryManagement.API",
+      "RelativePath": "landing.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/landing.html"
     },
     {
       "Identity": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/wwwroot/login.html",
