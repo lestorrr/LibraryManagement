@@ -65,7 +65,7 @@ public class AuthService : IAuthService
             };
 
             var createdUser = await _userRepository.AddAsync(user);
-            _logger.LogInformation("New user registered: {Username}", user.Username);
+            _logger.LogInformation("New user registered: {Username} (PasswordHash length: {HashLen})", user.Username, user.PasswordHash?.Length ?? 0);
 
             return new AuthResponseDto
             {
@@ -89,10 +89,22 @@ public class AuthService : IAuthService
     {
         try
         {
+
             var user = await _userRepository.GetByUsernameOrEmailAsync(loginDto.UsernameOrEmail);
 
-            if (user == null || !VerifyPassword(loginDto.Password, user.PasswordHash))
+            if (user == null)
             {
+                _logger.LogInformation("Login failed: user not found for '{Identifier}'", loginDto.UsernameOrEmail);
+                return new AuthResponseDto
+                {
+                    Success = false,
+                    Message = "Invalid username/email or password"
+                };
+            }
+
+            if (!VerifyPassword(loginDto.Password, user.PasswordHash))
+            {
+                _logger.LogInformation("Login failed: password verification failed for user '{Username}' (storedHashLength: {HashLen})", user.Username, user.PasswordHash?.Length ?? 0);
                 return new AuthResponseDto
                 {
                     Success = false,
