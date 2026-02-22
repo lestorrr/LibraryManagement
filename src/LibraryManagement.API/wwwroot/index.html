@@ -3,176 +3,1107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management System</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>LibraryFlow · Modern Library Management</title>
+    <style>
+        /* Modern CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --dark: #1e293b;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --radius-sm: 0.375rem;
+            --radius: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--gray-800);
+            line-height: 1.5;
+        }
+
+        /* Import Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        .app-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Glassmorphism Header */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+
+        .logo-text p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .auth-section {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--gray-300);
+            color: var(--gray-700);
+        }
+
+        .btn-outline:hover {
+            background: var(--gray-50);
+            border-color: var(--gray-400);
+        }
+
+        .btn-success {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #0ca678;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Search Section */
+        .search-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-wrapper {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.8rem;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        /* Books Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-100);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--gray-200);
+        }
+
+        .book-cover {
+            height: 180px;
+            background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover::after {
+            content: '📖';
+            font-size: 4rem;
+            opacity: 0.5;
+        }
+
+        .book-cover.has-image::after {
+            display: none;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-content {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .book-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .book-author {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .badge-primary {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+        }
+
+        .badge-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--secondary);
+        }
+
+        .book-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-500);
+            font-size: 0.85rem;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray-500);
+            transition: color 0.2s;
+            padding: 0.25rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .icon-btn:hover {
+            color: var(--primary);
+            background: var(--gray-100);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--radius-lg);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-400);
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: var(--gray-600);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .file-upload {
+            border: 2px dashed var(--gray-200);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .file-upload:hover {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .file-upload input {
+            display: none;
+        }
+
+        .file-upload-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-500);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--gray-400);
+        }
+
+        .empty-state-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state p {
+            margin-bottom: 2rem;
+        }
+
+        /* Loading Skeleton */
+        .skeleton {
+            background: linear-gradient(
+                90deg,
+                var(--gray-200) 25%,
+                var(--gray-100) 50%,
+                var(--gray-200) 75%
+            );
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: var(--radius-sm);
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1100;
+        }
+
+        .toast {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1rem 1.5rem;
+            margin-top: 0.5rem;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: toastSlideIn 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+
+        .toast.success {
+            border-left-color: var(--secondary);
+        }
+
+        .toast.error {
+            border-left-color: var(--danger);
+        }
+
+        @keyframes toastSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .app-wrapper {
+                padding: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .stats-container {
+                justify-content: space-around;
+            }
+
+            .auth-section {
+                justify-content: center;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div class="app-wrapper">
         <!-- Header -->
-        <header class="header">
+        <header class="glass-header">
             <div class="header-content">
-                <div class="logo">
-                    <h1>📚 Library Management</h1>
-                    <p>Manage your library efficiently</p>
-                </div>
-                <div class="header-stats">
-                    <div class="stat">
-                        <span class="stat-label">Total Books</span>
-                        <span class="stat-value" id="totalBooks">0</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Available</span>
-                        <span class="stat-value" id="availableBooks">0</span>
+                <div class="logo-area">
+                    <span class="logo-icon">📚</span>
+                    <div class="logo-text">
+                        <h1>LibraryFlow</h1>
+                        <p>Modern Library Management</p>
                     </div>
                 </div>
-                <div class="auth-buttons">
-                    <button id="btnSignIn" class="btn-secondary" onclick="window.location.href='login.html'">Sign in</button>
-                    <button id="btnSignUp" class="btn-secondary" onclick="window.location.href='register.html'">Sign up</button>
-                    <button id="btnSignOut" class="btn-secondary hidden" onclick="signOut()">Sign out</button>
-                    <div id="userDisplay" class="user-badge hidden"></div>
+
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalBooks">0</div>
+                        <div class="stat-label">Total Books</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="availableBooks">0</div>
+                        <div class="stat-label">Available</div>
+                    </div>
+                </div>
+
+                <div class="auth-section">
+                    <button class="btn btn-outline" onclick="showLoginModal()">Sign in</button>
+                    <button class="btn btn-primary" onclick="showRegisterModal()">Sign up</button>
+                    <button class="btn btn-outline" style="display: none;" id="signOutBtn">Sign out</button>
                 </div>
             </div>
         </header>
 
-        <!-- Navigation & Search -->
-        <nav class="navbar">
-            <div class="nav-content">
-                <div class="search-bar">
-                    <input 
-                        type="text" 
-                        id="searchInput" 
-                        placeholder="Search books by title, author, or category..."
-                        class="search-input"
-                    >
-                    <button class="search-btn" onclick="searchBooks()">Search</button>
-                    <button class="reset-btn" onclick="resetSearch()">Reset</button>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search and Actions -->
+            <div class="search-section">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" placeholder="Search by title, author, ISBN or category..." id="searchInput">
                 </div>
-                <div style="display:flex; gap:8px; align-items:center;">
-                    <button id="myBooksBtn" class="btn-secondary hidden" onclick="loadMyBooks()">My books</button>
-                    <button id="addBookButton" class="add-btn" onclick="onAddBookClick()">+ Add New Book</button>
+                <div class="action-buttons">
+                    <button class="btn btn-outline" onclick="resetSearch()">
+                        <span>🔄</span> Reset
+                    </button>
+                    <button class="btn btn-primary" onclick="showAddBookModal()">
+                        <span>+</span> Add New Book
+                    </button>
                 </div>
             </div>
-        </nav>
 
-        <!-- Add Book Form (Hidden by default) -->
-        <div id="addBookFormContainer" class="form-container hidden">
-            <div class="form-card">
+            <!-- Books Grid -->
+            <div id="booksContainer">
+                <div class="books-grid" id="booksGrid">
+                    <!-- Books will be dynamically inserted here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Book Modal -->
+    <div class="modal" id="addBookModal">
+        <div class="modal-content">
+            <div class="modal-header">
                 <h2>Add New Book</h2>
+                <button class="close-btn" onclick="closeModal('addBookModal')">&times;</button>
+            </div>
+            <div class="modal-body">
                 <form id="addBookForm" onsubmit="addBook(event)">
                     <div class="form-group">
-                        <label for="bookTitle">Title *</label>
-                        <input type="text" id="bookTitle" required>
+                        <label class="form-label">Title *</label>
+                        <input type="text" class="form-control" id="title" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="bookAuthor">Author *</label>
-                        <input type="text" id="bookAuthor" required>
+                        <label class="form-label">Author *</label>
+                        <input type="text" class="form-control" id="author" required>
                     </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">ISBN *</label>
+                            <input type="text" class="form-control" id="isbn" required pattern="[0-9]{10,13}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <input type="text" class="form-control" id="category">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Published Year</label>
+                            <input type="number" class="form-control" id="publicationYear" min="1000" max="2100">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Quantity *</label>
+                            <input type="number" class="form-control" id="quantity" required min="1" value="1">
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label for="bookISBN">ISBN *</label>
-                        <input type="text" id="bookISBN" required>
+                        <label class="form-label">Book File (PDF/EPUB)</label>
+                        <div class="file-upload" onclick="document.getElementById('bookFile').click()">
+                            <input type="file" id="bookFile" accept=".pdf,.epub,.mobi" onchange="updateFileName(this)">
+                            <div class="file-upload-label">
+                                <span>📎</span>
+                                <span>Click to upload or drag and drop</span>
+                                <span style="font-size: 0.85rem;">PDF, EPUB up to 10MB</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="bookCategory">Category</label>
-                        <input type="text" id="bookCategory">
-                    </div>
-                    <div class="form-group">
-                        <label for="bookPublishedYear">Published Year</label>
-                        <input type="number" id="bookPublishedYear" min="1000" max="2099">
-                    </div>
-                    <div class="form-group">
-                        <label for="bookQuantity">Quantity *</label>
-                        <input type="number" id="bookQuantity" required min="1">
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn-primary">Add Book</button>
-                        <button type="button" class="btn-secondary" onclick="toggleAddBookForm()">Cancel</button>
+
+                    <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                        <button type="button" class="btn btn-outline" onclick="closeModal('addBookModal')">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Book</button>
                     </div>
                 </form>
             </div>
         </div>
+    </div>
 
-        <!-- Books Grid -->
-        <main class="main-content">
-            <div id="booksContainer" class="books-grid">
-                <div class="loading">Loading books...</div>
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Welcome Back</h2>
+                <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
             </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2026 Library Management System. All rights reserved.</p>
-        </footer>
-    </div>
-
-    <!-- Modal for Book Details -->
-    <div id="bookModal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close" onclick="closeBookModal()">&times;</span>
-            <div id="bookDetails"></div>
+            <div class="modal-body">
+                <form onsubmit="login(event)">
+                    <div class="form-group">
+                        <label class="form-label">Username or Email</label>
+                        <input type="text" class="form-control" id="loginUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" required>
+                    </div>
+                    <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                        <button type="button" class="btn btn-outline" onclick="closeModal('loginModal')">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
-    <!-- Login / Register Modals -->
-    <div id="loginModal" class="modal hidden">
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
         <div class="modal-content">
-            <span class="close" onclick="closeLoginModal()">&times;</span>
-            <h2>Sign in</h2>
-            <form id="loginForm" onsubmit="login(event)">
-                <div class="form-group">
-                    <label for="loginIdentifier">Username or Email</label>
-                    <input id="loginIdentifier" required />
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input id="loginPassword" type="password" required />
-                </div>
-                <div class="form-actions">
-                    <button class="btn-primary" type="submit">Sign in</button>
-                    <button type="button" class="btn-secondary" onclick="closeLoginModal()">Cancel</button>
-                </div>
-            </form>
+            <div class="modal-header">
+                <h2>Create Account</h2>
+                <button class="close-btn" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="register(event)">
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" id="regUsername" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">First name</label>
+                            <input type="text" class="form-control" id="regFirstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="regLastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="regEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" id="regPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="regConfirmPassword" required>
+                    </div>
+                    <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                        <button type="button" class="btn btn-outline" onclick="closeModal('registerModal')">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Create account</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
-    <div id="registerModal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close" onclick="closeRegisterModal()">&times;</span>
-            <h2>Create account</h2>
-            <form id="registerForm" onsubmit="register(event)">
-                <div class="form-group">
-                    <label for="regUsername">Username</label>
-                    <input id="regUsername" required />
-                </div>
-                <div class="form-group">
-                    <label for="regFirst">First name</label>
-                    <input id="regFirst" required />
-                </div>
-                <div class="form-group">
-                    <label for="regLast">Last name</label>
-                    <input id="regLast" required />
-                </div>
-                <div class="form-group">
-                    <label for="regEmail">Email</label>
-                    <input id="regEmail" type="email" required />
-                </div>
-                <div class="form-group">
-                    <label for="regPassword">Password</label>
-                    <input id="regPassword" type="password" required />
-                </div>
-                <div class="form-group">
-                    <label for="regConfirm">Confirm Password</label>
-                    <input id="regConfirm" type="password" required />
-                </div>
-                <div class="form-actions">
-                    <button class="btn-primary" type="submit">Create account</button>
-                    <button type="button" class="btn-secondary" onclick="closeRegisterModal()">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
 
-    <script src="js/api.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/auth.js"></script>
+    <script>
+        // API Base URL
+        const API_BASE = '/api';
+
+        // Mock data for demo
+        let books = [
+            {
+                id: 1,
+                title: 'The Great Gatsby',
+                author: 'F. Scott Fitzgerald',
+                isbn: '9780743273565',
+                category: 'Fiction',
+                publicationYear: 1925,
+                quantity: 3,
+                available: 2
+            },
+            {
+                id: 2,
+                title: 'Clean Code',
+                author: 'Robert C. Martin',
+                isbn: '9780132350884',
+                category: 'Programming',
+                publicationYear: 2008,
+                quantity: 5,
+                available: 3
+            },
+            {
+                id: 3,
+                title: 'The Pragmatic Programmer',
+                author: 'David Thomas',
+                isbn: '9780201616224',
+                category: 'Programming',
+                publicationYear: 1999,
+                quantity: 2,
+                available: 1
+            }
+        ];
+
+        // Load books on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBooks();
+            updateStats();
+        });
+
+        // Load books function
+        function loadBooks() {
+            const grid = document.getElementById('booksGrid');
+            
+            if (!books || books.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1;">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📚</div>
+                            <h3>No books found</h3>
+                            <p>Start by adding your first book to the library</p>
+                            <button class="btn btn-primary" onclick="showAddBookModal()">
+                                + Add Your First Book
+                            </button>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = books.map(book => `
+                <div class="book-card">
+                    <div class="book-cover ${book.coverImage ? 'has-image' : ''}">
+                        ${book.coverImage ? `<img src="${book.coverImage}" alt="${book.title}">` : ''}
+                    </div>
+                    <div class="book-content">
+                        <h3 class="book-title">${book.title}</h3>
+                        <div class="book-author">
+                            <span>✍️</span>
+                            ${book.author}
+                        </div>
+                        <div class="book-meta">
+                            <span class="badge ${book.category === 'Programming' ? 'badge-primary' : ''}">${book.category || 'Uncategorized'}</span>
+                            <span class="badge">📅 ${book.publicationYear || 'N/A'}</span>
+                            <span class="badge ${book.available > 0 ? 'badge-success' : ''}">
+                                ${book.available || 0}/${book.quantity || 1} available
+                            </span>
+                        </div>
+                        <div class="book-footer">
+                            <div class="file-info">
+                                <span>📎</span>
+                                <span>${book.fileName || 'No file'}</span>
+                            </div>
+                            <div>
+                                <button class="icon-btn" onclick="viewBookDetails(${book.id})" title="View details">
+                                    <span>👁️</span>
+                                </button>
+                                <button class="icon-btn" onclick="borrowBook(${book.id})" title="Borrow">
+                                    <span>📖</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update statistics
+        function updateStats() {
+            document.getElementById('totalBooks').textContent = books.length;
+            const available = books.reduce((sum, book) => sum + (book.available || 0), 0);
+            document.getElementById('availableBooks').textContent = available;
+        }
+
+        // Search function
+        function searchBooks() {
+            const term = document.getElementById('searchInput').value.toLowerCase();
+            if (!term) {
+                loadBooks();
+                return;
+            }
+
+            const filtered = books.filter(book => 
+                book.title.toLowerCase().includes(term) ||
+                book.author.toLowerCase().includes(term) ||
+                (book.isbn && book.isbn.includes(term)) ||
+                (book.category && book.category.toLowerCase().includes(term))
+            );
+
+            const grid = document.getElementById('booksGrid');
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1;">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🔍</div>
+                            <h3>No results found</h3>
+                            <p>Try different search terms</p>
+                            <button class="btn btn-outline" onclick="resetSearch()">
+                                Clear search
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                books = filtered;
+                loadBooks();
+            }
+        }
+
+        // Reset search
+        function resetSearch() {
+            document.getElementById('searchInput').value = '';
+            books = [
+                {
+                    id: 1,
+                    title: 'The Great Gatsby',
+                    author: 'F. Scott Fitzgerald',
+                    isbn: '9780743273565',
+                    category: 'Fiction',
+                    publicationYear: 1925,
+                    quantity: 3,
+                    available: 2
+                },
+                {
+                    id: 2,
+                    title: 'Clean Code',
+                    author: 'Robert C. Martin',
+                    isbn: '9780132350884',
+                    category: 'Programming',
+                    publicationYear: 2008,
+                    quantity: 5,
+                    available: 3
+                },
+                {
+                    id: 3,
+                    title: 'The Pragmatic Programmer',
+                    author: 'David Thomas',
+                    isbn: '9780201616224',
+                    category: 'Programming',
+                    publicationYear: 1999,
+                    quantity: 2,
+                    available: 1
+                }
+            ];
+            loadBooks();
+        }
+
+        // Debounced search
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(searchBooks, 300);
+        });
+
+        // Modal functions
+        function showAddBookModal() {
+            document.getElementById('addBookModal').classList.add('show');
+        }
+
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.add('show');
+        }
+
+        function showRegisterModal() {
+            document.getElementById('registerModal').classList.add('show');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = (event) => {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('show');
+            }
+        }
+
+        // Add book
+        function addBook(event) {
+            event.preventDefault();
+            
+            const newBook = {
+                id: books.length + 1,
+                title: document.getElementById('title').value,
+                author: document.getElementById('author').value,
+                isbn: document.getElementById('isbn').value,
+                category: document.getElementById('category').value || 'Uncategorized',
+                publicationYear: parseInt(document.getElementById('publicationYear').value) || new Date().getFullYear(),
+                quantity: parseInt(document.getElementById('quantity').value),
+                available: parseInt(document.getElementById('quantity').value),
+                fileName: document.getElementById('bookFile').files[0]?.name
+            };
+
+            books.push(newBook);
+            loadBooks();
+            updateStats();
+            closeModal('addBookModal');
+            showToast('Book added successfully!', 'success');
+            
+            // Reset form
+            document.getElementById('addBookForm').reset();
+        }
+
+        // Login
+        function login(event) {
+            event.preventDefault();
+            closeModal('loginModal');
+            showToast('Welcome back!', 'success');
+        }
+
+        // Register
+        function register(event) {
+            event.preventDefault();
+            const password = document.getElementById('regPassword').value;
+            const confirm = document.getElementById('regConfirmPassword').value;
+            
+            if (password !== confirm) {
+                showToast('Passwords do not match!', 'error');
+                return;
+            }
+            
+            closeModal('registerModal');
+            showToast('Account created successfully!', 'success');
+        }
+
+        // View book details
+        function viewBookDetails(id) {
+            const book = books.find(b => b.id === id);
+            if (book) {
+                showToast(`📖 ${book.title} by ${book.author}`, 'info');
+            }
+        }
+
+        // Borrow book
+        function borrowBook(id) {
+            const book = books.find(b => b.id === id);
+            if (book && book.available > 0) {
+                book.available--;
+                updateStats();
+                loadBooks();
+                showToast(`You borrowed "${book.title}"`, 'success');
+            } else {
+                showToast('Book not available', 'error');
+            }
+        }
+
+        // Update file name display
+        function updateFileName(input) {
+            const label = input.closest('.file-upload').querySelector('.file-upload-label span:last-child');
+            if (input.files[0]) {
+                label.textContent = input.files[0].name;
+            }
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `
+                <span>${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}</span>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+    </script>
 </body>
 </html>

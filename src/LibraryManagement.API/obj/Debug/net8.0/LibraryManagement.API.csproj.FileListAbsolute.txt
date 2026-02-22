@@ -300,3 +300,13 @@
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/publish/web.config
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/web.config
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/appsettings.Development.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/appsettings.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/LibraryManagement.API.deps.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/LibraryManagement.API.runtimeconfig.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/publish/appsettings.Development.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/publish/appsettings.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/publish/LibraryManagement.API.deps.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/publish/LibraryManagement.API.runtimeconfig.json

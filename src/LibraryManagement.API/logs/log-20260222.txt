@@ -1,0 +1,15 @@
+2026-02-22 20:41:20.274 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-02-22 20:41:20.364 +08:00 [INF] Starting Library Management API
+2026-02-22 20:41:20.383 +08:00 [INF] User profile is available. Using '/home/jhnlstrlclcn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-02-22 20:41:20.473 +08:00 [INF] Now listening on: http://localhost:5252
+2026-02-22 20:41:20.476 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-22 20:41:20.477 +08:00 [INF] Hosting environment: Development
+2026-02-22 20:41:20.477 +08:00 [INF] Content root path: /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API
+2026-02-22 20:42:53.646 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-22 20:42:53.745 +08:00 [INF] Executing endpoint 'Fallback {*path:nonfile}'
+2026-02-22 20:42:53.758 +08:00 [INF] Executed endpoint 'Fallback {*path:nonfile}'
+2026-02-22 20:42:53.766 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 200 null text/html 122.6307ms
+2026-02-22 20:42:54.317 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/favicon.ico - null null
+2026-02-22 20:42:54.338 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/favicon.ico - 404 0 null 20.5009ms
+2026-02-22 20:42:54.341 +08:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5252/favicon.ico, Response status code: 404
