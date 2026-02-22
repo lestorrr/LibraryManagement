@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy the solution file and project files
+# Copy solution and all project files
 COPY ["LibraryManagement.sln", "."]
 COPY ["src/LibraryManagement.Domain/LibraryManagement.Domain.csproj", "src/LibraryManagement.Domain/"]
 COPY ["src/LibraryManagement.Application/LibraryManagement.Application.csproj", "src/LibraryManagement.Application/"]
@@ -9,7 +9,7 @@ COPY ["src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csp
 COPY ["src/LibraryManagement.API/LibraryManagement.API.csproj", "src/LibraryManagement.API/"]
 
 # Restore dependencies
-RUN dotnet restore "src/LibraryManagement.API/LibraryManagement.API.csproj"
+RUN dotnet restore "LibraryManagement.sln"
 
 # Copy all source code
 COPY src/. ./src/
@@ -23,9 +23,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
-
-# Set environment variable for port (Render uses this)
-ENV ASPNETCORE_URLS=http://+:80
 
 # Copy published files
 COPY --from=build /app/publish .
