@@ -7,6 +7,8 @@ COPY ["src/LibraryManagement.Domain/LibraryManagement.Domain.csproj", "src/Libra
 COPY ["src/LibraryManagement.Application/LibraryManagement.Application.csproj", "src/LibraryManagement.Application/"]
 COPY ["src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj", "src/LibraryManagement.Infrastructure/"]
 COPY ["src/LibraryManagement.API/LibraryManagement.API.csproj", "src/LibraryManagement.API/"]
+COPY ["tests/LibraryManagement.Tests/LibraryManagement.Tests.csproj", "tests/LibraryManagement.Tests/"]
+COPY ["tests/LibraryManagement.IntegrationTests/LibraryManagement.IntegrationTests.csproj", "tests/LibraryManagement.IntegrationTests/"]
 
 # Restore dependencies for the entire solution
 RUN dotnet restore "LibraryManagement.sln"
