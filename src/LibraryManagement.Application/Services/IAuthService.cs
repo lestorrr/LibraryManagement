@@ -10,4 +10,7 @@ public interface IAuthService
     Task LogoutAsync();
     Task<UserDto?> GetCurrentUserAsync();
     bool IsAuthenticated();
+
+    // update profile information for currently authenticated user
+    Task<AuthResponseDto> UpdateUserProfileAsync(UpdateUserDto updateUserDto);
 }
