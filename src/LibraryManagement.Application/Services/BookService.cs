@@ -388,6 +388,20 @@ public class BookService : IBookService
         }
     }
 
+    public async Task<(byte[]? Content, string? FileName, string? ContentType)> GetBookFileAsync(Guid id)
+    {
+        try
+        {
+            var book = await _bookRepository.GetByIdAsync(id);
+            return (book?.FileContent, book?.FileName, book?.FileType);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error fetching file metadata for book ID: {BookId}", id);
+            throw;
+        }
+    }
+
     public async Task<string?> GetBookFileUrlAsync(Guid id)
     {
         try

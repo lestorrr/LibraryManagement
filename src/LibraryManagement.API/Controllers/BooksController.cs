@@ -52,6 +52,45 @@ public class BooksController : ControllerBase
         }
     }
 
+    [HttpGet("{id}/download")]
+    public async Task<IActionResult> DownloadBookFile(Guid id)
+    {
+        try
+        {
+            var (content, name, type) = await _bookService.GetBookFileAsync(id);
+            if (content == null)
+                return NotFound("No file found for this book");
+
+            var contentType = type ?? "application/octet-stream";
+            var fileName = name ?? "download";
+            return File(content, contentType, fileName);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error downloading file for book ID: {BookId}", id);
+            return StatusCode(500, "An error occurred while downloading the file");
+        }
+    }
+
+    [HttpGet("{id}/preview")]
+    public async Task<IActionResult> PreviewBookFile(Guid id)
+    {
+        try
+        {
+            var (content, name, type) = await _bookService.GetBookFileAsync(id);
+            if (content == null)
+                return NotFound("No file found for this book");
+
+            var contentType = type ?? "application/octet-stream";
+            return File(content, contentType);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error previewing file for book ID: {BookId}", id);
+            return StatusCode(500, "An error occurred while previewing the file");
+        }
+    }
+
     [HttpGet("{id}")]
     public async Task<ActionResult<BookDto>> GetBookById(Guid id)
     {
@@ -174,23 +213,7 @@ public class BooksController : ControllerBase
         }
     }
 
-    [HttpGet("{id}/download")]
-    public async Task<IActionResult> DownloadBookFile(Guid id)
-    {
-        try
-        {
-            var fileContent = await _bookService.DownloadBookFileAsync(id);
-            if (fileContent == null)
-                return NotFound("No file found for this book");
 
-            return File(fileContent, "application/octet-stream", "book.pdf");
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error downloading file for book ID: {BookId}", id);
-            return StatusCode(500, "An error occurred while downloading the file");
-        }
-    }
 
     [HttpGet("category/{category}")]
     public async Task<ActionResult<IEnumerable<BookDto>>> GetBooksByCategory(string category)

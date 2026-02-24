@@ -78,64 +78,62 @@ function createBookCard(book) {
                 </div>
             </div>
             <div class="book-card-footer">
-                <button class="btn-view" onclick="viewBookDetails('${book.id}'); event.stopPropagation();">View Details</button>
-                <button class="btn-delete" onclick="confirmDelete('${book.id}'); event.stopPropagation();">Delete</button>
+                <button class="btn-view" onclick="previewBook('${book.id}'); event.stopPropagation();">Preview</button>
+                <button class="btn-delete" onclick="downloadBook('${book.id}'); event.stopPropagation();">Download</button>
             </div>
         </div>
     `;
 }
 
-// View Book Details Modal
+// View Book Details Modal (now acts as preview)
 async function viewBookDetails(bookId) {
-    const book = await fetchBookById(bookId);
-    if (!book) return;
-    
-    const detailsHtml = `
-        <h2>${escapeHtml(book.title)}</h2>
-        <div class="book-detail-item">
-            <div class="book-detail-label">Author</div>
-            <div class="book-detail-value">${escapeHtml(book.author)}</div>
-        </div>
-        ${book.isbn ? `
-            <div class="book-detail-item">
-                <div class="book-detail-label">ISBN</div>
-                <div class="book-detail-value">${escapeHtml(book.isbn)}</div>
-            </div>
-        ` : ''}
-        ${book.category ? `
-            <div class="book-detail-item">
-                <div class="book-detail-label">Category</div>
-                <div class="book-detail-value">${escapeHtml(book.category)}</div>
-            </div>
-        ` : ''}
-        ${book.publishedYear ? `
-            <div class="book-detail-item">
-                <div class="book-detail-label">Published Year</div>
-                <div class="book-detail-value">${book.publishedYear}</div>
-            </div>
-        ` : ''}
-        <div class="book-detail-item">
-            <div class="book-detail-label">Quantity</div>
-            <div class="book-detail-value">${book.quantity}</div>
-        </div>
-        <div class="book-detail-item">
-            <div class="book-detail-label">Status</div>
-            <div class="book-detail-value">
-                <span class="status-badge status-${book.status === 0 ? 'available' : 'issued'}">
-                    ${book.status === 0 ? 'Available' : 'Issued'}
-                </span>
-            </div>
-        </div>
-        ${book.createdAt ? `
-            <div class="book-detail-item">
-                <div class="book-detail-label">Added</div>
-                <div class="book-detail-value">${new Date(book.createdAt).toLocaleDateString()}</div>
-            </div>
-        ` : ''}
-    `;
-    
-    document.getElementById('bookDetails').innerHTML = detailsHtml;
-    document.getElementById('bookModal').classList.remove('hidden');
+    // delegate to preview behaviour
+    await previewBook(bookId);
+}
+
+// previewBook implementation reused from dev version
+async function previewBook(id) {
+    try {
+        const fileResp = await fetch(`/api/books/${id}/preview`, { credentials: 'include' });
+        if (!fileResp.ok) {
+            showToast('Could not load book file', 'error');
+            return;
+        }
+        const blob = await fileResp.blob();
+        const url = URL.createObjectURL(blob);
+        // show in some modal or new window; for simplicity open new tab
+        window.open(url, '_blank');
+    } catch (err) {
+        console.error('Error previewing book:', err);
+        showToast('Error loading preview', 'error');
+    }
+}
+
+// direct download helper
+async function downloadBook(id) {
+    try {
+        const resp = await fetch(`/api/books/${id}/download`, { credentials: 'include' });
+        if (!resp.ok) {
+            showToast('Could not download file', 'error');
+            return;
+        }
+        const blob = await resp.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const cd = resp.headers.get('content-disposition');
+        if (cd) {
+            const match = cd.match(/filename="?([^";]+)"?/);
+            if (match) a.download = match[1];
+        }
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+    } catch (err) {
+        console.error('Error downloading book:', err);
+        showToast('Error downloading file', 'error');
+    }
 }
 
 // Close Modal

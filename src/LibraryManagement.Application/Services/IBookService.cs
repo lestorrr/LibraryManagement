@@ -15,6 +15,11 @@ public interface IBookService
     Task<BookDto?> UpdateBookAsync(Guid id, CreateBookDto updateBookDto);
     Task<BookDto?> UpdateBookAsync(Guid id, UpdateBookDto updateBookDto);
     Task<byte[]?> DownloadBookFileAsync(Guid id);
+        
+    /// <summary>
+    /// Retrieves the file bytes along with its original name and content type.
+    /// </summary>
+    Task<(byte[]? Content, string? FileName, string? ContentType)> GetBookFileAsync(Guid id);
     Task<bool> DeleteBookAsync(Guid id);
     Task<bool> BookExistsAsync(string isbn);
     Task<IEnumerable<BookDto>> SearchBooksAsync(string searchTerm);
