@@ -536,6 +536,40 @@
             }
         }
 
+        /* Upload Progress */
+        .upload-progress {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            z-index: 1200;
+            min-width: 300px;
+            display: none;
+        }
+
+        .upload-progress.show {
+            display: block;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
         /* Toast Notifications */
         .toast-container {
             position: fixed;
@@ -858,6 +892,15 @@
     <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
 
+    <!-- Upload Progress -->
+    <div class="upload-progress" id="uploadProgress">
+        <h3 style="margin-bottom:1rem;text-align:center;">Uploading Book...</h3>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width:0%;"></div>
+        </div>
+        <div style="text-align:center;color:var(--gray-600);font-size:0.9rem;" id="progressText">0 MB / 0 MB (0%)</div>
+    </div>
+
     <script>
         // API Base URL
         const API_BASE = '/api';
@@ -1178,30 +1221,53 @@
             }
             const form = document.getElementById('addBookForm');
             const fd = new FormData(form);
-            // include quantity value explicitly
             fd.set('Quantity', document.getElementById('quantity').value);
             fd.set('Publisher', document.getElementById('publisher').value || '');
             const pc = document.getElementById('pageCount').value;
             if(pc) fd.set('PageCount', pc);
 
+            const progressDiv = document.getElementById('uploadProgress');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
             try {
-                const resp = await fetch('/api/books', {
-                    method: 'POST',
-                    credentials: 'include',
-                    body: fd
+                progressDiv.classList.add('show');
+                
+                const xhr = new XMLHttpRequest();
+                
+                xhr.upload.addEventListener('progress', (e) => {
+                    if (e.lengthComputable) {
+                        const percent = (e.loaded / e.total) * 100;
+                        const loadedMB = (e.loaded / (1024 * 1024)).toFixed(2);
+                        const totalMB = (e.total / (1024 * 1024)).toFixed(2);
+                        progressFill.style.width = percent + '%';
+                        progressText.textContent = `${loadedMB} MB / ${totalMB} MB (${percent.toFixed(0)}%)`;
+                    }
                 });
-                if (resp.ok) {
-                    const created = await resp.json();
-                    showToast('Book added successfully!', 'success');
-                    closeModal('addBookModal');
-                    await loadBooks();
-                    updateStats();
-                    form.reset();
-                } else {
-                    const err = await resp.text();
-                    showToast(err || 'Failed to add book', 'error');
-                }
+                
+                xhr.addEventListener('load', async () => {
+                    progressDiv.classList.remove('show');
+                    if (xhr.status === 201) {
+                        showToast('Book added successfully!', 'success');
+                        closeModal('addBookModal');
+                        await loadBooks();
+                        updateStats();
+                        form.reset();
+                    } else {
+                        showToast(xhr.responseText || 'Failed to add book', 'error');
+                    }
+                });
+                
+                xhr.addEventListener('error', () => {
+                    progressDiv.classList.remove('show');
+                    showToast('An error occurred while adding book', 'error');
+                });
+                
+                xhr.open('POST', '/api/books');
+                xhr.withCredentials = true;
+                xhr.send(fd);
             } catch (error) {
+                progressDiv.classList.remove('show');
                 console.error('Error adding book:', error);
                 showToast('An error occurred while adding book', 'error');
             }
