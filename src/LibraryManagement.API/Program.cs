@@ -161,22 +161,29 @@ app.MapGet("/", async context =>
 });
 
 // Ensure database is created
-using (var scope = app.Services.CreateScope())
+try
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<LibraryContext>();
-    if (dbContext.Database.IsNpgsql())
+    using (var scope = app.Services.CreateScope())
     {
-        dbContext.Database.Migrate();
-    }
-    else
-    {
-        var dbPath = Path.GetDirectoryName(dbContext.Database.GetConnectionString()?.Replace("Data Source=", ""));
-        if (!string.IsNullOrEmpty(dbPath) && !Directory.Exists(dbPath))
+        var dbContext = scope.ServiceProvider.GetRequiredService<LibraryContext>();
+        if (dbContext.Database.IsNpgsql())
         {
-            Directory.CreateDirectory(dbPath);
+            dbContext.Database.Migrate();
         }
-        dbContext.Database.EnsureCreated();
+        else
+        {
+            var dbPath = Path.GetDirectoryName(dbContext.Database.GetConnectionString()?.Replace("Data Source=", ""));
+            if (!string.IsNullOrEmpty(dbPath) && !Directory.Exists(dbPath))
+            {
+                Directory.CreateDirectory(dbPath);
+            }
+            dbContext.Database.EnsureCreated();
+        }
     }
+}
+catch (Exception ex)
+{
+    Log.Warning(ex, "Database migration failed, continuing without migration");
 }
 
 try
