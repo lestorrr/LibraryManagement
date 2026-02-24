@@ -13,6 +13,7 @@ public class LibraryContext : DbContext
     public DbSet<Member> Members { get; set; }
     public DbSet<Loan> Loans { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<FileEntity> Files { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -94,6 +95,21 @@ public class LibraryContext : DbContext
             entity.HasOne(e => e.Member)
                 .WithMany(m => m.Loans)
                 .HasForeignKey(e => e.MemberId)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
+
+        // File configuration
+        modelBuilder.Entity<FileEntity>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.FileName).IsRequired().HasMaxLength(255);
+            entity.Property(e => e.OriginalFileName).IsRequired().HasMaxLength(255);
+            entity.Property(e => e.ContentType).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.FilePath).IsRequired().HasMaxLength(500);
+            
+            entity.HasOne(e => e.User)
+                .WithMany()
+                .HasForeignKey(e => e.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
         });
     }

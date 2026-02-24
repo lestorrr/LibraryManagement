@@ -39,5 +39,8 @@ public class AutoMapperProfile : Profile
         // Update mappings
         CreateMap<UpdateProfileDto, User>()
             .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+        // File mappings
+        CreateMap<FileEntity, FileDto>();
     }
 }

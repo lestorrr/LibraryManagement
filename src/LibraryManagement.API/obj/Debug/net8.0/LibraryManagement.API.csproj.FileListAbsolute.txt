@@ -310,3 +310,5 @@
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/publish/appsettings.json
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/publish/LibraryManagement.API.deps.json
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/publish/LibraryManagement.API.runtimeconfig.json
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Npgsql.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll

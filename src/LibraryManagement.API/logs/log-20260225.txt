@@ -275,3 +275,199 @@ ORDER BY "b"."CreatedAt" DESC, "b"."Id", "u"."Id"
 2026-02-25 00:46:50.759 +08:00 [INF] Executed action LibraryManagement.API.Controllers.UserController.GetMyBooks (LibraryManagement.API) in 219.9438ms
 2026-02-25 00:46:50.760 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.UserController.GetMyBooks (LibraryManagement.API)'
 2026-02-25 00:46:50.760 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/user/books - 200 null application/json; charset=utf-8 221.3251ms
+2026-02-25 01:57:51.171 +08:00 [INF] Application is shutting down...
+eters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-02-25 01:56:47.939 +08:00 [INF] Starting Library Management API
+2026-02-25 01:56:47.957 +08:00 [INF] User profile is available. Using '/home/jhnlstrlclcn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-02-25 01:56:48.079 +08:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5252: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-25 01:56:48.101 +08:00 [FTL] Application failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5252: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/Program.cs:line 165
+2026-02-25 02:00:12.550 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-02-25 02:00:12.670 +08:00 [INF] Starting Library Management API
+2026-02-25 02:00:12.692 +08:00 [INF] User profile is available. Using '/home/jhnlstrlclcn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-02-25 02:00:12.808 +08:00 [INF] Now listening on: http://localhost:5252
+2026-02-25 02:00:12.811 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-25 02:00:12.812 +08:00 [INF] Hosting environment: Development
+2026-02-25 02:00:12.813 +08:00 [INF] Content root path: /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API
+2026-02-25 02:00:18.727 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/ - null null
+2026-02-25 02:00:18.816 +08:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-02-25 02:00:18.818 +08:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-02-25 02:00:18.822 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/ - 302 0 null 98.7951ms
+2026-02-25 02:00:18.829 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/landing.html - null null
+2026-02-25 02:00:18.846 +08:00 [INF] The file /landing.html was not modified
+2026-02-25 02:00:18.847 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/landing.html - 304 null text/html 17.9358ms
+2026-02-25 02:00:19.504 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/auth/me - null null
+2026-02-25 02:00:19.504 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/books - null null
+2026-02-25 02:00:19.519 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API)'
+2026-02-25 02:00:19.532 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.AuthController.GetCurrentUser (LibraryManagement.API)'
+2026-02-25 02:00:19.562 +08:00 [INF] Route matched with {action = "GetCurrentUser", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.UserDto]] GetCurrentUser() on controller LibraryManagement.API.Controllers.AuthController (LibraryManagement.API).
+2026-02-25 02:00:19.562 +08:00 [INF] Route matched with {action = "GetAllBooks", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LibraryManagement.Application.DTOs.BookDto]]] GetAllBooks() on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-25 02:00:20.330 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."Bio", "u"."CreatedAt", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastLoginAt", "u"."LastName", "u"."PasswordHash", "u"."ProfilePictureUrl", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Id" = @__get_Item_0
+LIMIT 1
+2026-02-25 02:00:20.344 +08:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CoverImageUrl", "b"."CreatedAt", "b"."Description", "b"."FileContent", "b"."FileName", "b"."FileSize", "b"."FileType", "b"."FileUrl", "b"."ISBN", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt", "b"."UserId", "u"."Id", "l"."Id", "l"."BookId", "l"."DueDate", "l"."LateFee", "l"."LoanDate", "l"."MemberId", "l"."Notes", "l"."ReturnDate", "u"."Bio", "u"."CreatedAt", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastLoginAt", "u"."LastName", "u"."PasswordHash", "u"."ProfilePictureUrl", "u"."Username"
+FROM "Books" AS "b"
+INNER JOIN "Users" AS "u" ON "b"."UserId" = "u"."Id"
+LEFT JOIN "Loans" AS "l" ON "b"."Id" = "l"."BookId"
+WHERE "b"."Status" = 0
+ORDER BY "b"."Id", "u"."Id"
+2026-02-25 02:00:20.556 +08:00 [INF] Executing OkObjectResult, writing value of type 'LibraryManagement.Application.DTOs.UserDto'.
+2026-02-25 02:00:20.592 +08:00 [INF] Executed action LibraryManagement.API.Controllers.AuthController.GetCurrentUser (LibraryManagement.API) in 1023.143ms
+2026-02-25 02:00:20.593 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.AuthController.GetCurrentUser (LibraryManagement.API)'
+2026-02-25 02:00:20.602 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/auth/me - 200 null application/json; charset=utf-8 1098.1142ms
+2026-02-25 02:00:20.606 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/index.html - null null
+2026-02-25 02:00:20.611 +08:00 [INF] The file /index.html was not modified
+2026-02-25 02:00:20.612 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/index.html - 304 null text/html 5.6433ms
+2026-02-25 02:00:20.673 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LibraryManagement.Application.DTOs.BookDto, LibraryManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-25 02:00:20.730 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API) in 1166.4647ms
+2026-02-25 02:00:20.731 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.GetAllBooks (LibraryManagement.API)'
+2026-02-25 02:00:20.732 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/books - 200 null application/json; charset=utf-8 1228.5253ms
+2026-02-25 02:00:20.839 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/auth/me - null null
+2026-02-25 02:00:20.852 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.AuthController.GetCurrentUser (LibraryManagement.API)'
+2026-02-25 02:00:20.855 +08:00 [INF] Route matched with {action = "GetCurrentUser", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.UserDto]] GetCurrentUser() on controller LibraryManagement.API.Controllers.AuthController (LibraryManagement.API).
+2026-02-25 02:00:21.000 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."Bio", "u"."CreatedAt", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastLoginAt", "u"."LastName", "u"."PasswordHash", "u"."ProfilePictureUrl", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Id" = @__get_Item_0
+LIMIT 1
+2026-02-25 02:00:21.003 +08:00 [INF] Executing OkObjectResult, writing value of type 'LibraryManagement.Application.DTOs.UserDto'.
+2026-02-25 02:00:21.004 +08:00 [INF] Executed action LibraryManagement.API.Controllers.AuthController.GetCurrentUser (LibraryManagement.API) in 145.402ms
+2026-02-25 02:00:21.004 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.AuthController.GetCurrentUser (LibraryManagement.API)'
+2026-02-25 02:00:21.005 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/auth/me - 200 null application/json; charset=utf-8 165.8989ms
+2026-02-25 02:00:21.005 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/auth/me - null null
+2026-02-25 02:00:21.010 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.AuthController.GetCurrentUser (LibraryManagement.API)'
+2026-02-25 02:00:21.010 +08:00 [INF] Route matched with {action = "GetCurrentUser", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.UserDto]] GetCurrentUser() on controller LibraryManagement.API.Controllers.AuthController (LibraryManagement.API).
+2026-02-25 02:00:21.013 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/books/mybooks - null null
+2026-02-25 02:00:21.018 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.GetMyBooks (LibraryManagement.API)'
+2026-02-25 02:00:21.019 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."Bio", "u"."CreatedAt", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastLoginAt", "u"."LastName", "u"."PasswordHash", "u"."ProfilePictureUrl", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Id" = @__get_Item_0
+LIMIT 1
+2026-02-25 02:00:21.021 +08:00 [INF] Executing OkObjectResult, writing value of type 'LibraryManagement.Application.DTOs.UserDto'.
+2026-02-25 02:00:21.021 +08:00 [INF] Executed action LibraryManagement.API.Controllers.AuthController.GetCurrentUser (LibraryManagement.API) in 10.4941ms
+2026-02-25 02:00:21.022 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.AuthController.GetCurrentUser (LibraryManagement.API)'
+2026-02-25 02:00:21.022 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/auth/me - 200 null application/json; charset=utf-8 16.5298ms
+2026-02-25 02:00:21.033 +08:00 [INF] Route matched with {action = "GetMyBooks", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LibraryManagement.Application.DTOs.BookDto]]] GetMyBooks() on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-25 02:00:21.230 +08:00 [INF] Executed DbCommand (159ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CoverImageUrl", "b"."CreatedAt", "b"."Description", "b"."FileContent", "b"."FileName", "b"."FileSize", "b"."FileType", "b"."FileUrl", "b"."ISBN", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt", "b"."UserId", "u"."Id", "l"."Id", "l"."BookId", "l"."DueDate", "l"."LateFee", "l"."LoanDate", "l"."MemberId", "l"."Notes", "l"."ReturnDate", "u"."Bio", "u"."CreatedAt", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastLoginAt", "u"."LastName", "u"."PasswordHash", "u"."ProfilePictureUrl", "u"."Username"
+FROM "Books" AS "b"
+INNER JOIN "Users" AS "u" ON "b"."UserId" = "u"."Id"
+LEFT JOIN "Loans" AS "l" ON "b"."Id" = "l"."BookId"
+WHERE "b"."UserId" = @__userId_0
+ORDER BY "b"."CreatedAt" DESC, "b"."Id", "u"."Id"
+2026-02-25 02:00:21.329 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LibraryManagement.Application.DTOs.BookDto, LibraryManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-25 02:00:21.329 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.GetMyBooks (LibraryManagement.API) in 295.9018ms
+2026-02-25 02:00:21.330 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.GetMyBooks (LibraryManagement.API)'
+2026-02-25 02:00:21.330 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/books/mybooks - 200 null application/json; charset=utf-8 317.0312ms
+2026-02-25 02:00:21.330 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/books/mybooks - null null
+2026-02-25 02:00:21.334 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.GetMyBooks (LibraryManagement.API)'
+2026-02-25 02:00:21.335 +08:00 [INF] Route matched with {action = "GetMyBooks", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LibraryManagement.Application.DTOs.BookDto]]] GetMyBooks() on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-25 02:00:21.508 +08:00 [INF] Executed DbCommand (168ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CoverImageUrl", "b"."CreatedAt", "b"."Description", "b"."FileContent", "b"."FileName", "b"."FileSize", "b"."FileType", "b"."FileUrl", "b"."ISBN", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt", "b"."UserId", "u"."Id", "l"."Id", "l"."BookId", "l"."DueDate", "l"."LateFee", "l"."LoanDate", "l"."MemberId", "l"."Notes", "l"."ReturnDate", "u"."Bio", "u"."CreatedAt", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastLoginAt", "u"."LastName", "u"."PasswordHash", "u"."ProfilePictureUrl", "u"."Username"
+FROM "Books" AS "b"
+INNER JOIN "Users" AS "u" ON "b"."UserId" = "u"."Id"
+LEFT JOIN "Loans" AS "l" ON "b"."Id" = "l"."BookId"
+WHERE "b"."UserId" = @__userId_0
+ORDER BY "b"."CreatedAt" DESC, "b"."Id", "u"."Id"
+2026-02-25 02:00:21.591 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LibraryManagement.Application.DTOs.BookDto, LibraryManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-25 02:00:21.591 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.GetMyBooks (LibraryManagement.API) in 256.4466ms
+2026-02-25 02:00:21.592 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.GetMyBooks (LibraryManagement.API)'
+2026-02-25 02:00:21.592 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/books/mybooks - 200 null application/json; charset=utf-8 261.9601ms
+2026-02-25 02:00:28.126 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/user/profile - null null
+2026-02-25 02:00:28.130 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.UserController.GetProfile (LibraryManagement.API)'
+2026-02-25 02:00:28.137 +08:00 [INF] Route matched with {action = "GetProfile", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[LibraryManagement.Application.DTOs.UserDto]] GetProfile() on controller LibraryManagement.API.Controllers.UserController (LibraryManagement.API).
+2026-02-25 02:00:28.146 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."Bio", "u"."CreatedAt", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastLoginAt", "u"."LastName", "u"."PasswordHash", "u"."ProfilePictureUrl", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Id" = @__get_Item_0
+LIMIT 1
+2026-02-25 02:00:28.148 +08:00 [INF] Executing OkObjectResult, writing value of type 'LibraryManagement.Application.DTOs.UserDto'.
+2026-02-25 02:00:28.149 +08:00 [INF] Executed action LibraryManagement.API.Controllers.UserController.GetProfile (LibraryManagement.API) in 11.0191ms
+2026-02-25 02:00:28.150 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.UserController.GetProfile (LibraryManagement.API)'
+2026-02-25 02:00:28.151 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/user/profile - 200 null application/json; charset=utf-8 24.5533ms
+2026-02-25 02:00:28.157 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/user/books - null null
+2026-02-25 02:00:28.160 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.UserController.GetMyBooks (LibraryManagement.API)'
+2026-02-25 02:00:28.168 +08:00 [INF] Route matched with {action = "GetMyBooks", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LibraryManagement.Application.DTOs.BookDto]]] GetMyBooks() on controller LibraryManagement.API.Controllers.UserController (LibraryManagement.API).
+2026-02-25 02:00:28.407 +08:00 [INF] Executed DbCommand (234ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CoverImageUrl", "b"."CreatedAt", "b"."Description", "b"."FileContent", "b"."FileName", "b"."FileSize", "b"."FileType", "b"."FileUrl", "b"."ISBN", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt", "b"."UserId", "u"."Id", "l"."Id", "l"."BookId", "l"."DueDate", "l"."LateFee", "l"."LoanDate", "l"."MemberId", "l"."Notes", "l"."ReturnDate", "u"."Bio", "u"."CreatedAt", "u"."Email", "u"."FirstName", "u"."IsActive", "u"."LastLoginAt", "u"."LastName", "u"."PasswordHash", "u"."ProfilePictureUrl", "u"."Username"
+FROM "Books" AS "b"
+INNER JOIN "Users" AS "u" ON "b"."UserId" = "u"."Id"
+LEFT JOIN "Loans" AS "l" ON "b"."Id" = "l"."BookId"
+WHERE "b"."UserId" = @__userId_0
+ORDER BY "b"."CreatedAt" DESC, "b"."Id", "u"."Id"
+2026-02-25 02:00:28.519 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LibraryManagement.Application.DTOs.BookDto, LibraryManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-25 02:00:28.520 +08:00 [INF] Executed action LibraryManagement.API.Controllers.UserController.GetMyBooks (LibraryManagement.API) in 351.3237ms
+2026-02-25 02:00:28.520 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.UserController.GetMyBooks (LibraryManagement.API)'
+2026-02-25 02:00:28.520 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/user/books - 200 null application/json; charset=utf-8 363.4663ms
+2026-02-25 02:00:34.373 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5252/api/books/d8860ca1-2b69-4409-9a7d-0f04116f8b06/preview - null null
+2026-02-25 02:00:34.374 +08:00 [INF] Executing endpoint 'LibraryManagement.API.Controllers.BooksController.PreviewBookFile (LibraryManagement.API)'
+2026-02-25 02:00:34.388 +08:00 [INF] Route matched with {action = "PreviewBookFile", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PreviewBookFile(System.Guid) on controller LibraryManagement.API.Controllers.BooksController (LibraryManagement.API).
+2026-02-25 02:00:34.423 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "b"."Id", "b"."Author", "b"."Category", "b"."CoverImageUrl", "b"."CreatedAt", "b"."Description", "b"."FileContent", "b"."FileName", "b"."FileSize", "b"."FileType", "b"."FileUrl", "b"."ISBN", "b"."PageCount", "b"."PublicationYear", "b"."Publisher", "b"."Status", "b"."Title", "b"."UpdatedAt", "b"."UserId"
+FROM "Books" AS "b"
+WHERE "b"."Id" = @__get_Item_0
+LIMIT 1
+2026-02-25 02:00:34.460 +08:00 [INF] Executing FileContentResult, sending file with download name '' ...
+2026-02-25 02:00:34.542 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.PreviewBookFile (LibraryManagement.API) in 154.307ms
+2026-02-25 02:00:34.544 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.PreviewBookFile (LibraryManagement.API)'
+2026-02-25 02:00:34.547 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/books/d8860ca1-2b69-4409-9a7d-0f04116f8b06/preview - 200 22469955 application/pdf 174.1923ms

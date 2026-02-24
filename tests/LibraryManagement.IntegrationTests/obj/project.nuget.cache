@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "SK+pTPZLcyMk9nWX/+nHzXjwtmD5ohu5x2c/8Bj2WIIFxQ96bBQTNJFNqey5sVMeglRAUXxQys1ut4KbwsxzAA==",
-  "success": false,
+  "dgSpecHash": "ivqhZW6Mo3pp+O0ZhwB2LU94vX4JwRMlOLM+xNTqUwpvimsZrxMSe7+T5gOSg9qekqOIM/s7IhWs2xZkFaFrUQ==",
+  "success": true,
   "projectFilePath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/tests/LibraryManagement.IntegrationTests/LibraryManagement.IntegrationTests.csproj",
   "expectedPackageFiles": [
     "/home/jhnlstrlclcn/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
@@ -14,13 +14,13 @@
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.aspnetcore.openapi/8.0.0/microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.codecoverage/17.6.0/microsoft.codecoverage.17.6.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
-    "/home/jhnlstrlclcn/.nuget/packages/microsoft.data.sqlite.core/8.0.0/microsoft.data.sqlite.core.8.0.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.data.sqlite.core/8.0.4/microsoft.data.sqlite.core.8.0.4.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.entityframeworkcore/8.0.4/microsoft.entityframeworkcore.8.0.4.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.4/microsoft.entityframeworkcore.abstractions.8.0.4.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.4/microsoft.entityframeworkcore.analyzers.8.0.4.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.entityframeworkcore.relational/8.0.4/microsoft.entityframeworkcore.relational.8.0.4.nupkg.sha512",
-    "/home/jhnlstrlclcn/.nuget/packages/microsoft.entityframeworkcore.sqlite/8.0.0/microsoft.entityframeworkcore.sqlite.8.0.0.nupkg.sha512",
-    "/home/jhnlstrlclcn/.nuget/packages/microsoft.entityframeworkcore.sqlite.core/8.0.0/microsoft.entityframeworkcore.sqlite.core.8.0.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.entityframeworkcore.sqlite/8.0.4/microsoft.entityframeworkcore.sqlite.8.0.4.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/microsoft.entityframeworkcore.sqlite.core/8.0.4/microsoft.entityframeworkcore.sqlite.core.8.0.4.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.extensions.caching.abstractions/8.0.0/microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.extensions.caching.memory/8.0.0/microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
@@ -157,15 +157,5 @@
     "/home/jhnlstrlclcn/.nuget/packages/xunit.extensibility.execution/2.4.2/xunit.extensibility.execution.2.4.2.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/xunit.runner.visualstudio/2.4.5/xunit.runner.visualstudio.2.4.5.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore.Sqlite from 8.0.4 to 8.0.0. Reference the package directly from the project to select a different version. \n LibraryManagement.IntegrationTests -> LibraryManagement.API -> LibraryManagement.Infrastructure -> Microsoft.EntityFrameworkCore.Sqlite (>= 8.0.4) \n LibraryManagement.IntegrationTests -> LibraryManagement.API -> Microsoft.EntityFrameworkCore.Sqlite (>= 8.0.0)",
-      "libraryId": "Microsoft.EntityFrameworkCore.Sqlite",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }
