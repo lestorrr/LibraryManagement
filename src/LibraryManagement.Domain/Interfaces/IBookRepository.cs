@@ -9,4 +9,5 @@ public interface IBookRepository : IRepository<Book>
     Task<Book?> GetBookWithLoansAsync(Guid id);
     Task<IEnumerable<Book>> GetBooksByUserAsync(Guid userId);
     Task<IEnumerable<Book>> GetUserBooksWithDetailsAsync(Guid userId);
+    Task<IEnumerable<Book>> GetBorrowedBooksByMemberEmailAsync(string email);
 }

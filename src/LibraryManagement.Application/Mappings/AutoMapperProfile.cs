@@ -10,12 +10,16 @@ public class AutoMapperProfile : Profile
     {
         // Book mappings
         CreateMap<Book, BookDto>()
-            .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Username));
+            .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Username))
+            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity))
+            .ForMember(dest => dest.Available, opt => opt.MapFrom(src => src.Available));
         
         CreateMap<CreateBookDto, Book>()
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()))
             .ForMember(dest => dest.Status, opt => opt.MapFrom(src => Domain.Enums.BookStatus.Available))
             .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.UtcNow))
+            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity))
+            .ForMember(dest => dest.Available, opt => opt.MapFrom(src => src.Quantity))
             .ForMember(dest => dest.Loans, opt => opt.Ignore())
             .ForMember(dest => dest.FileContent, opt => opt.Ignore())
             .ForMember(dest => dest.FileUrl, opt => opt.Ignore())

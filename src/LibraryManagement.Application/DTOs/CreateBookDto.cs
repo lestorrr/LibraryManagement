@@ -37,4 +37,7 @@ public class CreateBookDto
     // Optional file uploads
     public IFormFile? BookFile { get; set; }
     public IFormFile? CoverImage { get; set; }
+
+    [Range(1, 10000)]
+    public int Quantity { get; set; } = 1;
 }

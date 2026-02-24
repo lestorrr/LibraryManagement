@@ -54,4 +54,14 @@ public class BookRepository : Repository<Book>, IBookRepository
             .OrderByDescending(b => b.CreatedAt)
             .ToListAsync();
     }
+
+    public async Task<IEnumerable<Book>> GetBorrowedBooksByMemberEmailAsync(string email)
+    {
+        return await _dbSet
+            .Include(b => b.Loans)
+                .ThenInclude(l => l.Member)
+            .Include(b => b.User)
+            .Where(b => b.Loans.Any(l => l.Member.Email == email))
+            .ToListAsync();
+    }
 }

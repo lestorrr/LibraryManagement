@@ -94,5 +94,27 @@ public class AuthController : ControllerBase
     {
         return Ok(new { isAuthenticated = _authService.IsAuthenticated() });
     }
+
+    [Authorize]
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateUserProfile(UpdateUserDto updateUserDto)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _authService.UpdateUserProfileAsync(updateUserDto);
+
+            if (!result.Success)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error updating user profile");
+            return StatusCode(500, new { Success = false, Message = "An error occurred while updating the profile." });
+        }
+    }
 }
- 

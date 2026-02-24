@@ -97,4 +97,16 @@ public class LibraryContext : DbContext
                 .OnDelete(DeleteBehavior.Restrict);
         });
     }
+
+    public void ClearDuplicateUsers()
+    {
+        var duplicateUsers = Users
+            .GroupBy(u => u.Username)
+            .Where(g => g.Count() > 1)
+            .SelectMany(g => g.Skip(1))
+            .ToList();
+
+        Users.RemoveRange(duplicateUsers);
+        SaveChanges();
+    }
 }

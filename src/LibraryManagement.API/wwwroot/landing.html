@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LibraryFlow · Welcome</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -34,8 +36,6 @@
             min-height: 100vh;
             color: var(--gray-800);
         }
-
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
         .landing-container {
             max-width: 1200px;
@@ -399,6 +399,19 @@
             }
         }
     </style>
+<script>
+    // if user already signed in, send them directly to dashboard
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const resp = await fetch('/api/auth/me', { credentials: 'include' });
+            if (resp.ok) {
+                window.location.href = '/index.html';
+            }
+        } catch (e) {
+            // ignore
+        }
+    });
+</script>
 </head>
 <body>
     <div class="landing-container">
@@ -490,11 +503,11 @@
             </div>
             <form id="loginForm" onsubmit="login(event)">
                 <div class="form-group">
-                    <label class="form-label">Username or Email</label>
+                    <label class="form-label" for="loginUsername">Username or Email</label>
                     <input type="text" class="form-control" id="loginUsername" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Password</label>
+                    <label class="form-label" for="loginPassword">Password</label>
                     <input type="password" class="form-control" id="loginPassword" required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Sign In</button>
@@ -515,29 +528,29 @@
             </div>
             <form id="registerForm" onsubmit="register(event)">
                 <div class="form-group">
-                    <label class="form-label">Username</label>
+                    <label class="form-label" for="regUsername">Username</label>
                     <input type="text" class="form-control" id="regUsername" required minlength="3">
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">First Name</label>
+                        <label class="form-label" for="regFirstName">First Name</label>
                         <input type="text" class="form-control" id="regFirstName" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Last Name</label>
+                        <label class="form-label" for="regLastName">Last Name</label>
                         <input type="text" class="form-control" id="regLastName" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Email</label>
+                    <label class="form-label" for="regEmail">Email</label>
                     <input type="email" class="form-control" id="regEmail" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Password</label>
+                    <label class="form-label" for="regPassword">Password</label>
                     <input type="password" class="form-control" id="regPassword" required minlength="6">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Confirm Password</label>
+                    <label class="form-label" for="regConfirmPassword">Confirm Password</label>
                     <input type="password" class="form-control" id="regConfirmPassword" required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Create Account</button>

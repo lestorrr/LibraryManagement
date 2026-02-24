@@ -22,6 +22,10 @@ public class BookDto
     public string? FileName { get; set; }
     public long? FileSize { get; set; }
     public string? FileType { get; set; }
+
+    // inventory
+    public int Quantity { get; set; }
+    public int Available { get; set; }
     
     // User info
     public Guid UserId { get; set; }

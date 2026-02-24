@@ -28,6 +28,9 @@ public class UpdateBookDto
     
     [StringLength(1000)]
     public string? Description { get; set; }
+
+    [Range(1, 10000)]
+    public int? Quantity { get; set; }
     
     public BookStatus? Status { get; set; }
 }

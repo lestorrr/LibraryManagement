@@ -83,6 +83,22 @@ public class UserController : ControllerBase
         }
     }
 
+    [HttpGet("borrowed")]
+    public async Task<ActionResult<IEnumerable<BookDto>>> GetBorrowedBooks()
+    {
+        try
+        {
+            var userId = GetCurrentUserId();
+            var books = await _userService.GetBorrowedBooksAsync(userId);
+            return Ok(books);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting borrowed books for user");
+            return StatusCode(500, "An error occurred while retrieving borrowed books");
+        }
+    }
+
     [HttpDelete("account")]
     public async Task<IActionResult> DeleteAccount()
     {

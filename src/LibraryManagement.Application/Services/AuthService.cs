@@ -198,4 +198,35 @@ public class AuthService : IAuthService
         var hashedInput = HashPassword(password);
         return hashedInput == hash;
     }
+
+    public async Task<AuthResponseDto> UpdateUserProfileAsync(UpdateUserDto updateUserDto)
+    {
+        try
+        {
+            var userId = GetCurrentUserId();
+            if (!userId.HasValue)
+                return new AuthResponseDto { Success = false, Message = "User not authenticated." };
+
+            var user = await _userRepository.GetByIdAsync(userId.Value);
+            if (user == null)
+                return new AuthResponseDto { Success = false, Message = "User not found." };
+
+            user.FirstName = updateUserDto.FirstName;
+            user.LastName = updateUserDto.LastName;
+
+            await _userRepository.UpdateAsync(user);
+
+            return new AuthResponseDto
+            {
+                Success = true,
+                Message = "Profile updated successfully.",
+                User = _mapper.Map<UserDto>(user)
+            };
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error updating user profile");
+            return new AuthResponseDto { Success = false, Message = "An error occurred while updating the profile." };
+        }
+    }
 }

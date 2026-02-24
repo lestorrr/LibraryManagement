@@ -143,6 +143,13 @@ public class BookService : IBookService
             var book = _mapper.Map<Book>(createBookDto);
             book.UserId = userId;
             book.Status = BookStatus.Available;
+
+            // ensure quantity/available defaults
+            if (createBookDto.Quantity > 0)
+            {
+                book.Quantity = createBookDto.Quantity;
+                book.Available = createBookDto.Quantity;
+            }
             
             if (createBookDto.BookFile != null)
             {

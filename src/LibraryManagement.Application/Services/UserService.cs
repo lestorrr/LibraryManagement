@@ -86,6 +86,24 @@ public class UserService : IUserService
         }
     }
 
+    public async Task<IEnumerable<BookDto>> GetBorrowedBooksAsync(Guid userId)
+    {
+        try
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null)
+                return Enumerable.Empty<BookDto>();
+
+            var books = await _bookRepository.GetBorrowedBooksByMemberEmailAsync(user.Email);
+            return _mapper.Map<IEnumerable<BookDto>>(books);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting borrowed books for user: {UserId}", userId);
+            throw;
+        }
+    }
+
     public async Task<bool> DeleteUserAccountAsync(Guid userId)
     {
         try

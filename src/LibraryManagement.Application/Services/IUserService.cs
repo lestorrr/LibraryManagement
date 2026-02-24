@@ -10,5 +10,6 @@ public interface IUserService
     Task<UserDto?> GetUserProfileAsync(Guid userId);
     Task<UserDto?> UpdateUserProfileAsync(Guid userId, UpdateProfileDto updateDto);
     Task<IEnumerable<BookDto>> GetUserBooksAsync(Guid userId);
+    Task<IEnumerable<BookDto>> GetBorrowedBooksAsync(Guid userId);
     Task<bool> DeleteUserAccountAsync(Guid userId);
 }

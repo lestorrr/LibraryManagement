@@ -24,6 +24,12 @@ public class Book
     public long? FileSize { get; set; }
     public string? FileType { get; set; }
     public byte[]? FileContent { get; set; }
+
+    // inventory (UI-only, not persisted until migration applied)
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    public int Quantity { get; set; } = 1;
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    public int Available { get; set; } = 1;
     
     // Foreign key to User
     public Guid UserId { get; set; }
