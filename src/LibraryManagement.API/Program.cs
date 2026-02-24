@@ -57,9 +57,18 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Add DbContext with SQLite
-builder.Services.AddDbContext<LibraryContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Add DbContext with SQLite or PostgreSQL
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (connectionString?.Contains("Host=") == true)
+{
+    builder.Services.AddDbContext<LibraryContext>(options =>
+        options.UseNpgsql(connectionString));
+}
+else
+{
+    builder.Services.AddDbContext<LibraryContext>(options =>
+        options.UseSqlite(connectionString));
+}
 
 // Register repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -133,7 +142,19 @@ app.MapGet("/", async context =>
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<LibraryContext>();
-    dbContext.Database.EnsureCreated();
+    if (dbContext.Database.IsNpgsql())
+    {
+        dbContext.Database.Migrate();
+    }
+    else
+    {
+        var dbPath = Path.GetDirectoryName(dbContext.Database.GetConnectionString()?.Replace("Data Source=", ""));
+        if (!string.IsNullOrEmpty(dbPath) && !Directory.Exists(dbPath))
+        {
+            Directory.CreateDirectory(dbPath);
+        }
+        dbContext.Database.EnsureCreated();
+    }
 }
 
 try
