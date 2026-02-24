@@ -9,17 +9,21 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Load environment variables from .env file
-if (File.Exists(".env"))
+// Load environment variables from .env file (development only)
+if (builder.Environment.IsDevelopment())
 {
-    foreach (var line in File.ReadAllLines(".env"))
+    var envFile = Path.Combine(Directory.GetCurrentDirectory(), ".env");
+    if (File.Exists(envFile))
     {
-        if (!string.IsNullOrWhiteSpace(line) && !line.StartsWith("#"))
+        foreach (var line in File.ReadAllLines(envFile))
         {
-            var parts = line.Split('=', 2);
-            if (parts.Length == 2)
+            if (!string.IsNullOrWhiteSpace(line) && !line.StartsWith("#"))
             {
-                Environment.SetEnvironmentVariable(parts[0], parts[1]);
+                var parts = line.Split('=', 2);
+                if (parts.Length == 2)
+                {
+                    Environment.SetEnvironmentVariable(parts[0], parts[1]);
+                }
             }
         }
     }
