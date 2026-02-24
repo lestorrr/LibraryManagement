@@ -9,6 +9,22 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Load environment variables from .env file
+if (File.Exists(".env"))
+{
+    foreach (var line in File.ReadAllLines(".env"))
+    {
+        if (!string.IsNullOrWhiteSpace(line) && !line.StartsWith("#"))
+        {
+            var parts = line.Split('=', 2);
+            if (parts.Length == 2)
+            {
+                Environment.SetEnvironmentVariable(parts[0], parts[1]);
+            }
+        }
+    }
+}
+
 // Configure Serilog
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
