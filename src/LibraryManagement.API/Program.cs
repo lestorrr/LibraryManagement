@@ -166,24 +166,31 @@ try
     using (var scope = app.Services.CreateScope())
     {
         var dbContext = scope.ServiceProvider.GetRequiredService<LibraryContext>();
+        Log.Information("Attempting database connection...");
+        
         if (dbContext.Database.IsNpgsql())
         {
+            Log.Information("Using PostgreSQL, attempting migration...");
             dbContext.Database.Migrate();
+            Log.Information("Database migration completed successfully");
         }
         else
         {
+            Log.Information("Using SQLite, ensuring database created...");
             var dbPath = Path.GetDirectoryName(dbContext.Database.GetConnectionString()?.Replace("Data Source=", ""));
             if (!string.IsNullOrEmpty(dbPath) && !Directory.Exists(dbPath))
             {
                 Directory.CreateDirectory(dbPath);
             }
             dbContext.Database.EnsureCreated();
+            Log.Information("SQLite database created successfully");
         }
     }
 }
 catch (Exception ex)
 {
-    Log.Warning(ex, "Database migration failed, continuing without migration");
+    Log.Error(ex, "Database connection/migration failed: {Message}", ex.Message);
+    Log.Warning("Application will continue without database migration");
 }
 
 try
