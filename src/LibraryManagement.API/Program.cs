@@ -98,7 +98,33 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Add DbContext with SQLite or PostgreSQL
+// Add Supabase client (REST) as an alternative to direct PostgreSQL access
+var supabaseUrl = Environment.GetEnvironmentVariable("SUPABASE_URL")
+    ?? builder.Configuration["Supabase:Url"];
+var supabaseAnonKey = Environment.GetEnvironmentVariable("SUPABASE_ANON_KEY")
+    ?? builder.Configuration["Supabase:AnonKey"];
+
+if (!string.IsNullOrEmpty(supabaseUrl) && !string.IsNullOrEmpty(supabaseAnonKey))
+{
+    builder.Services.AddSingleton(provider =>
+    {
+        var options = new Supabase.SupabaseOptions
+        {
+            AutoConnectRealtime = true,
+            AutoRefreshToken = true
+        };
+        var client = new Supabase.Client(supabaseUrl, supabaseAnonKey, options);
+        client.InitializeAsync().GetAwaiter().GetResult();
+        return client;
+    });
+    Log.Information("Supabase client registered");
+}
+else
+{
+    Log.Warning("Supabase configuration missing; skipping supabase client registration");
+}
+
+// Add DbContext with SQLite or PostgreSQL (still kept for fallback or migrations)
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // if the variable was passed as a URI (e.g. postgresql://user:pass@host:port/db)
@@ -170,6 +196,9 @@ if (!string.IsNullOrEmpty(connectionString))
 }
 
 // simple heuristic: postgres strings contain Host= or Username=
+// NOTE: direct DbContext registration is currently unused when using Supabase
+// REST API.  leave commented so it can be re-enabled for migrations or offline dev.
+/*
 if (connectionString?.IndexOf("Host=", StringComparison.OrdinalIgnoreCase) >= 0 ||
     connectionString?.IndexOf("Username=", StringComparison.OrdinalIgnoreCase) >= 0)
 {
@@ -181,6 +210,7 @@ else
     builder.Services.AddDbContext<LibraryContext>(options =>
         options.UseSqlite(connectionString));
 }
+*/
 
 // Register repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

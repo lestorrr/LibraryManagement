@@ -19,11 +19,17 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<ActionResult<AuthResponseDto>> Register(RegisterDto registerDto)
+    public async Task<ActionResult<AuthResponseDto>> Register([FromBody] RegisterDto? registerDto)
     {
+        if (registerDto == null)
+        {
+            _logger.LogWarning("Registration request contained no body");
+            return BadRequest("Request body is required");
+        }
+
         try
         {
-            _logger.LogInformation("Registration attempt for username: {Username}", registerDto?.Username);
+            _logger.LogInformation("Registration attempt for username: {Username}", registerDto.Username);
             
             if (!ModelState.IsValid)
             {
@@ -54,11 +60,17 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<ActionResult<AuthResponseDto>> Login(LoginDto loginDto)
+    public async Task<ActionResult<AuthResponseDto>> Login([FromBody] LoginDto? loginDto)
     {
+        if (loginDto == null)
+        {
+            _logger.LogWarning("Login request contained no body");
+            return BadRequest("Request body is required");
+        }
+
         try
         {
-            _logger.LogInformation("Login attempt for: {UsernameOrEmail}", loginDto?.UsernameOrEmail);
+            _logger.LogInformation("Login attempt for: {UsernameOrEmail}", loginDto.UsernameOrEmail);
             
             if (!ModelState.IsValid)
             {

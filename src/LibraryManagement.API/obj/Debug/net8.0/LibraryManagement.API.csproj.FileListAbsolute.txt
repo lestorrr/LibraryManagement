@@ -312,3 +312,14 @@
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/publish/publish/LibraryManagement.API.runtimeconfig.json
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Npgsql.dll
 /home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Supabase.Functions.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Supabase.Gotrue.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/MimeMapping.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Newtonsoft.Json.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Supabase.Postgrest.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Supabase.Realtime.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Supabase.Core.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Supabase.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Supabase.Storage.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/System.Reactive.dll
+/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/bin/Debug/net8.0/Websocket.Client.dll

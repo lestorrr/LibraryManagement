@@ -72,6 +72,12 @@ public class Book
     [Column("FileContent")]
     public byte[]? FileContent { get; set; }
     
+    // inventory properties used by UI but not stored in database
+    [NotMapped]
+    public int Quantity { get; set; } = 1;
+    [NotMapped]
+    public int Available { get; set; } = 1;
+    
     [Column("UserId")]
     public Guid UserId { get; set; }
     
