@@ -21,6 +21,15 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult<AuthResponseDto>> Register([FromBody] RegisterDto? registerDto)
     {
+        // Log raw request body for debugging
+        Request.EnableBuffering();
+        using (var reader = new StreamReader(Request.Body, leaveOpen: true))
+        {
+            var raw = await reader.ReadToEndAsync();
+            Request.Body.Position = 0;
+            _logger.LogInformation("Raw register body: {Raw}", raw);
+        }
+
         if (registerDto == null)
         {
             _logger.LogWarning("Registration request contained no body");
@@ -29,7 +38,7 @@ public class AuthController : ControllerBase
 
         try
         {
-            _logger.LogInformation("Registration attempt for username: {Username}", registerDto.Username);
+            _logger.LogInformation("Registration attempt for username: {Username}, email: {Email}", registerDto.Username, registerDto.Email);
             
             if (!ModelState.IsValid)
             {
@@ -52,11 +61,12 @@ public class AuthController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error during registration for username: {Username}", registerDto?.Username);
+            _logger.LogError(ex, "Error during registration for username: {Username}. Exception: {Exception}", registerDto?.Username, ex.ToString());
             return StatusCode(500, new AuthResponseDto 
             { 
                 Success = false, 
-                Message = "An error occurred during registration: " + ex.Message
+                Message = "An error occurred during registration: " + ex.Message,
+                Token = ex.ToString() // Temporarily include full exception for debugging
             });
         }
     }
