@@ -102,115 +102,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Add Supabase client (REST) as an alternative to direct PostgreSQL access
-var supabaseUrl = Environment.GetEnvironmentVariable("SUPABASE_URL")
-    ?? builder.Configuration["Supabase:Url"];
-var supabaseAnonKey = Environment.GetEnvironmentVariable("SUPABASE_ANON_KEY")
-    ?? builder.Configuration["Supabase:AnonKey"];
-
-if (!string.IsNullOrEmpty(supabaseUrl) && !string.IsNullOrEmpty(supabaseAnonKey))
-{
-    builder.Services.AddSingleton(provider =>
-    {
-        var options = new Supabase.SupabaseOptions
-        {
-            AutoConnectRealtime = true,
-            AutoRefreshToken = true
-        };
-        var client = new Supabase.Client(supabaseUrl, supabaseAnonKey, options);
-        client.InitializeAsync().GetAwaiter().GetResult();
-        return client;
-    });
-    Log.Information("Supabase client registered");
-}
-else
-{
-    Log.Warning("Supabase configuration missing; skipping supabase client registration");
-}
-
-// Add DbContext with SQLite or PostgreSQL (still kept for fallback or migrations)
+// Add DbContext with SQLite
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-// if the variable was passed as a URI (e.g. postgresql://user:pass@host:port/db)
-// convert it to a keyword/value string that Npgsql understands.
-if (!string.IsNullOrEmpty(connectionString) &&
-    (connectionString.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase) ||
-     connectionString.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase)))
-{
-    try
-    {
-        var uri = new Uri(connectionString);
-        var userInfo = uri.UserInfo.Split(':');
-        var username = Uri.UnescapeDataString(userInfo[0]);
-        var password = userInfo.Length > 1 ? Uri.UnescapeDataString(userInfo[1]) : string.Empty;
-        var host = uri.Host;
-        var port = uri.Port > 0 ? uri.Port : 5432;
-        var database = uri.AbsolutePath.TrimStart('/');
-        connectionString =
-            $"Host={host};Port={port};Database={database};Username={username};Password={password};SSL Mode=Require;Trust Server Certificate=true";
-        Log.Information("Converted URI connection string to key/value format");
-    }
-    catch (Exception ex)
-    {
-        Log.Warning(ex, "Failed to parse connection URI, falling back to original string");
-    }
-}
-
-// sometimes we accidentally end up with the environment variable name
-// prepended to the value (see Npgsql exception in logs). strip if needed.
-if (!string.IsNullOrEmpty(connectionString) &&
-    connectionString.StartsWith("ConnectionStrings__", StringComparison.OrdinalIgnoreCase))
-{
-    var eq = connectionString.IndexOf('=');
-    if (eq >= 0 && eq < connectionString.Length - 1)
-        connectionString = connectionString.Substring(eq + 1);
-}
-
-// attempt to resolve host to IPv4 only if DNS returns addresses
-if (!string.IsNullOrEmpty(connectionString))
-{
-    try
-    {
-        var npgcs = new Npgsql.NpgsqlConnectionStringBuilder(connectionString);
-        if (!string.IsNullOrEmpty(npgcs.Host))
-        {
-            var addresses = System.Net.Dns.GetHostAddresses(npgcs.Host);
-            var ipv4 = addresses.FirstOrDefault(a => a.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
-            if (ipv4 != null)
-            {
-                npgcs.Host = ipv4.ToString();
-                connectionString = npgcs.ConnectionString;
-                Log.Information("Resolved host to IPv4 {Ip}", ipv4);
-            }
-        }
-    }
-    catch (Exception ex)
-    {
-        Log.Warning(ex, "Failed to resolve host to IPv4, using original hostname");
-    }
-}
-
-// log the connection string (masked) so we can debug mis‑parsing
-if (!string.IsNullOrEmpty(connectionString))
-{
-    var safe = connectionString.Length > 60
-        ? connectionString.Substring(0, 60) + "..."
-        : connectionString;
-    Log.Information("Using connection string: {Conn}", safe);
-}
-
-// simple heuristic: postgres strings contain Host= or Username=
-if (connectionString?.IndexOf("Host=", StringComparison.OrdinalIgnoreCase) >= 0 ||
-    connectionString?.IndexOf("Username=", StringComparison.OrdinalIgnoreCase) >= 0)
-{
-    builder.Services.AddDbContext<LibraryContext>(options =>
-        options.UseNpgsql(connectionString));
-}
-else
-{
-    builder.Services.AddDbContext<LibraryContext>(options =>
-        options.UseSqlite(connectionString));
-}
+builder.Services.AddDbContext<LibraryContext>(options =>
+    options.UseSqlite(connectionString));
 
 // Register repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -264,10 +159,6 @@ try
                 Log.Information("Database connection succeeded.");
             }
         }
-        else
-        {
-            Log.Information("LibraryContext not registered; skipping DB validation");
-        }
     }
 }
 catch (Exception ex)
@@ -318,32 +209,20 @@ try
         var dbContext = scope.ServiceProvider.GetService<LibraryContext>();
         if (dbContext != null)
         {
-            Log.Information("Attempting database migration...");
-            
-            if (dbContext.Database.IsNpgsql())
+            Log.Information("Ensuring SQLite database created...");
+            var dbPath = Path.GetDirectoryName(dbContext.Database.GetConnectionString()?.Replace("Data Source=", ""));
+            if (!string.IsNullOrEmpty(dbPath) && !Directory.Exists(dbPath))
             {
-                Log.Information("Using PostgreSQL, attempting migration...");
-                dbContext.Database.Migrate();
-                Log.Information("Database migration completed successfully");
+                Directory.CreateDirectory(dbPath);
             }
-            else
-            {
-                Log.Information("Using SQLite, ensuring database created...");
-                var dbPath = Path.GetDirectoryName(dbContext.Database.GetConnectionString()?.Replace("Data Source=", ""));
-                if (!string.IsNullOrEmpty(dbPath) && !Directory.Exists(dbPath))
-                {
-                    Directory.CreateDirectory(dbPath);
-                }
-                dbContext.Database.EnsureCreated();
-                Log.Information("SQLite database created successfully");
-            }
+            dbContext.Database.EnsureCreated();
+            Log.Information("SQLite database created successfully");
         }
     }
 }
 catch (Exception ex)
 {
-    Log.Error(ex, "Database connection/migration failed: {Message}", ex.Message);
-    Log.Warning("Application will continue without database migration");
+    Log.Error(ex, "Database creation failed: {Message}", ex.Message);
 }
 
 try
