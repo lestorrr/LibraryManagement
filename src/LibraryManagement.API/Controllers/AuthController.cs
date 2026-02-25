@@ -24,7 +24,7 @@ public class AuthController : ControllerBase
         if (registerDto == null)
         {
             _logger.LogWarning("Registration request contained no body");
-            return BadRequest("Request body is required");
+            return BadRequest(new AuthResponseDto { Success = false, Message = "Request body is required" });
         }
 
         try
@@ -33,8 +33,10 @@ public class AuthController : ControllerBase
             
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("Invalid model state for registration");
-                return BadRequest(ModelState);
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                var errorMessage = string.Join(", ", errors);
+                _logger.LogWarning("Invalid model state for registration: {Errors}", errorMessage);
+                return BadRequest(new AuthResponseDto { Success = false, Message = errorMessage });
             }
 
             var result = await _authService.RegisterAsync(registerDto);
