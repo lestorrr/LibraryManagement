@@ -59,6 +59,7 @@ public class HomeController : ControllerBase
             
             return Ok(new
             {
+                success = true,
                 TotalBooks = bookCount,
                 TotalUsers = userCount,
                 TotalLoans = loanCount,
@@ -72,12 +73,13 @@ public class HomeController : ControllerBase
             _logger.LogError(ex, "Database query failed: {Message}", ex.Message);
             return Ok(new
             {
+                success = false,
                 TotalBooks = 0,
                 TotalUsers = 0,
                 TotalLoans = 0,
                 ActiveLoans = 0,
                 DatabaseStatus = "Error",
-                Error = ex.Message,
+                error = ex.Message,
                 Timestamp = DateTime.UtcNow
             });
         }
