@@ -34,7 +34,27 @@ public class AuthService : IAuthService
     {
         try
         {
-            if (await _userRepository.UsernameExistsAsync(registerDto.Username))
+            _logger.LogInformation("Starting registration for username: {Username}", registerDto.Username);
+            
+            bool usernameExists = false;
+            bool emailExists = false;
+            
+            try
+            {
+                usernameExists = await _userRepository.UsernameExistsAsync(registerDto.Username);
+                _logger.LogInformation("Username check completed: {Exists}", usernameExists);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Database error checking username existence");
+                return new AuthResponseDto
+                {
+                    Success = false,
+                    Message = "Database connection error. Please try again later."
+                };
+            }
+            
+            if (usernameExists)
             {
                 return new AuthResponseDto
                 {
@@ -43,7 +63,22 @@ public class AuthService : IAuthService
                 };
             }
 
-            if (await _userRepository.EmailExistsAsync(registerDto.Email))
+            try
+            {
+                emailExists = await _userRepository.EmailExistsAsync(registerDto.Email);
+                _logger.LogInformation("Email check completed: {Exists}", emailExists);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Database error checking email existence");
+                return new AuthResponseDto
+                {
+                    Success = false,
+                    Message = "Database connection error. Please try again later."
+                };
+            }
+
+            if (emailExists)
             {
                 return new AuthResponseDto
                 {
