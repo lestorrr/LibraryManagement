@@ -52,17 +52,17 @@ public class AuthService : IAuthService
                 };
             }
 
-            var user = new User
-            {
-                Id = Guid.NewGuid(),
-                Username = registerDto.Username,
-                Email = registerDto.Email,
-                FirstName = registerDto.FirstName,
-                LastName = registerDto.LastName,
-                PasswordHash = HashPassword(registerDto.Password),
-                CreatedAt = DateTime.UtcNow,
-                IsActive = true
-            };
+           var user = new User
+{
+    Id = Guid.NewGuid(), // Or let DB generate: Id = Guid.Empty,
+    Username = registerDto.Username,
+    Email = registerDto.Email,
+    FirstName = registerDto.FirstName,
+    LastName = registerDto.LastName,
+    PasswordHash = HashPassword(registerDto.Password),
+    CreatedAt = DateTime.UtcNow,
+    IsActive = true
+};
 
             var createdUser = await _userRepository.AddAsync(user);
             _logger.LogInformation("New user registered: {Username} (PasswordHash length: {HashLen})", user.Username, user.PasswordHash?.Length ?? 0);
