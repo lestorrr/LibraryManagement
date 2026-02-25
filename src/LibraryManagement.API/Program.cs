@@ -101,6 +101,31 @@ builder.Services.AddSwaggerGen(c =>
 // Add DbContext with SQLite or PostgreSQL
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+// if the variable was passed as a URI (e.g. postgresql://user:pass@host:port/db)
+// convert it to a keyword/value string that Npgsql understands.
+if (!string.IsNullOrEmpty(connectionString) &&
+    (connectionString.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase) ||
+     connectionString.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase)))
+{
+    try
+    {
+        var uri = new Uri(connectionString);
+        var userInfo = uri.UserInfo.Split(':');
+        var username = Uri.UnescapeDataString(userInfo[0]);
+        var password = userInfo.Length > 1 ? Uri.UnescapeDataString(userInfo[1]) : string.Empty;
+        var host = uri.Host;
+        var port = uri.Port > 0 ? uri.Port : 5432;
+        var database = uri.AbsolutePath.TrimStart('/');
+        connectionString =
+            $"Host={host};Port={port};Database={database};Username={username};Password={password};SSL Mode=Require;Trust Server Certificate=true";
+        Log.Information("Converted URI connection string to key/value format");
+    }
+    catch (Exception ex)
+    {
+        Log.Warning(ex, "Failed to parse connection URI, falling back to original string");
+    }
+}
+
 // sometimes we accidentally end up with the environment variable name
 // prepended to the value (see Npgsql exception in logs). strip if needed.
 if (!string.IsNullOrEmpty(connectionString) &&
