@@ -10,11 +10,13 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 // Load environment variables from .env file (development only)
+// and make sure the configuration system knows about them
 if (builder.Environment.IsDevelopment())
 {
     var envFile = Path.Combine(Directory.GetCurrentDirectory(), ".env");
     if (File.Exists(envFile))
     {
+        // manually set each variable so other tools (e.g. docker-compose) can also read it
         foreach (var line in File.ReadAllLines(envFile))
         {
             if (!string.IsNullOrWhiteSpace(line) && !line.StartsWith("#"))
@@ -26,6 +28,9 @@ if (builder.Environment.IsDevelopment())
                 }
             }
         }
+        // the configuration builder already added an EnvironmentVariables source earlier
+        // but it may have captured values before we set them, so refresh it now
+        builder.Configuration.AddEnvironmentVariables();
     }
 }
 
@@ -79,7 +84,29 @@ builder.Services.AddSwaggerGen(c =>
 
 // Add DbContext with SQLite or PostgreSQL
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-if (connectionString?.Contains("Host=") == true)
+
+// sometimes we accidentally end up with the environment variable name
+// prepended to the value (see Npgsql exception in logs). strip if needed.
+if (!string.IsNullOrEmpty(connectionString) &&
+    connectionString.StartsWith("ConnectionStrings__", StringComparison.OrdinalIgnoreCase))
+{
+    var eq = connectionString.IndexOf('=');
+    if (eq >= 0 && eq < connectionString.Length - 1)
+        connectionString = connectionString.Substring(eq + 1);
+}
+
+// log the connection string (masked) so we can debug mis‑parsing
+if (!string.IsNullOrEmpty(connectionString))
+{
+    var safe = connectionString.Length > 60
+        ? connectionString.Substring(0, 60) + "..."
+        : connectionString;
+    Log.Information("Using connection string: {Conn}", safe);
+}
+
+// simple heuristic: postgres strings contain Host= or Username=
+if (connectionString?.IndexOf("Host=", StringComparison.OrdinalIgnoreCase) >= 0 ||
+    connectionString?.IndexOf("Username=", StringComparison.OrdinalIgnoreCase) >= 0)
 {
     builder.Services.AddDbContext<LibraryContext>(options =>
         options.UseNpgsql(connectionString));

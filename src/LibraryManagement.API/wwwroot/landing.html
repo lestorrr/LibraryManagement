@@ -576,14 +576,18 @@
 
         async function loadStats() {
             try {
-                const response = await fetch(`${API_BASE}/books`);
-                const books = await response.json();
-                totalBooks = books.length;
-                availableBooks = books.filter(b => b.status === 'Available').length;
-                
-                document.getElementById('totalBooks').textContent = totalBooks;
-                document.getElementById('availableBooks').textContent = availableBooks;
-                document.getElementById('activeUsers').textContent = '24'; // You can fetch this from an endpoint
+                const response = await fetch(`${API_BASE}/home/stats`);
+                if (!response.ok) {
+                    const text = await response.text();
+                    console.error('Stats endpoint failed', response.status, text);
+                    return;
+                }
+                const data = await response.json();
+                if (data && data.totalBooks !== undefined) {
+                    document.getElementById('totalBooks').textContent = data.totalBooks;
+                    document.getElementById('availableBooks').textContent = data.activeLoans ?? 0; // repurpose
+                    document.getElementById('activeUsers').textContent = data.totalUsers ?? 'n/a';
+                }
             } catch (error) {
                 console.error('Error loading stats:', error);
             }

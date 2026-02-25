@@ -471,3 +471,4 @@ LIMIT 1
 2026-02-25 02:00:34.542 +08:00 [INF] Executed action LibraryManagement.API.Controllers.BooksController.PreviewBookFile (LibraryManagement.API) in 154.307ms
 2026-02-25 02:00:34.544 +08:00 [INF] Executed endpoint 'LibraryManagement.API.Controllers.BooksController.PreviewBookFile (LibraryManagement.API)'
 2026-02-25 02:00:34.547 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5252/api/books/d8860ca1-2b69-4409-9a7d-0f04116f8b06/preview - 200 22469955 application/pdf 174.1923ms
+2026-02-25 13:25:40.918 +08:00 [INF] Application is shutting down...
