@@ -13,10 +13,23 @@ var builder = WebApplication.CreateBuilder(args);
 // and make sure the configuration system knows about them
 if (builder.Environment.IsDevelopment())
 {
-    var envFile = Path.Combine(Directory.GetCurrentDirectory(), ".env");
-    if (File.Exists(envFile))
+    // search upward from current directory for a .env file (solution root may be above)
+    string? envFile = null;
+    var dir = new DirectoryInfo(Directory.GetCurrentDirectory());
+    while (dir != null)
     {
-        // manually set each variable so other tools (e.g. docker-compose) can also read it
+        var candidate = Path.Combine(dir.FullName, ".env");
+        if (File.Exists(candidate))
+        {
+            envFile = candidate;
+            break;
+        }
+        dir = dir.Parent;
+    }
+
+    if (envFile != null)
+    {
+        Log.Information("Loading environment variables from {EnvFile}", envFile);
         foreach (var line in File.ReadAllLines(envFile))
         {
             if (!string.IsNullOrWhiteSpace(line) && !line.StartsWith("#"))
@@ -28,9 +41,12 @@ if (builder.Environment.IsDevelopment())
                 }
             }
         }
-        // the configuration builder already added an EnvironmentVariables source earlier
-        // but it may have captured values before we set them, so refresh it now
+        // refresh configuration
         builder.Configuration.AddEnvironmentVariables();
+    }
+    else
+    {
+        Log.Warning(".env file not found in current or parent directories");
     }
 }
 
@@ -95,6 +111,30 @@ if (!string.IsNullOrEmpty(connectionString) &&
         connectionString = connectionString.Substring(eq + 1);
 }
 
+// attempt to resolve host to IPv4 only if DNS returns addresses
+if (!string.IsNullOrEmpty(connectionString))
+{
+    try
+    {
+        var npgcs = new Npgsql.NpgsqlConnectionStringBuilder(connectionString);
+        if (!string.IsNullOrEmpty(npgcs.Host))
+        {
+            var addresses = System.Net.Dns.GetHostAddresses(npgcs.Host);
+            var ipv4 = addresses.FirstOrDefault(a => a.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
+            if (ipv4 != null)
+            {
+                npgcs.Host = ipv4.ToString();
+                connectionString = npgcs.ConnectionString;
+                Log.Information("Resolved host to IPv4 {Ip}", ipv4);
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Log.Warning(ex, "Failed to resolve host to IPv4, using original hostname");
+    }
+}
+
 // log the connection string (masked) so we can debug mis‑parsing
 if (!string.IsNullOrEmpty(connectionString))
 {
@@ -151,6 +191,32 @@ builder.Services.AddHealthChecks()
     .AddDbContextCheck<LibraryContext>();
 
 var app = builder.Build();
+
+// Immediately verify that the connection string works; this catches
+// mis‑configured env vars (like the "ConnectionStrings__…=" prefix) before
+// any request is processed.
+try
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var db = scope.ServiceProvider.GetRequiredService<LibraryContext>();
+        Log.Information("Testing database connectivity...");
+        if (!await db.Database.CanConnectAsync())
+        {
+            Log.Error("Unable to connect to the database. Check your connection string.");
+            // Optionally: throw or exit so the container restarts
+        }
+        else
+        {
+            Log.Information("Database connection succeeded.");
+        }
+    }
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Database validation failed at startup");
+    throw; // allow crash so the problem is visible immediately
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
