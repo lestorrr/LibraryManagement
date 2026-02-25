@@ -23,23 +23,32 @@ public class AuthController : ControllerBase
     {
         try
         {
+            _logger.LogInformation("Registration attempt for username: {Username}", registerDto?.Username);
+            
             if (!ModelState.IsValid)
+            {
+                _logger.LogWarning("Invalid model state for registration");
                 return BadRequest(ModelState);
+            }
 
             var result = await _authService.RegisterAsync(registerDto);
             
             if (!result.Success)
+            {
+                _logger.LogWarning("Registration failed: {Message}", result.Message);
                 return BadRequest(result);
+            }
 
+            _logger.LogInformation("Registration successful for username: {Username}", registerDto.Username);
             return Ok(result);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error during registration");
+            _logger.LogError(ex, "Error during registration for username: {Username}", registerDto?.Username);
             return StatusCode(500, new AuthResponseDto 
             { 
                 Success = false, 
-                Message = "An error occurred during registration" 
+                Message = "An error occurred during registration: " + ex.Message
             });
         }
     }
@@ -49,23 +58,32 @@ public class AuthController : ControllerBase
     {
         try
         {
+            _logger.LogInformation("Login attempt for: {UsernameOrEmail}", loginDto?.UsernameOrEmail);
+            
             if (!ModelState.IsValid)
+            {
+                _logger.LogWarning("Invalid model state for login");
                 return BadRequest(ModelState);
+            }
 
             var result = await _authService.LoginAsync(loginDto);
             
             if (!result.Success)
+            {
+                _logger.LogWarning("Login failed for {UsernameOrEmail}: {Message}", loginDto.UsernameOrEmail, result.Message);
                 return Unauthorized(result);
+            }
 
+            _logger.LogInformation("Login successful for: {UsernameOrEmail}", loginDto.UsernameOrEmail);
             return Ok(result);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error during login");
+            _logger.LogError(ex, "Error during login for: {UsernameOrEmail}", loginDto?.UsernameOrEmail);
             return StatusCode(500, new AuthResponseDto 
             { 
                 Success = false, 
-                Message = "An error occurred during login" 
+                Message = "An error occurred during login: " + ex.Message
             });
         }
     }
