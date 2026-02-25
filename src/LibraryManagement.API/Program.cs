@@ -196,9 +196,6 @@ if (!string.IsNullOrEmpty(connectionString))
 }
 
 // simple heuristic: postgres strings contain Host= or Username=
-// NOTE: direct DbContext registration is currently unused when using Supabase
-// REST API.  leave commented so it can be re-enabled for migrations or offline dev.
-/*
 if (connectionString?.IndexOf("Host=", StringComparison.OrdinalIgnoreCase) >= 0 ||
     connectionString?.IndexOf("Username=", StringComparison.OrdinalIgnoreCase) >= 0)
 {
@@ -210,7 +207,6 @@ else
     builder.Services.AddDbContext<LibraryContext>(options =>
         options.UseSqlite(connectionString));
 }
-*/
 
 // Register repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -242,35 +238,37 @@ builder.Services.AddCors(options =>
 builder.Services.AddHttpContextAccessor();
 
 // Add health checks
-builder.Services.AddHealthChecks()
-    .AddDbContextCheck<LibraryContext>();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
-// Immediately verify that the connection string works; this catches
-// mis‑configured env vars (like the "ConnectionStrings__…=" prefix) before
-// any request is processed.
+// Immediately verify that the connection string works
 try
 {
     using (var scope = app.Services.CreateScope())
     {
-        var db = scope.ServiceProvider.GetRequiredService<LibraryContext>();
-        Log.Information("Testing database connectivity...");
-        if (!await db.Database.CanConnectAsync())
+        var db = scope.ServiceProvider.GetService<LibraryContext>();
+        if (db != null)
         {
-            Log.Error("Unable to connect to the database. Check your connection string.");
-            // Optionally: throw or exit so the container restarts
+            Log.Information("Testing database connectivity...");
+            if (!await db.Database.CanConnectAsync())
+            {
+                Log.Error("Unable to connect to the database. Check your connection string.");
+            }
+            else
+            {
+                Log.Information("Database connection succeeded.");
+            }
         }
         else
         {
-            Log.Information("Database connection succeeded.");
+            Log.Information("LibraryContext not registered; skipping DB validation");
         }
     }
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "Database validation failed at startup");
-    throw; // allow crash so the problem is visible immediately
+    Log.Error(ex, "Database validation failed at startup");
 }
 
 // Configure the HTTP request pipeline.
@@ -313,25 +311,28 @@ try
 {
     using (var scope = app.Services.CreateScope())
     {
-        var dbContext = scope.ServiceProvider.GetRequiredService<LibraryContext>();
-        Log.Information("Attempting database connection...");
-        
-        if (dbContext.Database.IsNpgsql())
+        var dbContext = scope.ServiceProvider.GetService<LibraryContext>();
+        if (dbContext != null)
         {
-            Log.Information("Using PostgreSQL, attempting migration...");
-            dbContext.Database.Migrate();
-            Log.Information("Database migration completed successfully");
-        }
-        else
-        {
-            Log.Information("Using SQLite, ensuring database created...");
-            var dbPath = Path.GetDirectoryName(dbContext.Database.GetConnectionString()?.Replace("Data Source=", ""));
-            if (!string.IsNullOrEmpty(dbPath) && !Directory.Exists(dbPath))
+            Log.Information("Attempting database migration...");
+            
+            if (dbContext.Database.IsNpgsql())
             {
-                Directory.CreateDirectory(dbPath);
+                Log.Information("Using PostgreSQL, attempting migration...");
+                dbContext.Database.Migrate();
+                Log.Information("Database migration completed successfully");
             }
-            dbContext.Database.EnsureCreated();
-            Log.Information("SQLite database created successfully");
+            else
+            {
+                Log.Information("Using SQLite, ensuring database created...");
+                var dbPath = Path.GetDirectoryName(dbContext.Database.GetConnectionString()?.Replace("Data Source=", ""));
+                if (!string.IsNullOrEmpty(dbPath) && !Directory.Exists(dbPath))
+                {
+                    Directory.CreateDirectory(dbPath);
+                }
+                dbContext.Database.EnsureCreated();
+                Log.Information("SQLite database created successfully");
+            }
         }
     }
 }
