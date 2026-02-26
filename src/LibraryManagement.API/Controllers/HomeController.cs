@@ -92,12 +92,16 @@ public class HomeController : ControllerBase
         {
             var canConnect = await _context.Database.CanConnectAsync();
             var connectionString = _context.Database.GetConnectionString();
+            var pendingMigrations = await _context.Database.GetPendingMigrationsAsync();
+            var appliedMigrations = await _context.Database.GetAppliedMigrationsAsync();
             
             return Ok(new
             {
                 CanConnect = canConnect,
                 ConnectionString = connectionString?.Substring(0, Math.Min(50, connectionString.Length)) + "...",
                 DatabaseProvider = _context.Database.ProviderName,
+                PendingMigrations = pendingMigrations.ToList(),
+                AppliedMigrations = appliedMigrations.ToList(),
                 Timestamp = DateTime.UtcNow
             });
         }
@@ -106,7 +110,7 @@ public class HomeController : ControllerBase
             return StatusCode(500, new
             {
                 Error = ex.Message,
-                StackTrace = ex.StackTrace,
+                InnerError = ex.InnerException?.Message,
                 Timestamp = DateTime.UtcNow
             });
         }
