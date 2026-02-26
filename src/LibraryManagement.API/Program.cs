@@ -229,7 +229,7 @@ try
             if (isPostgres)
             {
                 Log.Information("Using PostgreSQL database, applying migrations...");
-                dbContext.Database.Migrate();
+                await dbContext.Database.MigrateAsync();
                 Log.Information("PostgreSQL migrations applied successfully");
             }
             else
@@ -240,7 +240,7 @@ try
                 {
                     Directory.CreateDirectory(dbPath);
                 }
-                dbContext.Database.EnsureCreated();
+                await dbContext.Database.EnsureCreatedAsync();
                 Log.Information("SQLite database created successfully");
             }
         }
