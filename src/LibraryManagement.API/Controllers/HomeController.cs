@@ -90,6 +90,19 @@ public class HomeController : ControllerBase
     {
         try
         {
+            var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+            var hasUrl = !string.IsNullOrEmpty(databaseUrl);
+            
+            if (!hasUrl)
+            {
+                return Ok(new
+                {
+                    Error = "DATABASE_URL environment variable is not set",
+                    HasDatabaseUrl = false,
+                    Timestamp = DateTime.UtcNow
+                });
+            }
+            
             var canConnect = await _context.Database.CanConnectAsync();
             var connectionString = _context.Database.GetConnectionString();
             var pendingMigrations = await _context.Database.GetPendingMigrationsAsync();
@@ -98,6 +111,7 @@ public class HomeController : ControllerBase
             return Ok(new
             {
                 CanConnect = canConnect,
+                HasDatabaseUrl = hasUrl,
                 ConnectionString = connectionString?.Substring(0, Math.Min(50, connectionString.Length)) + "...",
                 DatabaseProvider = _context.Database.ProviderName,
                 PendingMigrations = pendingMigrations.ToList(),
@@ -111,6 +125,7 @@ public class HomeController : ControllerBase
             {
                 Error = ex.Message,
                 InnerError = ex.InnerException?.Message,
+                HasDatabaseUrl = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("DATABASE_URL")),
                 Timestamp = DateTime.UtcNow
             });
         }
