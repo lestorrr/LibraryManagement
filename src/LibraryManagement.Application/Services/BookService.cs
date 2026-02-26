@@ -61,7 +61,7 @@ public class BookService : IBookService
     {
         try
         {
-            var books = await _bookRepository.GetAvailableBooksAsync();
+            var books = await _bookRepository.GetAllBooksWithDetailsAsync();
             return _mapper.Map<IEnumerable<BookDto>>(books);
         }
         catch (Exception ex)

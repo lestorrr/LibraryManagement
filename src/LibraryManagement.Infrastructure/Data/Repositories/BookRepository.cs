@@ -28,6 +28,14 @@ public class BookRepository : Repository<Book>, IBookRepository
             .ToListAsync();
     }
 
+    public async Task<IEnumerable<Book>> GetAllBooksWithDetailsAsync()
+    {
+        return await _dbSet
+            .Include(b => b.User)
+            .OrderByDescending(b => b.CreatedAt)
+            .ToListAsync();
+    }
+
     public async Task<Book?> GetBookWithLoansAsync(Guid id)
     {
         return await _dbSet

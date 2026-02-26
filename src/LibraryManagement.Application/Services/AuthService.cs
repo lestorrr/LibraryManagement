@@ -246,8 +246,8 @@ public class AuthService : IAuthService
             if (user == null)
                 return new AuthResponseDto { Success = false, Message = "User not found." };
 
-            user.FirstName = updateUserDto.FirstName;
-            user.LastName = updateUserDto.LastName;
+            user.FirstName = updateUserDto.FirstName ?? user.FirstName;
+            user.LastName = updateUserDto.LastName ?? user.LastName;
 
             await _userRepository.UpdateAsync(user);
 
