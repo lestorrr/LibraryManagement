@@ -102,10 +102,19 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Add DbContext with SQLite
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<LibraryContext>(options =>
-    options.UseSqlite(connectionString));
+// Add DbContext - use PostgreSQL if DATABASE_URL exists (production), otherwise SQLite (local)
+var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+if (!string.IsNullOrEmpty(databaseUrl))
+{
+    builder.Services.AddDbContext<LibraryContext>(options =>
+        options.UseNpgsql(databaseUrl));
+}
+else
+{
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.AddDbContext<LibraryContext>(options =>
+        options.UseSqlite(connectionString));
+}
 
 // Register repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -209,14 +218,24 @@ try
         var dbContext = scope.ServiceProvider.GetService<LibraryContext>();
         if (dbContext != null)
         {
-            Log.Information("Ensuring SQLite database created...");
-            var dbPath = Path.GetDirectoryName(dbContext.Database.GetConnectionString()?.Replace("Data Source=", ""));
-            if (!string.IsNullOrEmpty(dbPath) && !Directory.Exists(dbPath))
+            var isPostgres = dbContext.Database.IsNpgsql();
+            if (isPostgres)
             {
-                Directory.CreateDirectory(dbPath);
+                Log.Information("Using PostgreSQL database, applying migrations...");
+                dbContext.Database.Migrate();
+                Log.Information("PostgreSQL migrations applied successfully");
             }
-            dbContext.Database.EnsureCreated();
-            Log.Information("SQLite database created successfully");
+            else
+            {
+                Log.Information("Ensuring SQLite database created...");
+                var dbPath = Path.GetDirectoryName(dbContext.Database.GetConnectionString()?.Replace("Data Source=", ""));
+                if (!string.IsNullOrEmpty(dbPath) && !Directory.Exists(dbPath))
+                {
+                    Directory.CreateDirectory(dbPath);
+                }
+                dbContext.Database.EnsureCreated();
+                Log.Information("SQLite database created successfully");
+            }
         }
     }
 }

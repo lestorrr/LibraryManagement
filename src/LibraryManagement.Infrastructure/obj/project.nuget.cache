@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wdFMQEYTYb2YZg0XArPvyMUH66jcZ1eu9s3TXbrGWydHx79MQN4PJs2fUHwvfXtAZTA9j/6sTZCquWfZ+jQZPw==",
+  "dgSpecHash": "wQDgF6bHZCi385JNsYY/30Kl5fjyIivZ2yi41Ausecd6XJUHXTVNfc3gOgrNLGt6DttLg3vpCei0eOgKljnC/w==",
   "success": true,
   "projectFilePath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.Infrastructure/LibraryManagement.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -37,8 +37,8 @@
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
-    "/home/jhnlstrlclcn/.nuget/packages/npgsql/8.0.0/npgsql.8.0.0.nupkg.sha512",
-    "/home/jhnlstrlclcn/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.0/npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/npgsql/8.0.3/npgsql.8.0.3.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.4/npgsql.entityframeworkcore.postgresql.8.0.4.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.6/sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/sqlitepclraw.core/2.1.6/sqlitepclraw.core.2.1.6.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.6/sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vuIZfGnJvilJheBJssp3ehzcQpSbOi2VznaLisBITkyEs5ftZjLKx7C/U9Axctmb5aBAmb1iHzbQZwO2Ls0fQQ==",
+  "dgSpecHash": "LbsCOfOpy5bo3P81ovKChD0wChaaiPGQ7Aubmk16jSOTms5TKhfp2BRTj/ZfVUp43HmaPr/U8GjKI1Jc4th/UA==",
   "success": true,
   "projectFilePath": "/home/jhnlstrlclcn/Desktop/linux dev/LibraryManagement/src/LibraryManagement.API/LibraryManagement.API.csproj",
   "expectedPackageFiles": [
@@ -53,8 +53,8 @@
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.identitymodel.tokens/7.0.3/microsoft.identitymodel.tokens.7.0.3.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
-    "/home/jhnlstrlclcn/.nuget/packages/npgsql/8.0.0/npgsql.8.0.0.nupkg.sha512",
-    "/home/jhnlstrlclcn/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.0/npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/npgsql/8.0.3/npgsql.8.0.3.nupkg.sha512",
+    "/home/jhnlstrlclcn/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.4/npgsql.entityframeworkcore.postgresql.8.0.4.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/serilog/3.1.1/serilog.3.1.1.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/serilog.aspnetcore/8.0.0/serilog.aspnetcore.8.0.0.nupkg.sha512",
     "/home/jhnlstrlclcn/.nuget/packages/serilog.extensions.hosting/8.0.0/serilog.extensions.hosting.8.0.0.nupkg.sha512",
