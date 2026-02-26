@@ -2,10 +2,7 @@
 const API_BASE_URL = window.location.origin + '/api';
 
 function getAuthHeaders() {
-    const token = localStorage.getItem('lm_token');
-    const headers = { 'Content-Type': 'application/json' };
-    if (token) headers['Authorization'] = `Bearer ${token}`;
-    return headers;
+    return { 'Content-Type': 'application/json' };
 }
 
 // API Functions
@@ -54,6 +51,7 @@ async function createBook(bookData) {
         const response = await fetch(`${API_BASE_URL}/books`, {
             method: 'POST',
             headers: getAuthHeaders(),
+            credentials: 'include',
             body: JSON.stringify(bookData)
         });
 
@@ -93,7 +91,8 @@ async function deleteBook(id) {
     try {
         const response = await fetch(`${API_BASE_URL}/books/${id}`, {
             method: 'DELETE',
-            headers: getAuthHeaders()
+            headers: getAuthHeaders(),
+            credentials: 'include'
         });
 
         if (!response.ok) {
@@ -113,6 +112,7 @@ async function loginUser(identifier, password) {
         const response = await fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({ usernameOrEmail: identifier, password })
         });
 
@@ -133,6 +133,7 @@ async function registerUser(username, email, password, confirmPassword, firstNam
         const response = await fetch(`${API_BASE_URL}/auth/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({ username, email, password, confirmPassword, firstName, lastName })
         });
 
@@ -150,9 +151,10 @@ async function registerUser(username, email, password, confirmPassword, firstNam
 
 async function fetchMyBooks() {
     try {
-        const response = await fetch(`${API_BASE_URL}/books/mine`, {
+        const response = await fetch(`${API_BASE_URL}/books/mybooks`, {
             method: 'GET',
-            headers: getAuthHeaders()
+            headers: getAuthHeaders(),
+            credentials: 'include'
         });
 
         if (!response.ok) {

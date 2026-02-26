@@ -19,10 +19,9 @@ async function login(event) {
 
     try {
         const res = await loginUser(identifier, password);
-        if (res && res.token) {
-            localStorage.setItem('lm_token', res.token);
+        if (res && res.success) {
             showAlert('Signed in successfully', 'success');
-            updateAuthUI();
+            updateAuthUI(res.user);
             await loadAndDisplayBooks();
             // if on standalone login page, redirect to home
             if (window.location.pathname.endsWith('login.html')) {
@@ -31,7 +30,7 @@ async function login(event) {
                 closeLoginModal();
             }
         } else {
-            throw new Error('Invalid login response');
+            throw new Error(res.message || 'Invalid login response');
         }
     } catch (err) {
         showAlert(err.message || 'Login failed', 'error');
@@ -71,14 +70,25 @@ async function register(event) {
 }
 
 function signOut() {
-    localStorage.removeItem('lm_token');
-    updateAuthUI();
-    showAlert('Signed out', 'success');
+    fetch(`${API_BASE_URL}/auth/logout`, {
+        method: 'POST',
+        credentials: 'include'
+    }).then(() => {
+        sessionStorage.removeItem('currentUser');
+        updateAuthUI();
+        showAlert('Signed out', 'success');
+        window.location.href = 'index.html';
+    });
 }
 
-function updateAuthUI() {
-    const token = localStorage.getItem('lm_token');
-    const signedIn = !!token;
+function updateAuthUI(user = null) {
+    if (!user) {
+        user = JSON.parse(sessionStorage.getItem('currentUser') || 'null');
+    } else {
+        sessionStorage.setItem('currentUser', JSON.stringify(user));
+    }
+    
+    const signedIn = !!user;
     const btnSignIn = document.getElementById('btnSignIn');
     const btnSignUp = document.getElementById('btnSignUp');
     const btnSignOut = document.getElementById('btnSignOut');
@@ -93,15 +103,9 @@ function updateAuthUI() {
     if (myBtn) myBtn.classList.toggle('hidden', !signedIn);
 
     if (signedIn && userDisplay) {
-        try {
-            const payload = parseJwt(token);
-            const username = payload && (payload.username || payload.sub || payload.unique_name) ? (payload.username || payload.sub || payload.unique_name) : null;
-            userDisplay.textContent = username ? `Signed in as ${username}` : 'Signed in';
-            userDisplay.classList.remove('hidden');
-        } catch (e) {
-            userDisplay.textContent = 'Signed in';
-            userDisplay.classList.remove('hidden');
-        }
+        const username = user.username || 'User';
+        userDisplay.textContent = `Signed in as ${username}`;
+        userDisplay.classList.remove('hidden');
     } else if (userDisplay) {
         userDisplay.textContent = '';
         userDisplay.classList.add('hidden');
@@ -123,8 +127,8 @@ function parseJwt(token) {
 
 // Called when user clicks "Add New Book" button
 function onAddBookClick() {
-    const token = localStorage.getItem('lm_token');
-    if (!token) {
+    const user = JSON.parse(sessionStorage.getItem('currentUser') || 'null');
+    if (!user) {
         openLoginModal();
         return;
     }

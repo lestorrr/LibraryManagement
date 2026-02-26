@@ -140,6 +140,13 @@ builder.Services.AddCors(options =>
                .AllowAnyMethod()
                .AllowAnyHeader();
     });
+    options.AddPolicy("AllowCredentials", builder =>
+    {
+        builder.WithOrigins("https://librarymanagement-lejd.onrender.com", "http://localhost:5000", "http://localhost:5173")
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowCredentials();
+    });
 });
 
 // Add HTTP Context Accessor for getting current user
@@ -182,7 +189,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowAll");
+app.UseCors("AllowCredentials");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
